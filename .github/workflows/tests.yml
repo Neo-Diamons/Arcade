@@ -1,11 +1,7 @@
 name: tests
 on:
   push:
-    branches-ignore:
-      - "ga-ignore-*"
   pull_request:
-    branches-ignore:
-      - "ga-ignore-*"
 env:
   EXECUTABLES: "arcade,arcade_ncurses.so,arcade_sdl2.so"
 jobs:

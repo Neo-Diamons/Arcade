@@ -15,6 +15,18 @@ namespace arc {
      * @brief Ncurses implementation of the graphical library
      */
     class Ncurses : public arc::Graphical {
+    private:
+        enum BLOCK_COLOR {
+            BLOCK_BLACK = 8,
+            BLOCK_RED = 9,
+            BLOCK_GREEN = 10,
+            BLOCK_YELLOW = 11,
+            BLOCK_BLUE = 12,
+            BLOCK_MAGENTA = 13,
+            BLOCK_CYAN = 14,
+            BLOCK_WHITE = 15
+        };
+
     public:
         /**
          * @brief Exception implementation for the Ncurses library

@@ -8,7 +8,7 @@
 #include "Ncurses.hpp"
 
 #include <ncurses.h>
-#include <csignal>
+#include <iostream>
 
 extern "C" arc::Graphical *entryPoint()
 {
@@ -37,11 +37,21 @@ void arc::Ncurses::init()
     init_pair(MAGENTA, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(CYAN, COLOR_CYAN, COLOR_BLACK);
     init_pair(WHITE, COLOR_WHITE, COLOR_BLACK);
+
+    init_pair(BLOCK_BLACK, COLOR_BLACK, COLOR_BLACK);
+    init_pair(BLOCK_RED, COLOR_RED, COLOR_RED);
+    init_pair(BLOCK_GREEN, COLOR_GREEN, COLOR_GREEN);
+    init_pair(BLOCK_YELLOW, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(BLOCK_BLUE, COLOR_BLUE, COLOR_BLUE);
+    init_pair(BLOCK_MAGENTA, COLOR_MAGENTA, COLOR_MAGENTA);
+    init_pair(BLOCK_CYAN, COLOR_CYAN, COLOR_CYAN);
+    init_pair(BLOCK_WHITE, COLOR_WHITE, COLOR_WHITE);
 }
 
 void arc::Ncurses::stop()
 {
-    sleep(10);
+    timeout(-1);
+    getch();
 
     endwin();
 }
@@ -65,25 +75,26 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
 
 void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
 {
+    attron(COLOR_PAIR(color + 8));
     attron(COLOR_PAIR(color));
     mvhline(y1, x1, x2, y2);
-    attroff(COLOR_PAIR(color));
+    attroff(COLOR_PAIR(color + 8));
 }
 
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
-    attron(COLOR_PAIR(color));
+    attron(COLOR_PAIR(color + 8));
     mvhline(y, x, 0, width);
     mvhline(y + height, x, 0, width);
     mvvline(y, x, 0, height);
     mvvline(y, x + width, 0, height);
-    attroff(COLOR_PAIR(color));
+    attroff(COLOR_PAIR(color + 8));
 }
 
 void arc::Ncurses::drawFillRect(int x, int y, int width, int height, const arc::Color &color)
 {
-    attron(COLOR_PAIR(color));
+    attron(COLOR_PAIR(color + 8));
     for (int i = 0; i < height; i++)
         mvhline(y + i, x, 0, width);
-    attroff(COLOR_PAIR(color));
+    attroff(COLOR_PAIR(color + 8));
 }

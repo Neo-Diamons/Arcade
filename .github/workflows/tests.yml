@@ -1,0 +1,60 @@
+name: tests
+on:
+  push:
+    branches-ignore:
+      - "ga-ignore-*"
+  pull_request:
+    branches-ignore:
+      - "ga-ignore-*"
+env:
+  EXECUTABLES: "arcade,arcade_ncurses.so,arcade_sdl2.so"
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install unzip
+        run: |
+          sudo apt-get install unzip
+
+      - name: Install coding style checker
+        run: |
+          wget https://github.com/Epitech/coding-style-checker/archive/refs/heads/main.zip
+          unzip main.zip
+
+      - name: Run coding style
+        run: |
+          ./coding-style-checker-main/coding-style.sh $(pwd) $(pwd)
+          cat $(pwd)/coding-style-reports.log | sed 's/:/ /g' | awk '{printf "::error title=%s coding style error,file=%s,line=%s::%s\n", $3, $1, $2, $4}'
+
+  check_program_compilation:
+    needs: check_coding_style
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile program
+        timeout-minutes: 2
+        run: |
+          make
+
+      - name: Clean
+        run: |
+          make clean
+
+      - name: Check if executables are present
+        run: |
+          for executable in $(echo $EXECUTABLES | tr "," "\n"); do
+            if [ ! -f $executable ]; then
+              echo "::error title=Compilation error::Executable $executable not found"
+            fi
+          done
+
+      - name: Run tests
+        timeout-minutes: 2
+        run: |
+          make tests_run

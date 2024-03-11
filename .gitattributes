@@ -1,0 +1,4 @@
+# Ignore code for the documentation
+*.html
+*.css
+*.js

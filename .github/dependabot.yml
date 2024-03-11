@@ -1,0 +1,21 @@
+version: 2
+
+updates:
+  # maintain dependencies for GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    assignees:
+      - "Neo-Diamons"
+    reviewers:
+      - "Neo-Diamons"
+    commit-message:
+      prefix: "build(ci) "
+    groups:
+      actions:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "github-actions"

@@ -1,0 +1,16 @@
+# Folder
+.idea
+.vscode
+build
+doc/html
+
+# extensions
+*.o
+*.d
+*.so
+
+# Debug
+vgcore.*
+
+# Binary files
+arcade

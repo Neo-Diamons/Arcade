@@ -8,7 +8,6 @@
 #ifndef ARCADE_CORE_HPP
 #define ARCADE_CORE_HPP
 
-#include "include/Graphical.hpp"
 #include "include/Game.hpp"
 
 /**

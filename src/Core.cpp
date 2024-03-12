@@ -24,18 +24,28 @@ void arc::Core::loadGraphicalLib(const std::string &path)
     if (!entryPoint)
         throw CoreException(dlerror());
     _graphical = reinterpret_cast<Graphical *(*)()>(entryPoint)();
+
+    _graphical->init();
 }
 
 void arc::Core::run()
 {
-    while (true) {
-        if (!_graphical->isOpen())
-            break;
+    while (_graphical->isOpen()) {
 
-        _graphical->clear();
-//        _game->event();
-//        _game->update();
-//        _game->draw();
+        if (_game == nullptr) {
+            selectionLoop();
+        } else {
+            _game->event();
+            _game->update();
+
+            _graphical->clear();
+            _game->draw(*_graphical);
+        }
+
         _graphical->display();
     }
+}
+
+void arc::Core::selectionLoop()
+{
 }

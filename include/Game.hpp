@@ -9,6 +9,7 @@
 #define ARCADE_GAME_HPP
 
 #include "Exception.hpp"
+#include "Graphical.hpp"
 
 namespace arc {
     /**
@@ -44,8 +45,10 @@ namespace arc {
         /**
          * @brief Draw the game (example: draw the map, draw the player, etc.)
          * @warning This function should not call the display function of the graphical library
+         *
+         * @param graphical Graphical library to draw the game
          */
-        virtual void draw() = 0;
+        virtual void draw(Graphical &graphical) = 0;
     };
 }
 

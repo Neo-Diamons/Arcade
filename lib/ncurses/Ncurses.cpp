@@ -76,6 +76,7 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
 
 void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
 {
+    // TODO: Handle no horizontal line
     (void)y2;
 
     attron(COLOR_PAIR(color + 8));
@@ -93,10 +94,21 @@ void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const
     attroff(COLOR_PAIR(color + 8));
 }
 
-void arc::Ncurses::drawFillRect(int x, int y, int width, int height, const arc::Color &color)
+void arc::Ncurses::drawFillRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));
-    for (int i = 0; i < height; i++)
+    for (uint32_t i = 0; i < height; i++)
         mvhline(y + i, x, 0, width);
     attroff(COLOR_PAIR(color + 8));
+}
+
+void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32_t width, uint32_t height)
+{
+    attron(COLOR_PAIR(texture.GetColor()));
+    for (uint32_t i = 0; i < height; i++) {
+        for (uint32_t j = 0; j < width; j++)
+            mvaddch(y + i, x + j,
+                    texture.GetPattern().c_str()[((i * width) + j) % texture.GetPattern().size()]);
+    }
+    attroff(COLOR_PAIR(texture.GetColor()));
 }

@@ -47,8 +47,8 @@ namespace arc {
         void drawLine(int x1, int y1, int x2, int y2, const Color &color) override;
         void drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
 
-        void drawFillRect(int x, int y, int width, int height, const Color &color) override;
-//        void drawSprite(int x, int y, const std::string &path, uint32_t width, uint32_t height) override;
+        void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
+        void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) override;
     };
 }
 

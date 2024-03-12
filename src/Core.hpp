@@ -8,8 +8,8 @@
 #ifndef ARCADE_CORE_HPP
 #define ARCADE_CORE_HPP
 
-#include "include/Exception.hpp"
 #include "include/Graphical.hpp"
+#include "include/Game.hpp"
 
 /**
  * @brief Namespace for the arcade project
@@ -24,6 +24,7 @@ namespace arc {
         void *_gameLib{};
 
         Graphical *_graphical{};
+        Game *_game{};
 
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);

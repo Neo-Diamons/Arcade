@@ -35,7 +35,7 @@ namespace arc {
         /**
          * @brief Exception for the graphical library
          */
-        class GraphicalException : public arc::Exception {
+        class GraphicalException : public Exception {
         public:
             GraphicalException(const std::string &name, const std::string &message) : Exception(name, message) {}
         };
@@ -61,6 +61,13 @@ namespace arc {
          * @brief Display the screen
          */
         virtual void display() = 0;
+
+        /**
+         * @brief Check if the window is open
+         *
+         * @return true if the window is open, false otherwise
+         */
+        virtual bool isOpen() = 0;
 
         /**
          * @brief Draw text on the screen

@@ -5,9 +5,9 @@
 ** Core
 */
 
-#include <dlfcn.h>
-
 #include "Core.hpp"
+
+#include <dlfcn.h>
 
 arc::Core::Core(const std::string &path)
 {
@@ -24,13 +24,18 @@ void arc::Core::loadGraphicalLib(const std::string &path)
     if (!entryPoint)
         throw CoreException(dlerror());
     _graphical = reinterpret_cast<Graphical *(*)()>(entryPoint)();
+}
 
+void arc::Core::run()
+{
+    while (true) {
+        if (!_graphical->isOpen())
+            break;
 
-    _graphical->init();
-    _graphical->drawText(0, 0, "Hello World", RED);
-    _graphical->display();
-    _graphical->clear();
-    _graphical->drawFillRect(0, 0, 30, 10, RED);
-    _graphical->display();
-    _graphical->stop();
+        _graphical->clear();
+//        _game->event();
+//        _game->update();
+//        _game->draw();
+        _graphical->display();
+    }
 }

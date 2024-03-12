@@ -8,7 +8,6 @@
 #include "Ncurses.hpp"
 
 #include <ncurses.h>
-#include <iostream>
 
 extern "C" arc::Graphical *entryPoint()
 {
@@ -50,9 +49,6 @@ void arc::Ncurses::init()
 
 void arc::Ncurses::stop()
 {
-    timeout(-1);
-    getch();
-
     endwin();
 }
 
@@ -66,6 +62,11 @@ void arc::Ncurses::display()
     refresh();
 }
 
+bool arc::Ncurses::isOpen()
+{
+    return true;
+}
+
 void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Color &color)
 {
     attron(COLOR_PAIR(color));
@@ -75,19 +76,20 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
 
 void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
 {
+    (void)y2;
+
     attron(COLOR_PAIR(color + 8));
-    attron(COLOR_PAIR(color));
-    mvhline(y1, x1, x2, y2);
+    mvhline(y1, x1, 0, x2 - x1);
     attroff(COLOR_PAIR(color + 8));
 }
 
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));
-    mvhline(y, x, 0, width);
-    mvhline(y + height, x, 0, width);
-    mvvline(y, x, 0, height);
-    mvvline(y, x + width, 0, height);
+    mvhline(y,              x,             0, width);
+    mvvline(y,              x,             0, height);
+    mvhline(y + height - 1, x,             0, width);
+    mvvline(y,              x + width - 1, 0, height);
     attroff(COLOR_PAIR(color + 8));
 }
 

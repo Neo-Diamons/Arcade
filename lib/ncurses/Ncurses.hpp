@@ -41,6 +41,8 @@ namespace arc {
         void clear() override;
         void display() override;
 
+        bool isOpen() override;
+
         void drawText(int x, int y, const std::string &text, const Color &color) override;
         void drawLine(int x1, int y1, int x2, int y2, const Color &color) override;
         void drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;

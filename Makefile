@@ -20,6 +20,7 @@ LIB1_NAME	:=	arcade_ncurses.so
 LIB1_DIR	:=	$(LIB_DIR)/ncurses
 LIB1_SRC	+=	$(addprefix $(LIB1_DIR)/,							\
 					Ncurses.cpp										\
+					NcursesKey.cpp									\
 				)
 
 LIB2_NAME	:=	arcade_sdl2.so

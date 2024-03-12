@@ -48,4 +48,6 @@ void arc::Core::run()
 
 void arc::Core::selectionLoop()
 {
+//    if (_graphical->getKey().isKeyPressed(Key::ESCAPE))
+//        _graphical->stop();
 }

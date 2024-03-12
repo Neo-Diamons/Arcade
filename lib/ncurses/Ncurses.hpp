@@ -9,6 +9,9 @@
 #define ARCADE_NCURSES_HPP
 
 #include "include/Graphical.hpp"
+#include "NcursesKey.hpp"
+
+#include <ncurses.h>
 
 namespace arc {
     /**
@@ -26,6 +29,8 @@ namespace arc {
             BLOCK_CYAN = 14,
             BLOCK_WHITE = 15
         };
+
+        NcursesKey *_key;
 
     public:
         /**
@@ -49,6 +54,8 @@ namespace arc {
 
         void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
         void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) override;
+
+        Key &getKey() override;
     };
 }
 

@@ -7,8 +7,6 @@
 
 #include "Ncurses.hpp"
 
-#include <ncurses.h>
-
 extern "C" arc::Graphical *entryPoint()
 {
     return new arc::Ncurses();
@@ -111,4 +109,8 @@ void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32
                     texture.GetPattern().c_str()[((i * width) + j) % texture.GetPattern().size()]);
     }
     attroff(COLOR_PAIR(texture.GetColor()));
+}
+
+arc::Key &arc::Ncurses::getKey() {
+    return *_key;
 }

@@ -167,8 +167,8 @@ tests_run:			tests_functional tests_unit
 	gcovr $(UT_DIR_OBJ) --exclude tests/ --branches
 
 doc:				$(DIR_BUILD)/
-	doxygen doc/Doxyfile
-	python -m webbrowser -t build/doc/index.html >/dev/null
+	doxygen docs/Doxyfile
+	python -m webbrowser -t build/docs/index.html >/dev/null
 
 clean:
 	@[ -d $(DIR_BUILD) ]											\

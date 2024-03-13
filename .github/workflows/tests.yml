@@ -1,9 +1,13 @@
-name: tests
+name: Tests
+
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
 env:
   EXECUTABLES: "arcade,arcade_ncurses.so,arcade_sdl2.so"
+
 jobs:
   check_coding_style:
     runs-on: ubuntu-latest

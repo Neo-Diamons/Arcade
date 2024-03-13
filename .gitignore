@@ -2,7 +2,6 @@
 .idea
 .vscode
 build
-doc/html
 
 # extensions
 *.o

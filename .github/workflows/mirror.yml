@@ -1,4 +1,5 @@
-name: 'Mirroring workflow'
+name: Mirror
+
 on:
   push:
     branches:
@@ -6,9 +7,11 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch: {}
+  workflow_dispatch:
+
 env:
   MIRROR_URL: 'git@github.com:EpitechPromo2027/B-OOP-400-REN-4-1-arcade-morgan.largeot.git'
+
 jobs:
   push_to_mirror:
     runs-on: ubuntu-latest

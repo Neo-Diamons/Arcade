@@ -15,6 +15,7 @@ extern "C" arc::Graphical *entryPoint()
 void arc::Ncurses::init()
 {
     initscr();
+
     noecho();
     curs_set(0);
     keypad(stdscr, TRUE);
@@ -48,6 +49,7 @@ void arc::Ncurses::init()
 void arc::Ncurses::stop()
 {
     endwin();
+    _isOpen = false;
 }
 
 void arc::Ncurses::clear()
@@ -62,7 +64,7 @@ void arc::Ncurses::display()
 
 bool arc::Ncurses::isOpen()
 {
-    return true;
+    return _isOpen;
 }
 
 void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Color &color)
@@ -111,6 +113,7 @@ void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32
     attroff(COLOR_PAIR(texture.GetColor()));
 }
 
-arc::Key &arc::Ncurses::getKey() {
-    return *_key;
+arc::Key *arc::Ncurses::getKey()
+{
+    return &_key;
 }

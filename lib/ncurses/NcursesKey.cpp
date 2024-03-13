@@ -7,6 +7,7 @@
 
 #include "NcursesKey.hpp"
 
-bool arc::NcursesKey::isKeyPressed(KeyEnum key) {
+bool arc::NcursesKey::isKeyPressed(KeyEnum key)
+{
     return getch() == _keyMap.at(key);
 }

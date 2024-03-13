@@ -23,6 +23,7 @@ namespace arc {
         void *_gameLib{};
 
         Graphical *_graphical{};
+        Key *_key{};
         Game *_game{};
 
         void loadGraphicalLib(const std::string &path);

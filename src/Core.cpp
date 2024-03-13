@@ -26,28 +26,29 @@ void arc::Core::loadGraphicalLib(const std::string &path)
     _graphical = reinterpret_cast<Graphical *(*)()>(entryPoint)();
 
     _graphical->init();
+    _key = _graphical->getKey();
 }
 
 void arc::Core::run()
 {
     while (_graphical->isOpen()) {
-
         if (_game == nullptr) {
             selectionLoop();
+            if (!_graphical->isOpen())
+                break;
         } else {
-            _game->event();
+            _game->event(_key);
             _game->update();
 
             _graphical->clear();
             _game->draw(*_graphical);
         }
-
         _graphical->display();
     }
 }
 
 void arc::Core::selectionLoop()
 {
-//    if (_graphical->getKey().isKeyPressed(Key::ESCAPE))
-//        _graphical->stop();
+    if (_key->isKeyPressed(Key::Q))
+        _graphical->stop();
 }

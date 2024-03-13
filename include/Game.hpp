@@ -36,8 +36,9 @@ namespace arc {
 
         /**
          * @brief Event for the game (example: keyboard input, mouse input, etc.)
+         * @param key Key input
          */
-        virtual void event() = 0;
+        virtual void event(Key *key) = 0;
         /**
          * @brief Update the game
          */

@@ -103,7 +103,7 @@ namespace arc {
          * @brief Get the keyboard management
          * @return The keyboard management
          */
-        virtual Key &getKey() = 0;
+        virtual Key *getKey() = 0;
     };
 }
 

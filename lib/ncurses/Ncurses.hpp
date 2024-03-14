@@ -9,6 +9,9 @@
 #define ARCADE_NCURSES_HPP
 
 #include "include/Graphical.hpp"
+#include "NcursesKey.hpp"
+
+#include <ncurses.h>
 
 namespace arc {
     /**
@@ -27,6 +30,9 @@ namespace arc {
             BLOCK_WHITE = 15
         };
 
+        NcursesKey _key;
+        bool _isOpen = true;
+
     public:
         /**
          * @brief Exception implementation for the Ncurses library
@@ -41,15 +47,17 @@ namespace arc {
         void clear() override;
         void display() override;
 
+        bool isOpen() override;
+
         void drawText(int x, int y, const std::string &text, const Color &color) override;
         void drawLine(int x1, int y1, int x2, int y2, const Color &color) override;
         void drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
 
-        void drawFillRect(int x, int y, int width, int height, const Color &color) override;
-//        void drawSprite(int x, int y, const std::string &path, uint32_t width, uint32_t height) override;
+        void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
+        void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) override;
+
+        Key *getKey() override;
     };
 }
-
-
 
 #endif //ARCADE_NCURSES_HPP

@@ -7,9 +7,6 @@
 
 #include "Ncurses.hpp"
 
-#include <ncurses.h>
-#include <iostream>
-
 extern "C" arc::Graphical *entryPoint()
 {
     return new arc::Ncurses();
@@ -18,6 +15,7 @@ extern "C" arc::Graphical *entryPoint()
 void arc::Ncurses::init()
 {
     initscr();
+
     noecho();
     curs_set(0);
     keypad(stdscr, TRUE);
@@ -50,10 +48,8 @@ void arc::Ncurses::init()
 
 void arc::Ncurses::stop()
 {
-    timeout(-1);
-    getch();
-
     endwin();
+    _isOpen = false;
 }
 
 void arc::Ncurses::clear()
@@ -66,6 +62,11 @@ void arc::Ncurses::display()
     refresh();
 }
 
+bool arc::Ncurses::isOpen()
+{
+    return _isOpen;
+}
+
 void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Color &color)
 {
     attron(COLOR_PAIR(color));
@@ -75,26 +76,44 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
 
 void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
 {
+    // TODO: Handle no horizontal line
+    (void)y2;
+
     attron(COLOR_PAIR(color + 8));
-    attron(COLOR_PAIR(color));
-    mvhline(y1, x1, x2, y2);
+    mvhline(y1, x1, 0, x2 - x1);
     attroff(COLOR_PAIR(color + 8));
 }
 
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));
-    mvhline(y, x, 0, width);
-    mvhline(y + height, x, 0, width);
-    mvvline(y, x, 0, height);
-    mvvline(y, x + width, 0, height);
+    mvhline(y,              x,             0, width);
+    mvvline(y,              x,             0, height);
+    mvhline(y + height - 1, x,             0, width);
+    mvvline(y,              x + width - 1, 0, height);
     attroff(COLOR_PAIR(color + 8));
 }
 
-void arc::Ncurses::drawFillRect(int x, int y, int width, int height, const arc::Color &color)
+void arc::Ncurses::drawFillRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));
-    for (int i = 0; i < height; i++)
+    for (uint32_t i = 0; i < height; i++)
         mvhline(y + i, x, 0, width);
     attroff(COLOR_PAIR(color + 8));
+}
+
+void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32_t width, uint32_t height)
+{
+    attron(COLOR_PAIR(texture.GetColor()));
+    for (uint32_t i = 0; i < height; i++) {
+        for (uint32_t j = 0; j < width; j++)
+            mvaddch(y + i, x + j,
+                    texture.GetPattern().c_str()[((i * width) + j) % texture.GetPattern().size()]);
+    }
+    attroff(COLOR_PAIR(texture.GetColor()));
+}
+
+arc::Key *arc::Ncurses::getKey()
+{
+    return &_key;
 }

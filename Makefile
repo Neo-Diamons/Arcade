@@ -20,6 +20,7 @@ LIB1_NAME	:=	arcade_ncurses.so
 LIB1_DIR	:=	$(LIB_DIR)/ncurses
 LIB1_SRC	+=	$(addprefix $(LIB1_DIR)/,							\
 					Ncurses.cpp										\
+					NcursesKey.cpp									\
 				)
 
 LIB2_NAME	:=	arcade_sdl2.so
@@ -166,8 +167,8 @@ tests_run:			tests_functional tests_unit
 	gcovr $(UT_DIR_OBJ) --exclude tests/ --branches
 
 doc:				$(DIR_BUILD)/
-	doxygen doc/Doxyfile
-	python -m webbrowser -t build/doc/index.html >/dev/null
+	doxygen docs/Doxyfile
+	python -m webbrowser -t build/docs/index.html >/dev/null
 
 clean:
 	@[ -d $(DIR_BUILD) ]											\
@@ -175,7 +176,8 @@ clean:
 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(DIR_BUILD) || true
 
 fclean:				clean
-	for bin in $(NAME) $(LIB1_NAME) $(LIB2_NAME) $(LIB3_NAME) $(LIB4_NAME) $(LIB5_NAME); do \
+	for bin in $(NAME) $(LIB1_NAME) $(LIB2_NAME)					\
+			   $(LIB3_NAME) $(LIB4_NAME) $(LIB5_NAME); do 			\
 		[ -f $$bin ]												\
 		&& $(RM) $$bin												\
 		&& printf "\033[31m[DELETED]\033[0m %s\n" $$bin || true;	\

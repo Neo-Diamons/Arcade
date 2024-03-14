@@ -11,21 +11,10 @@
 #include <cstdint>
 
 #include "Exception.hpp"
+#include "Texture.hpp"
+#include "Key.hpp"
 
 namespace arc {
-    /**
-     * @brief Enum for the color of the graphical elements
-     */
-    enum Color {
-        BLACK = 0,
-        RED = 1,
-        GREEN = 2,
-        YELLOW = 3,
-        BLUE = 4,
-        MAGENTA = 5,
-        CYAN = 6,
-        WHITE = 7
-    };
 
     /**
      * @brief Interface for the graphical library
@@ -35,7 +24,7 @@ namespace arc {
         /**
          * @brief Exception for the graphical library
          */
-        class GraphicalException : public arc::Exception {
+        class GraphicalException : public Exception {
         public:
             GraphicalException(const std::string &name, const std::string &message) : Exception(name, message) {}
         };
@@ -61,6 +50,12 @@ namespace arc {
          * @brief Display the screen
          */
         virtual void display() = 0;
+
+        /**
+         * @brief Check if the window is open
+         * @return true if the window is open, false otherwise
+         */
+        virtual bool isOpen() = 0;
 
         /**
          * @brief Draw text on the screen
@@ -97,8 +92,18 @@ namespace arc {
          * @param height The height of the rectangle
          * @param color The color of the rectangle
          */
-        virtual void drawFillRect(int x, int y, int width, int height, const Color &color) = 0;
-//        virtual void drawSprite(int x, int y, const std::string &path, uint32_t width, uint32_t height) = 0;
+        virtual void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) = 0;
+
+        /**
+         * @brief Draw a texture on the screen
+         */
+        virtual void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) = 0;
+
+        /**
+         * @brief Get the keyboard management
+         * @return The keyboard management
+         */
+        virtual Key *getKey() = 0;
     };
 }
 

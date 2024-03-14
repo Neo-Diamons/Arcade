@@ -176,7 +176,8 @@ clean:
 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(DIR_BUILD) || true
 
 fclean:				clean
-	for bin in $(NAME) $(LIB1_NAME) $(LIB2_NAME) $(LIB3_NAME) $(LIB4_NAME) $(LIB5_NAME); do \
+	for bin in $(NAME) $(LIB1_NAME) $(LIB2_NAME)					\
+			   $(LIB3_NAME) $(LIB4_NAME) $(LIB5_NAME); do 			\
 		[ -f $$bin ]												\
 		&& $(RM) $$bin												\
 		&& printf "\033[31m[DELETED]\033[0m %s\n" $$bin || true;	\

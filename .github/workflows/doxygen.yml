@@ -6,15 +6,37 @@ on:
       - main
   workflow_dispatch:
 
+env:
+    BRANCH: gh-pages
+    FOLDER: build
+    CONFIG_FILE: docs/Doxyfile
+    TARGET_FOLDER: .
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     if: github.repository == 'Neo-Diamons/Arcade'
     steps:
-      - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
+      - uses: actions/checkout@v4
+
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen graphviz -y
+
+      - name: Create folder
+        run: |
+          mkdir -p build/docs
+
+      - name: Generate Doxygen Documentation
+        run: doxygen ${{ env.CONFIG_FILE }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          config_file: docs/Doxyfile
-          folder: build/docs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.BRANCH }}
+          folder: ${{ env.FOLDER }}
+          target-folder: ${{ env.TARGET_FOLDER }}

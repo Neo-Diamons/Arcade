@@ -11,6 +11,9 @@ env:
     FOLDER: build/docs
     CONFIG_FILE: docs/Doxyfile
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

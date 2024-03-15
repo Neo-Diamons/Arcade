@@ -10,7 +10,7 @@ env:
     BRANCH: gh-pages
     FOLDER: build
     CONFIG_FILE: docs/Doxyfile
-    TARGET_FOLDER: docs
+    TARGET_FOLDER: .
 
 permissions:
   contents: write

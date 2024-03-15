@@ -2,8 +2,8 @@ name: Doxygen GitHub Pages Deploy Action
 
 on:
   push:
-    branches:
-      - main
+#    branches:
+#      - main
   workflow_dispatch:
 
 jobs:
@@ -12,6 +12,11 @@ jobs:
 
     if: github.repository == 'Neo-Diamons/Arcade'
     steps:
+      - uses: actions/checkout@v4
+      - name: Create folder
+        run: |
+          mkdir build
+
       - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

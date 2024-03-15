@@ -1,6 +1,0 @@
-<map id="arc::Graphical::GraphicalException" name="arc::Graphical::GraphicalException">
-<area shape="rect" id="node1" title="Exception for the graphical library." alt="" coords="27,271,210,363"/>
-<area shape="rect" id="node4" href="$d8/db8/classarc_1_1Ncurses_1_1NcursesException.html" title="Exception implementation for the Ncurses library." alt="" coords="5,411,232,488"/>
-<area shape="rect" id="node2" href="$d6/def/classarc_1_1Exception.html" title="Exception class for the arcade project." alt="" coords="61,131,176,223"/>
-<area shape="rect" id="node3" title=" " alt="" coords="61,5,176,83"/>
-</map>

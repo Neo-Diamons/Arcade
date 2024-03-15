@@ -9,6 +9,7 @@ on:
 env:
     BRANCH: gh-pages
     FOLDER: build/docs
+    CONFIG_FILE: docs/Doxyfile
 
 jobs:
   deploy:
@@ -26,7 +27,7 @@ jobs:
           mkdir -p build/docs
 
       - name: Generate Doxygen Documentation
-        run: doxygen ${{ inputs.config_file }}
+        run: doxygen ${{ env.CONFIG_FILE }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

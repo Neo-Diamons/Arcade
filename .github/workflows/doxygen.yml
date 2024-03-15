@@ -8,7 +8,7 @@ on:
 
 env:
     BRANCH: gh-pages
-    FOLDER: build/docs
+    FOLDER: build
     CONFIG_FILE: docs/Doxyfile
     TARGET_FOLDER: docs
 

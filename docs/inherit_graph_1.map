@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d7/d8e/classarc_1_1Game_1_1GameException.html" title="Exception for the game." alt="" coords="5,35,205,61"/>
+<area shape="rect" id="node2" href="$d6/def/classarc_1_1Exception.html" title="Exception class for the arcade project." alt="" coords="253,35,368,61"/>
+<area shape="rect" id="node3" href="$d8/db3/classarc_1_1Core_1_1CoreException.html" title="Exception implementation for the Core." alt="" coords="416,5,599,32"/>
+<area shape="rect" id="node4" href="$d9/d01/classarc_1_1Graphical_1_1GraphicalException.html" title="Exception for the graphical library." alt="" coords="416,57,599,98"/>
+<area shape="rect" id="node5" href="$d8/db8/classarc_1_1Ncurses_1_1NcursesException.html" title="Exception implementation for the Ncurses library." alt="" coords="647,64,873,91"/>
+</map>

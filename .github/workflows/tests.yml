@@ -2,7 +2,13 @@ name: Tests
 
 on:
   push:
+    branches-ignore:
+      - doc
+      - gh-pages
   pull_request:
+    branches-ignore:
+      - doc
+      - gh-pages
   workflow_dispatch:
 
 env:

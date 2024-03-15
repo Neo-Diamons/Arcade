@@ -12,14 +12,14 @@
 
 #include "Exception.hpp"
 #include "Texture.hpp"
-#include "Key.hpp"
+#include "IKey.hpp"
 
 namespace arc {
-
     /**
+     * @interface IGraphical
      * @brief Interface for the graphical library
      */
-    class Graphical {
+    class IGraphical {
     public:
         /**
          * @brief Exception for the graphical library
@@ -32,7 +32,7 @@ namespace arc {
         /**
          * @brief Initialize the graphical library
          */
-        virtual ~Graphical() = default;
+        virtual ~IGraphical() = default;
 
         /**
          * @brief Initialize the graphical
@@ -103,7 +103,7 @@ namespace arc {
          * @brief Get the keyboard management
          * @return The keyboard management
          */
-        virtual Key *getKey() = 0;
+        virtual IKey *getKey() = 0;
     };
 }
 

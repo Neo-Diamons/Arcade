@@ -8,13 +8,13 @@
 #ifndef ARCADE_NCURSES_KEY_HPP
 #define ARCADE_NCURSES_KEY_HPP
 
-#include "include/Key.hpp"
+#include "include/IKey.hpp"
 
 #include <ncurses.h>
 #include <map>
 
 namespace arc {
-    class NcursesKey : public arc::Key {
+    class NcursesKey : public arc::IKey {
     private:
         int _lastKeyPressed = UNKNOWN;
         const std::map<KeyEnum, int> _keyMap = {

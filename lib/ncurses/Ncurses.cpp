@@ -7,7 +7,7 @@
 
 #include "Ncurses.hpp"
 
-extern "C" arc::Graphical *entryPoint()
+extern "C" arc::IGraphical *entryPoint()
 {
     return new arc::Ncurses();
 }
@@ -113,7 +113,7 @@ void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32
     attroff(COLOR_PAIR(texture.GetColor()));
 }
 
-arc::Key *arc::Ncurses::getKey()
+arc::IKey *arc::Ncurses::getKey()
 {
     return &_key;
 }

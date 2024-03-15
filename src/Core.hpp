@@ -8,7 +8,7 @@
 #ifndef ARCADE_CORE_HPP
 #define ARCADE_CORE_HPP
 
-#include "include/Game.hpp"
+#include "include/IGame.hpp"
 
 /**
  * @brief Namespace for the arcade project
@@ -22,9 +22,9 @@ namespace arc {
         void *_graphicalLib{};
         void *_gameLib{};
 
-        Graphical *_graphical = nullptr;
-        Key *_key = nullptr;
-        Game *_game = nullptr;
+        IGraphical *_graphical = nullptr;
+        IKey *_key = nullptr;
+        IGame *_game = nullptr;
 
         uint8_t _graphicalIndex = 0;
         uint8_t _gameIndex = 0;
@@ -34,6 +34,7 @@ namespace arc {
         void loadGameLib(const std::string &path);
 
         void globalAction();
+        void selectionLoop();
     public:
         /**
          * @brief Exception implementation for the Core

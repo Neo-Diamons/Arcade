@@ -28,49 +28,54 @@ void *arc::Core::loadLib(const std::string &path)
 
 void arc::Core::loadGraphicalLib(const std::string &path)
 {
-    _graphical = reinterpret_cast<Graphical *(*)()>(loadLib(path))();
+    _graphical = reinterpret_cast<IGraphical *(*)()>(loadLib(path))();
     _graphical->init();
     _key = _graphical->getKey();
 }
 
 void arc::Core::loadGameLib(const std::string &path)
 {
-    _game = reinterpret_cast<Game *(*)()>(loadLib(path))();
+    _game = reinterpret_cast<IGame *(*)()>(loadLib(path))();
     _game->init();
 }
 
 void arc::Core::globalAction()
 {
-    if (_key->isKeyPressed(Key::BACKSPACE))
+    if (_key->isKeyPressed(IKey::BACKSPACE))
         _graphical->stop();
 
-    if (_key->isKeyPressed(Key::K))
+    if (_key->isKeyPressed(IKey::K))
         _graphical->stop();
 
-    if (_key->isKeyPressed(Key::RIGHT))
+    if (_key->isKeyPressed(IKey::RIGHT))
         _graphicalIndex = (_graphicalIndex + 1) % 2;
-    if (_key->isKeyPressed(Key::LEFT))
+    if (_key->isKeyPressed(IKey::LEFT))
         _graphicalIndex = (_graphicalIndex + 1) % 2;
 
     if (_game != nullptr) {
-        if (_key->isKeyPressed(Key::R)) {
+        if (_key->isKeyPressed(IKey::R)) {
             _game->stop();
             _game->init();
         }
 
-        if (_key->isKeyPressed(Key::BACKSPACE)) {
+        if (_key->isKeyPressed(IKey::BACKSPACE)) {
             _game->stop();
             _game = nullptr;
         }
     } else {
-        if (_key->isKeyPressed(Key::BACKSPACE))
+        if (_key->isKeyPressed(IKey::BACKSPACE))
             _graphical->stop();
 
-        if (_key->isKeyPressed(Key::UP))
+        if (_key->isKeyPressed(IKey::UP))
             _gameIndex = (_gameIndex + 1) % 2;
-        if (_key->isKeyPressed(Key::DOWN))
+        if (_key->isKeyPressed(IKey::DOWN))
             _gameIndex = (_gameIndex + 1) % 2;
     }
+}
+
+void arc::Core::selectionLoop()
+{
+
 }
 
 void arc::Core::run()
@@ -80,7 +85,9 @@ void arc::Core::run()
         if (!_graphical->isOpen())
             break;
 
-        else {
+        if (_game == nullptr) {
+            selectionLoop();
+        } else {
             _game->event(_key);
             _game->update();
 

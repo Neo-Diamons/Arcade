@@ -9,5 +9,12 @@
 
 bool arc::NcursesKey::isKeyPressed(KeyEnum key)
 {
-    return getch() == _keyMap.at(key);
+    int ch = getch();
+
+    if (ch == ERR)
+        ch = _lastKeyPressed;
+    if (ch == UNKNOWN)
+        return false;
+    _lastKeyPressed = ch == _keyMap.at(key) ? UNKNOWN : ch;
+    return _lastKeyPressed == UNKNOWN;
 }

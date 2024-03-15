@@ -22,14 +22,18 @@ namespace arc {
         void *_graphicalLib{};
         void *_gameLib{};
 
-        Graphical *_graphical{};
-        Key *_key{};
-        Game *_game{};
+        Graphical *_graphical = nullptr;
+        Key *_key = nullptr;
+        Game *_game = nullptr;
 
+        uint8_t _graphicalIndex = 0;
+        uint8_t _gameIndex = 0;
+
+        void *loadLib(const std::string &path);
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);
 
-        void selectionLoop();
+        void globalAction();
     public:
         /**
          * @brief Exception implementation for the Core

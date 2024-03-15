@@ -16,6 +16,7 @@
 namespace arc {
     class NcursesKey : public arc::Key {
     private:
+        int _lastKeyPressed = UNKNOWN;
         const std::map<KeyEnum, int> _keyMap = {
                 {A, 'a'},
                 {B, 'b'},

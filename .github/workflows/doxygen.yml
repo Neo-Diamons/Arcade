@@ -10,6 +10,7 @@ env:
     BRANCH: gh-pages
     FOLDER: build/docs
     CONFIG_FILE: docs/Doxyfile
+    TARGET_FOLDER: docs
 
 permissions:
   contents: write
@@ -38,4 +39,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ env.BRANCH }}
           folder: ${{ env.FOLDER }}
-          target-folder: .
+          target-folder: ${{ env.TARGET_FOLDER }}

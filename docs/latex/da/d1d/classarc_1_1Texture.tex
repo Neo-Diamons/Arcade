@@ -1,0 +1,104 @@
+\hypertarget{classarc_1_1Texture}{}\doxysection{arc\+::Texture Class Reference}
+\label{classarc_1_1Texture}\index{arc::Texture@{arc::Texture}}
+
+
+Class for the texture which is used to handle the textures with graphical libraries change at runtime.  
+
+
+
+
+{\ttfamily \#include $<$Texture.\+hpp$>$}
+
+
+
+Collaboration diagram for arc\+::Texture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{d5/d6d/classarc_1_1Texture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classarc_1_1Texture_abf6a799348a6514da85d0e1e592304c3}{Texture}} (const std\+::string \&path, const std\+::string \&pattern, \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} color)
+\begin{DoxyCompactList}\small\item\em Constructor for the texture. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classarc_1_1Texture_a43f4e4994a978d1ae42c2ea7e23c753c}{Get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Get the path of the texture. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classarc_1_1Texture_a9afed086d04acc1a045962ed6f70e453}{Get\+Pattern}} () const
+\begin{DoxyCompactList}\small\item\em Get the pattern of the texture. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \mbox{\hyperlink{classarc_1_1Texture_a7dfaf18390a2af5f932627f6391c5130}{Get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Get the color of the texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the texture which is used to handle the textures with graphical libraries change at runtime. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classarc_1_1Texture_abf6a799348a6514da85d0e1e592304c3}\label{classarc_1_1Texture_abf6a799348a6514da85d0e1e592304c3}} 
+\index{arc::Texture@{arc::Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!arc::Texture@{arc::Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}}
+{\footnotesize\ttfamily arc\+::\+Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::string \&}]{pattern,  }\item[{\mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the texture, use by graphical libraries (like SFML, SDL, etc.) \\
+\hline
+{\em pattern} & Pattern of the texture, use by textual libraries (like \mbox{\hyperlink{classarc_1_1Ncurses}{Ncurses}}, etc.) \\
+\hline
+{\em color} & Color of the texture \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1Texture_a7dfaf18390a2af5f932627f6391c5130}\label{classarc_1_1Texture_a7dfaf18390a2af5f932627f6391c5130}} 
+\index{arc::Texture@{arc::Texture}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!arc::Texture@{arc::Texture}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} arc\+::\+Texture\+::\+Get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the color of the texture. 
+
+\begin{DoxyReturn}{Returns}
+The color of the texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classarc_1_1Texture_a43f4e4994a978d1ae42c2ea7e23c753c}\label{classarc_1_1Texture_a43f4e4994a978d1ae42c2ea7e23c753c}} 
+\index{arc::Texture@{arc::Texture}!GetPath@{GetPath}}
+\index{GetPath@{GetPath}!arc::Texture@{arc::Texture}}
+\doxysubsubsection{\texorpdfstring{GetPath()}{GetPath()}}
+{\footnotesize\ttfamily std\+::string arc\+::\+Texture\+::\+Get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the path of the texture. 
+
+\begin{DoxyReturn}{Returns}
+The path of the texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classarc_1_1Texture_a9afed086d04acc1a045962ed6f70e453}\label{classarc_1_1Texture_a9afed086d04acc1a045962ed6f70e453}} 
+\index{arc::Texture@{arc::Texture}!GetPattern@{GetPattern}}
+\index{GetPattern@{GetPattern}!arc::Texture@{arc::Texture}}
+\doxysubsubsection{\texorpdfstring{GetPattern()}{GetPattern()}}
+{\footnotesize\ttfamily std\+::string arc\+::\+Texture\+::\+Get\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the pattern of the texture. 
+
+\begin{DoxyReturn}{Returns}
+The pattern of the texture 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Texture_8hpp}{Texture.\+hpp}}\end{DoxyCompactItemize}

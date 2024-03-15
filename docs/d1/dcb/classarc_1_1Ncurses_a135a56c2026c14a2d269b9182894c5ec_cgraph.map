@@ -1,0 +1,5 @@
+<map id="arc::Ncurses::drawTexture" name="arc::Ncurses::drawTexture">
+<area shape="rect" id="node1" title="Draw a texture on the screen." alt="" coords="5,31,196,57"/>
+<area shape="rect" id="node2" href="$da/d1d/classarc_1_1Texture.html#a7dfaf18390a2af5f932627f6391c5130" title="Get the color of the texture." alt="" coords="250,5,413,32"/>
+<area shape="rect" id="node3" href="$da/d1d/classarc_1_1Texture.html#a9afed086d04acc1a045962ed6f70e453" title="Get the pattern of the texture." alt="" coords="244,56,419,83"/>
+</map>

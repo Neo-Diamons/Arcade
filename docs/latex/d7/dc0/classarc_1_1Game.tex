@@ -1,0 +1,113 @@
+\hypertarget{classarc_1_1Game}{}\doxysection{arc\+::Game Class Reference}
+\label{classarc_1_1Game}\index{arc::Game@{arc::Game}}
+
+
+Interface for the game.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+hpp$>$}
+
+
+
+Collaboration diagram for arc\+::Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{d9/d14/classarc_1_1Game__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classarc_1_1Game_1_1GameException}{Game\+Exception}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classarc_1_1Exception}{Exception}} for the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classarc_1_1Game_a03c7830bf046ea3401bdab3a799a6ac9}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1Game_aa6ac1e7c4fa0a7cddfbeb4323a886ea3}{stop}} ()=0
+\begin{DoxyCompactList}\small\item\em Stop the game and free the memory. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1Game_aa674eeaf9b4776781134851059619b45}{event}} (\mbox{\hyperlink{classarc_1_1Key}{Key}} $\ast$key)=0
+\begin{DoxyCompactList}\small\item\em Event for the game (example\+: keyboard input, mouse input, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1Game_a502d1414c7cd4a294a6b925595a76103}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1Game_aa31ff203c32a16ab59c7e60cbe23ea0e}{draw}} (\mbox{\hyperlink{classarc_1_1Graphical}{Graphical}} \&graphical)=0
+\begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1Game_aa31ff203c32a16ab59c7e60cbe23ea0e}\label{classarc_1_1Game_aa31ff203c32a16ab59c7e60cbe23ea0e}} 
+\index{arc::Game@{arc::Game}!draw@{draw}}
+\index{draw@{draw}!arc::Game@{arc::Game}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void arc\+::\+Game\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1Graphical}{Graphical}} \&}]{graphical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw the game (example\+: draw the map, draw the player, etc.) 
+
+\begin{DoxyWarning}{Warning}
+This function should not call the display function of the graphical library
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em graphical} & \mbox{\hyperlink{classarc_1_1Graphical}{Graphical}} library to draw the game \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classarc_1_1Game_aa674eeaf9b4776781134851059619b45}\label{classarc_1_1Game_aa674eeaf9b4776781134851059619b45}} 
+\index{arc::Game@{arc::Game}!event@{event}}
+\index{event@{event}!arc::Game@{arc::Game}}
+\doxysubsubsection{\texorpdfstring{event()}{event()}}
+{\footnotesize\ttfamily virtual void arc\+::\+Game\+::event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1Key}{Key}} $\ast$}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Event for the game (example\+: keyboard input, mouse input, etc.) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \mbox{\hyperlink{classarc_1_1Key}{Key}} input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classarc_1_1Game_a03c7830bf046ea3401bdab3a799a6ac9}\label{classarc_1_1Game_a03c7830bf046ea3401bdab3a799a6ac9}} 
+\index{arc::Game@{arc::Game}!init@{init}}
+\index{init@{init}!arc::Game@{arc::Game}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void arc\+::\+Game\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize the game. 
+
+\mbox{\Hypertarget{classarc_1_1Game_aa6ac1e7c4fa0a7cddfbeb4323a886ea3}\label{classarc_1_1Game_aa6ac1e7c4fa0a7cddfbeb4323a886ea3}} 
+\index{arc::Game@{arc::Game}!stop@{stop}}
+\index{stop@{stop}!arc::Game@{arc::Game}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual void arc\+::\+Game\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stop the game and free the memory. 
+
+\mbox{\Hypertarget{classarc_1_1Game_a502d1414c7cd4a294a6b925595a76103}\label{classarc_1_1Game_a502d1414c7cd4a294a6b925595a76103}} 
+\index{arc::Game@{arc::Game}!update@{update}}
+\index{update@{update}!arc::Game@{arc::Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void arc\+::\+Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update the game. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Game_8hpp}{Game.\+hpp}}\end{DoxyCompactItemize}

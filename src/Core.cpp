@@ -41,10 +41,12 @@ void arc::Core::loadGameLib(const std::string &path)
 
 void arc::Core::globalAction()
 {
-    if (_key->isKeyPressed(IKey::RIGHT))
-        _graphicalIndex = (_graphicalIndex + 1) % 2;
-    if (_key->isKeyPressed(IKey::LEFT))
-        _graphicalIndex = (_graphicalIndex + 1) % 2;
+    if (!_graphicalLibs.empty()) {
+        if (_key->isKeyPressed(IKey::RIGHT))
+            _graphicalIndex = (_graphicalIndex - 1) % _graphicalLibs.size();
+        if (_key->isKeyPressed(IKey::LEFT))
+            _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
+    }
 
     if (_game != nullptr) {
         if (_key->isKeyPressed(IKey::R)) {
@@ -60,20 +62,38 @@ void arc::Core::globalAction()
         if (_key->isKeyPressed(IKey::ESCAPE))
             _graphical->stop();
 
-        if (_key->isKeyPressed(IKey::UP))
-            _gameIndex = (_gameIndex + 1) % 2;
-        if (_key->isKeyPressed(IKey::DOWN))
-            _gameIndex = (_gameIndex + 1) % 2;
+        if (!_gameLibs.empty()) {
+            if (_key->isKeyPressed(IKey::UP))
+                _gameIndex = (_gameIndex - 1) % _gameLibs.size();
+            if (_key->isKeyPressed(IKey::DOWN))
+                _gameIndex = (_gameIndex + 1) % _gameLibs.size();
+        }
     }
 }
 
 void arc::Core::selectionLoop()
 {
-    _graphical->drawText(2, 1, "Select a game", WHITE);
-    for (uint16_t i = IKey::A; i < IKey::Z; i++)
-        if (_key->isKeyPressed(static_cast<IKey::KeyEnum>(i)))
-            name += static_cast<char>(i + 'A');
-    _graphical->drawText(2, 3, "Player: " + name, WHITE);
+    if (_name.length() < 16)
+        for (uint16_t i = IKey::A; i < IKey::Z; i++)
+            if (_key->isKeyPressed(static_cast<IKey::KeyEnum>(i)))
+                _name += static_cast<char>(i + 'A');
+    if (_key->isKeyPressed(IKey::BACKSPACE) && !_name.empty())
+        _name.pop_back();
+
+    _graphical->clear();
+
+    uint16_t offset = 0;
+    _graphical->drawText(2, 1         , "/-+--      Arcade      --+-\\", WHITE);
+    _graphical->drawText(2, 3         , "  Player: " + _name           , WHITE);
+    _graphical->drawText(2, 5         , "|-+--     Graphical    --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_graphicalLibs.size(); i++, offset++)
+        _graphical->drawText(2, 7 + offset,
+                             (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE);
+    _graphical->drawText(2, 8 + offset, "|-+--       Game       --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_gameLibs.size(); i++, offset++)
+        _graphical->drawText(2, 10 + offset,
+                             (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE);
+    _graphical->drawText(2, 11 + offset, "\\-+--                    --+/ ", WHITE);
 }
 
 void arc::Core::run()
@@ -84,7 +104,6 @@ void arc::Core::run()
             break;
 
         if (_game == nullptr) {
-//             _graphical->clear();
             selectionLoop();
         } else {
             _game->event(_key);

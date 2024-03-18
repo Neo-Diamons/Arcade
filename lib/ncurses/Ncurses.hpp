@@ -33,6 +33,11 @@ namespace arc {
         NcursesKey _key;
         bool _isOpen = true;
 
+        uint32_t _width;
+        uint32_t _height;
+
+        WINDOW *_window;
+
     public:
         /**
          * @brief Exception implementation for the Ncurses library
@@ -42,7 +47,7 @@ namespace arc {
             explicit NcursesException(const std::string &message) : GraphicalException("Ncurses", message) {}
         };
 
-        void init() override;
+        void init(uint32_t width, uint32_t height) override;
         void stop() override;
         void clear() override;
         void display() override;

@@ -20,6 +20,30 @@ namespace arc {
      */
     class Core {
     private:
+        const std::vector<std::string> _graphicalLibFiles = {
+            "arcade_ncurses.so",
+            "arcade_sdl2.so",
+            "arcade_ndk++.so",
+            "arcade_aalib.so",
+            "arcade_libcaca.so",
+            "arcade_allegro5.so",
+            "arcade_xlib.so",
+            "arcade_gtk+.so",
+            "arcade_sfml.so",
+            "arcade_irrlicht.so",
+            "arcade_opengl.so",
+            "arcade_vulkan.so",
+            "arcade_qt5.so"
+        };
+        const std::vector<std::string> _gameLibFiles = {
+            "arcade_snake.so",
+            "arcade_nibbler.so",
+            "arcade_pacman.so",
+            "arcade_qix.so",
+            "arcade_centipede.so",
+            "arcade_solarfox.so"
+        };
+
         void *_graphicalLib{};
         void *_gameLib{};
 
@@ -37,6 +61,8 @@ namespace arc {
         void *loadLib(const std::string &path);
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);
+
+        void getLib();
 
         void globalAction();
         void selectionLoop();

@@ -12,7 +12,6 @@ DIR			:=	src
 SRC			:=	$(addprefix $(DIR)/,								\
 					Main.cpp										\
 					Core.cpp										\
-					DLLoader.cpp									\
 				)
 
 LIB_DIR		:=	lib

@@ -75,7 +75,11 @@ void arc::Core::globalAction()
 
 void arc::Core::selectionLoop()
 {
-
+    _graphical->drawText(2, 1, "Select a game", WHITE);
+    for (uint16_t i = IKey::A; i < IKey::Z; i++)
+        if (_key->isKeyPressed(static_cast<IKey::KeyEnum>(i)))
+            name += static_cast<char>(i + 65);
+    _graphical->drawText(2, 3, "Player: " + name, WHITE);
 }
 
 void arc::Core::run()
@@ -86,6 +90,7 @@ void arc::Core::run()
             break;
 
         if (_game == nullptr) {
+            // _graphical->clear();
             selectionLoop();
         } else {
             _game->event(_key);

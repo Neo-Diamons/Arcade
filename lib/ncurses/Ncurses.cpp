@@ -74,16 +74,6 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
     attroff(COLOR_PAIR(color));
 }
 
-void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
-{
-    // TODO: Handle no horizontal line
-    (void)y2;
-
-    attron(COLOR_PAIR(color + 8));
-    mvhline(y1, x1, 0, x2 - x1);
-    attroff(COLOR_PAIR(color + 8));
-}
-
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));

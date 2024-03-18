@@ -12,14 +12,14 @@
 
 #include "Exception.hpp"
 #include "Texture.hpp"
-#include "Key.hpp"
+#include "IKey.hpp"
 
 namespace arc {
-
     /**
+     * @interface IGraphical
      * @brief Interface for the graphical library
      */
-    class Graphical {
+    class IGraphical {
     public:
         /**
          * @brief Exception for the graphical library
@@ -32,12 +32,14 @@ namespace arc {
         /**
          * @brief Initialize the graphical library
          */
-        virtual ~Graphical() = default;
+        virtual ~IGraphical() = default;
 
         /**
          * @brief Initialize the graphical
+         * @param width The width of the window
+         * @param height The height of the window
          */
-        virtual void init() = 0;
+        virtual void init(uint32_t width, uint32_t height) = 0;
         /**
          * @brief Stop the graphical library and free the memory
          */
@@ -65,15 +67,6 @@ namespace arc {
          * @param color The color of the text
          */
         virtual void drawText(int x, int y, const std::string &text, const Color &color) = 0;
-        /**
-         * @brief Draw a line on the screen
-         * @param x1 The x position of the start of the line
-         * @param y1 The y position of the start of the line
-         * @param x2 The x position of the end of the line
-         * @param y2 The y position of the end of the line
-         * @param color The color of the line
-         */
-        virtual void drawLine(int x1, int y1, int x2, int y2, const Color &color) = 0;
         /**
          * @brief Draw a rectangle on the screen
          * @param x The x position of the rectangle
@@ -103,7 +96,7 @@ namespace arc {
          * @brief Get the keyboard management
          * @return The keyboard management
          */
-        virtual Key *getKey() = 0;
+        virtual IKey *getKey() = 0;
     };
 }
 

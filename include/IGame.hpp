@@ -5,17 +5,18 @@
 ** Game
 */
 
-#ifndef ARCADE_GAME_HPP
-#define ARCADE_GAME_HPP
+#ifndef ARCADE_IGAME_HPP
+#define ARCADE_IGAME_HPP
 
 #include "Exception.hpp"
-#include "Graphical.hpp"
+#include "IGraphical.hpp"
 
 namespace arc {
     /**
+     * @interface IGame
      * @brief Interface for the game
      */
-    class Game {
+    class IGame {
     public:
         /**
          * @brief Exception for the game
@@ -38,7 +39,7 @@ namespace arc {
          * @brief Event for the game (example: keyboard input, mouse input, etc.)
          * @param key Key input
          */
-        virtual void event(Key *key) = 0;
+        virtual void event(IKey *key) = 0;
         /**
          * @brief Update the game
          */
@@ -49,8 +50,8 @@ namespace arc {
          *
          * @param graphical Graphical library to draw the game
          */
-        virtual void draw(Graphical &graphical) = 0;
+        virtual void draw(IGraphical &graphical) = 0;
     };
 }
 
-#endif //ARCADE_GAME_HPP
+#endif //ARCADE_IGAME_HPP

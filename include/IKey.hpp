@@ -5,14 +5,15 @@
 ** Key
 */
 
-#ifndef ARCADE_KEY_HPP
-#define ARCADE_KEY_HPP
+#ifndef ARCADE_IKEY_HPP
+#define ARCADE_IKEY_HPP
 
 namespace arc {
     /**
+     * @interface IKey
      * @brief Interface for the keyboard management
      */
-    class Key {
+    class IKey {
     public:
         /**
          * @brief Enum for the key
@@ -74,4 +75,4 @@ namespace arc {
     };
 }
 
-#endif //ARCADE_KEY_HPP
+#endif //ARCADE_IKEY_HPP

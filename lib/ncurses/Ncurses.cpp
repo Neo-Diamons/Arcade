@@ -30,6 +30,7 @@ void arc::Ncurses::init(uint32_t width, uint32_t height)
     curs_set(0);
     set_escdelay(0);
     keypad(stdscr, TRUE);
+    set_escdelay(0);
     nodelay(stdscr, TRUE);
 
     if (has_colors() == FALSE) {

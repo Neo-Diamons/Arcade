@@ -19,6 +19,7 @@ void arc::Ncurses::init()
     noecho();
     curs_set(0);
     keypad(stdscr, TRUE);
+    set_escdelay(0);
     nodelay(stdscr, TRUE);
 
     if (has_colors() == FALSE) {

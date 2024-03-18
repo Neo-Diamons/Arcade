@@ -25,6 +25,7 @@ LIB1_SRC	+=	$(addprefix $(LIB1_DIR)/,							\
 LIB2_NAME	:=	arcade_sdl2.so
 LIB2_DIR	:=	$(LIB_DIR)/sdl2
 LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
+					SDL.cpp											\
 				)
 
 LIB3_NAME	:=	lib3.so

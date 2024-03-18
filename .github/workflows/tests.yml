@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  EXECUTABLES: "arcade,arcade_ncurses.so,arcade_sdl2.so"
+  EXECUTABLES: "arcade,lib/arcade_ncurses.so,lib/arcade_sdl2.so"
 
 jobs:
   check_coding_style:

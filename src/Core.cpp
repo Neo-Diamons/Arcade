@@ -30,6 +30,8 @@ void *arc::Core::loadLib(const std::string &path)
 
 void arc::Core::loadGraphicalLib(const std::string &path)
 {
+    if (_graphical != nullptr)
+        _graphical->stop();
     _graphical = reinterpret_cast<IGraphical *(*)()>(loadLib(path))();
     _graphical->init(80, 80);
     _key = _graphical->getKey();
@@ -37,6 +39,8 @@ void arc::Core::loadGraphicalLib(const std::string &path)
 
 void arc::Core::loadGameLib(const std::string &path)
 {
+    if (_game != nullptr)
+        _game->stop();
     _game = reinterpret_cast<IGame *(*)()>(loadLib(path))();
     _game->init();
 }
@@ -44,10 +48,14 @@ void arc::Core::loadGameLib(const std::string &path)
 void arc::Core::globalAction()
 {
     if (!_graphicalLibs.empty()) {
-        if (_key->isKeyPressed(IKey::RIGHT))
+        if (_key->isKeyPressed(IKey::RIGHT)) {
             _graphicalIndex = (_graphicalIndex - 1) % _graphicalLibs.size();
-        if (_key->isKeyPressed(IKey::LEFT))
+            loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
+        }
+        if (_key->isKeyPressed(IKey::LEFT)) {
             _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
+            loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
+        }
     }
 
     if (_game != nullptr) {
@@ -63,6 +71,10 @@ void arc::Core::globalAction()
     } else {
         if (_key->isKeyPressed(IKey::ESCAPE))
             _graphical->stop();
+
+        if (_key->isKeyPressed(IKey::RETURN) && !_gameLibs.empty()) {
+            loadGameLib("lib/" + _gameLibs[_gameIndex]);
+        }
 
         if (!_gameLibs.empty()) {
             if (_key->isKeyPressed(IKey::UP))

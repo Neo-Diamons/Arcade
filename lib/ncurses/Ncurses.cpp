@@ -7,7 +7,7 @@
 
 #include "Ncurses.hpp"
 
-extern "C" arc::Graphical *entryPoint()
+extern "C" arc::IGraphical *entryPoint()
 {
     return new arc::Ncurses();
 }
@@ -19,6 +19,7 @@ void arc::Ncurses::init()
     noecho();
     curs_set(0);
     keypad(stdscr, TRUE);
+    set_escdelay(0);
     nodelay(stdscr, TRUE);
 
     if (has_colors() == FALSE) {
@@ -74,16 +75,6 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Co
     attroff(COLOR_PAIR(color));
 }
 
-void arc::Ncurses::drawLine(int x1, int y1, int x2, int y2, const arc::Color &color)
-{
-    // TODO: Handle no horizontal line
-    (void)y2;
-
-    attron(COLOR_PAIR(color + 8));
-    mvhline(y1, x1, 0, x2 - x1);
-    attroff(COLOR_PAIR(color + 8));
-}
-
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
     attron(COLOR_PAIR(color + 8));
@@ -113,7 +104,7 @@ void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32
     attroff(COLOR_PAIR(texture.GetColor()));
 }
 
-arc::Key *arc::Ncurses::getKey()
+arc::IKey *arc::Ncurses::getKey()
 {
     return &_key;
 }

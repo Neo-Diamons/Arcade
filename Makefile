@@ -16,29 +16,29 @@ SRC			:=	$(addprefix $(DIR)/,								\
 
 LIB_DIR		:=	lib
 
-LIB1_NAME	:=	arcade_ncurses.so
+LIB1_NAME	:=	$(LIB_DIR)/arcade_ncurses.so
 LIB1_DIR	:=	$(LIB_DIR)/ncurses
 LIB1_SRC	+=	$(addprefix $(LIB1_DIR)/,							\
 					Ncurses.cpp										\
 					NcursesKey.cpp									\
 				)
 
-LIB2_NAME	:=	arcade_sdl2.so
+LIB2_NAME	:=	$(LIB_DIR)/arcade_sdl2.so
 LIB2_DIR	:=	$(LIB_DIR)/sdl2
 LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
 				)
 
-LIB3_NAME	:=	lib3.so
+LIB3_NAME	:=	$(LIB_DIR)/lib3.so
 LIB3_DIR	:=	$(LIB_DIR)/lib3
 LIB3_SRC	+=	$(addprefix $(LIB3_DIR)/,							\
 				)
 
-LIB4_NAME	:=	lib4.so
+LIB4_NAME	:=	$(LIB_DIR)/lib4.so
 LIB4_DIR	:=	$(LIB_DIR)/lib4
 LIB4_SRC	+=	$(addprefix $(LIB4_DIR)/,							\
 				)
 
-LIB5_NAME	:=	lib5.so
+LIB5_NAME	:=	$(LIB_DIR)/lib5.so
 LIB5_DIR	:=	$(LIB_DIR)/lib5
 LIB5_SRC	+=	$(addprefix $(LIB5_DIR)/,							\
 				)
@@ -87,8 +87,9 @@ UT_TEST		:=	$(DIR_BIN)/unit_test
 RM			:=	rm -rf
 
 CXX			:=	g++
+CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra
 LD			:=	ld -shared
-CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra -fPIC -lncurses
+LD_FLAGS	:=
 
 all:				core graphicals games
 
@@ -124,7 +125,7 @@ endef
 
 define COMPILE_LIB
 	$(CREATE_DIR)
-	@$(LD) -o $@ $^						 							\
+	@$(LD) $(LD_FLAGS) -o $@ $^										\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@						\
 	|| printf "\033[31m[ERROR]\033[0m %s\n"  $@
 endef
@@ -134,16 +135,26 @@ $(NAME):			$(OBJ); 	$(COMPILE)
 core:				$(NAME)
 
 -include $(LIB1_DEP)
+$(LIB1_NAME):		CXXFLAGS += -fPIC
+$(LIB1_NAME):		LD_FLAGS += -lncurses
 $(LIB1_NAME):		$(LIB1_OBJ);	$(COMPILE_LIB)
 -include $(LIB2_DEP)
+$(LIB2_NAME):		CXXFLAGS += -fPIC
+$(LIB2_NAME):		LD_FLAGS += -lSDL2
 $(LIB2_NAME):		$(LIB2_OBJ);	$(COMPILE_LIB)
 -include $(LIB3_DEP)
+$(LIB3_NAME):		CXXFLAGS += -fPIC
+$(LIB3_NAME):		LD_FLAGS +=
 $(LIB3_NAME):		$(LIB3_OBJ);	$(COMPILE_LIB)
-graphicals:			 $(LIB1_NAME) $(LIB2_NAME) $(LIB3_NAME)
+graphicals:			$(LIB1_NAME) $(LIB2_NAME) $(LIB3_NAME)
 
 -include $(LIB4_DEP)
+$(LIB4_NAME):		CXXFLAGS += -fPIC
+$(LIB4_NAME):		LD_FLAGS +=
 $(LIB4_NAME):		$(LIB4_OBJ);	$(COMPILE_LIB)
 -include $(LIB5_DEP)
+$(LIB5_NAME):		CXXFLAGS += -fPIC
+$(LIB5_NAME):		LD_FLAGS +=
 $(LIB5_NAME):		$(LIB5_OBJ);	$(COMPILE_LIB)
 games:				$(LIB4_NAME) $(LIB5_NAME)
 

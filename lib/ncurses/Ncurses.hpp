@@ -8,7 +8,7 @@
 #ifndef ARCADE_NCURSES_HPP
 #define ARCADE_NCURSES_HPP
 
-#include "include/Graphical.hpp"
+#include "include/IGraphical.hpp"
 #include "NcursesKey.hpp"
 
 #include <ncurses.h>
@@ -17,7 +17,7 @@ namespace arc {
     /**
      * @brief Ncurses implementation of the graphical library
      */
-    class Ncurses : public arc::Graphical {
+    class Ncurses : public arc::IGraphical {
     private:
         enum BLOCK_COLOR {
             BLOCK_BLACK = 8,
@@ -50,13 +50,12 @@ namespace arc {
         bool isOpen() override;
 
         void drawText(int x, int y, const std::string &text, const Color &color) override;
-        void drawLine(int x1, int y1, int x2, int y2, const Color &color) override;
         void drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
 
         void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
         void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) override;
 
-        Key *getKey() override;
+        IKey *getKey() override;
     };
 }
 

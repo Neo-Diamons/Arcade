@@ -29,6 +29,8 @@ namespace arc {
         uint8_t _graphicalIndex = 0;
         uint8_t _gameIndex = 0;
 
+        std::string name;
+
         void *loadLib(const std::string &path);
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);

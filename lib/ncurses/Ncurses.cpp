@@ -5,11 +5,20 @@
 ** Ncurses
 */
 
+#include <cstring>
 #include "Ncurses.hpp"
 
-extern "C" arc::IGraphical *entryPoint()
+extern "C"
 {
-    return new arc::Ncurses();
+    arc::IGraphical *create()
+    {
+        return new arc::Ncurses();
+    }
+
+    void destroy(arc::IGraphical *p)
+    {
+        delete p;
+    }
 }
 
 void arc::Ncurses::init(uint32_t width, uint32_t height)
@@ -20,7 +29,7 @@ void arc::Ncurses::init(uint32_t width, uint32_t height)
     initscr();
     refresh();
 
-    _window = newwin((int)_width, (int)_height, LINES / 2 - _height / 4, COLS / 2 - _width / 2);
+    _window = newwin((int)_width, (int)_height, (int)(LINES / 2 - _height / 4), (int)(COLS / 2 - _width / 2));
     wrefresh(_window);
 
     noecho();
@@ -62,6 +71,7 @@ void arc::Ncurses::stop()
     delwin(_window);
     endwin();
     _isOpen = false;
+    _window = nullptr;
 }
 
 void arc::Ncurses::clear()

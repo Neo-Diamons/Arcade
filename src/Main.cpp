@@ -18,7 +18,6 @@ int main(const int ac, const char **av)
 
     try {
         arc::Core core(av[1]);
-
         core.run();
     } catch (const arc::Core::CoreException &e) {
         std::cerr << e.what() << std::endl;

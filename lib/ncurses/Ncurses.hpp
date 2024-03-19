@@ -37,6 +37,7 @@ namespace arc {
         uint32_t _height;
 
         WINDOW *_window;
+        const uint16_t NCURSES_RATIO = 10;
 
     public:
         /**

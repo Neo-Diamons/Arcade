@@ -10,6 +10,7 @@
 
 #include <vector>
 #include "include/IGame.hpp"
+#include "DLLoader.hpp"
 
 /**
  * @brief Namespace for the arcade project
@@ -44,6 +45,9 @@ namespace arc {
             "arcade_solarfox.so"
         };
 
+        DLLoader<IGraphical> _graphicalLoader;
+        DLLoader<IGame> _gameLoader;
+
         void *_graphicalLib{};
         void *_gameLib{};
 
@@ -58,7 +62,6 @@ namespace arc {
 
         std::string _name;
 
-        void *loadLib(const std::string &path);
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);
 
@@ -80,6 +83,11 @@ namespace arc {
          * @param path Path to the graphical library
          */
         explicit Core(const std::string &path);
+
+        /**
+         * @brief Destructor for the core
+         */
+        ~Core();
 
         /**
          * @brief Run the core

@@ -7,42 +7,86 @@
 
 #include "Core.hpp"
 
-#include <dlfcn.h>
-#include <dirent.h>
 #include <iostream>
+#include <dirent.h>
 
 arc::Core::Core(const std::string &path)
 {
     loadGraphicalLib(path);
 }
 
-void *arc::Core::loadLib(const std::string &path)
+arc::Core::~Core()
 {
-    _graphicalLib = dlopen(path.c_str(), RTLD_LAZY);
-    if (!_graphicalLib)
-        throw CoreException(dlerror());
-
-    void *entryPoint = dlsym(_graphicalLib, "entryPoint");
-    if (!entryPoint)
-        throw CoreException(dlerror());
-    return entryPoint;
+    try {
+        if (_graphical != nullptr) {
+            if (_graphical->isOpen())
+                _graphical->stop();
+            _graphicalLoader.destroyInstance(_graphical);
+        }
+        if (_game != nullptr) {
+            _game->stop();
+            _gameLoader.destroyInstance(_game);
+        }
+    } catch (const DLLoader<IGraphical>::DLLoaderException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    } catch (const DLLoader<IGame>::DLLoaderException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    }
 }
 
 void arc::Core::loadGraphicalLib(const std::string &path)
 {
-    if (_graphical != nullptr)
-        _graphical->stop();
-    _graphical = reinterpret_cast<IGraphical *(*)()>(loadLib(path))();
-    _graphical->init(80, 80);
+    try {
+        if (_graphical != nullptr) {
+            _graphical->stop();
+            _graphicalLoader.destroyInstance(_graphical);
+        }
+        _graphical = _graphicalLoader.getInstance(path);
+    } catch (const DLLoader<IGraphical>::DLLoaderException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    }
+    _graphical->init(800, 800);
     _key = _graphical->getKey();
 }
 
 void arc::Core::loadGameLib(const std::string &path)
 {
-    if (_game != nullptr)
-        _game->stop();
-    _game = reinterpret_cast<IGame *(*)()>(loadLib(path))();
+    try {
+        if (_game != nullptr) {
+            _game->stop();
+            _gameLoader.destroyInstance(_game);
+        }
+        _game = _gameLoader.getInstance(path);
+    } catch (const DLLoader<IGame>::DLLoaderException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    }
     _game->init();
+}
+
+void arc::Core::getLib()
+{
+    DIR *pDir = opendir("lib");
+
+    if (!pDir)
+        throw CoreException("Can't open lib directory");
+    for (struct dirent *pDirent = readdir(pDir); pDirent; pDirent = readdir(pDir)) {
+        std::string name = pDirent->d_name;
+        for (const auto &lib : _graphicalLibFiles)
+            if (name == lib) {
+                _graphicalLibs.push_back(name);
+                break;
+            }
+        for (const auto &lib : _gameLibFiles)
+            if (name == lib) {
+                _gameLibs.push_back(name);
+                break;
+            }
+    }
+    closedir(pDir);
 }
 
 void arc::Core::globalAction()
@@ -95,19 +139,19 @@ void arc::Core::selectionLoop()
         _name.pop_back();
 
     _graphical->clear();
-    uint16_t offsetX = (80 - 31) / 2;
-    uint16_t offsetY = (40 - 11 - _graphicalLibs.size() - _gameLibs.size()) / 2;
-    _graphical->drawText(offsetX, 1 + offsetY, "/-----------Arcade------------\\", WHITE);
-    _graphical->drawText(offsetX, 3 + offsetY, "  Player: " + _name           , WHITE);
-    _graphical->drawText(offsetX, 5 + offsetY, "|-+--   -  Graphical  -   --+-|" , WHITE);
-    for (uint8_t i = 0; i < (uint8_t)_graphicalLibs.size(); i++, offsetY++)
-        _graphical->drawText(offsetX, 7 + offsetY,
+    uint16_t offsetX = (800 - 310) / 2;
+    uint16_t offsetY = (400 - 110 - _graphicalLibs.size() - _gameLibs.size()) / 2;
+    _graphical->drawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE);
+    _graphical->drawText(offsetX + 10, 30 + offsetY, "  Player: " + _name           , WHITE);
+    _graphical->drawText(offsetX, 50 + offsetY, "|-+--   -  Graphical  -   --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_graphicalLibs.size(); i++, offsetY += 10)
+        _graphical->drawText(offsetX, 70 + offsetY,
                              (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 8 + offsetY, "|-+--   -    Game     -   --+-|" , WHITE);
-    for (uint8_t i = 0; i < (uint8_t)_gameLibs.size(); i++, offsetY++)
-        _graphical->drawText(offsetX, 10 + offsetY,
+    _graphical->drawText(offsetX, 80 + offsetY, "|-+--   -    Game     -   --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_gameLibs.size(); i++, offsetY += 10)
+        _graphical->drawText(offsetX, 100 + offsetY,
                              (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 11 + offsetY, "\\-----------------------------/", WHITE);
+    _graphical->drawText(offsetX, 110 + offsetY, "\\-----------------------------/", WHITE);
 }
 
 void arc::Core::run()
@@ -144,26 +188,5 @@ void arc::Core::run()
             }
         }
         _graphical->display();
-    }
-}
-
-void arc::Core::getLib()
-{
-    DIR *pDir = opendir("lib");
-
-    if (!pDir)
-        throw CoreException("Can't open lib directory");
-    for (struct dirent *pDirent = readdir(pDir); pDirent; pDirent = readdir(pDir)) {
-        std::string name = pDirent->d_name;
-        for (const auto &lib : _graphicalLibFiles)
-            if (name == lib) {
-                _graphicalLibs.push_back(name);
-                break;
-            }
-        for (const auto &lib : _gameLibFiles)
-            if (name == lib) {
-                _gameLibs.push_back(name);
-                break;
-            }
     }
 }

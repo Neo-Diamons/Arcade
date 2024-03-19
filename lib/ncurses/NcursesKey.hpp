@@ -14,6 +14,9 @@
 #include <map>
 
 namespace arc {
+    /**
+     * @brief Ncurses implementation of the key library
+     */
     class NcursesKey : public arc::IKey {
     private:
         int _lastKeyPressed = UNKNOWN;

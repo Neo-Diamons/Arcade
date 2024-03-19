@@ -36,8 +36,10 @@ namespace arc {
 
         /**
          * @brief Initialize the graphical
+         * @param width The width of the window
+         * @param height The height of the window
          */
-        virtual void init() = 0;
+        virtual void init(uint32_t width, uint32_t height) = 0;
         /**
          * @brief Stop the graphical library and free the memory
          */

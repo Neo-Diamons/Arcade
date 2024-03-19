@@ -1,0 +1,326 @@
+\hypertarget{classarc_1_1IKey}{}\doxysection{arc\+::IKey Interface Reference}
+\label{classarc_1_1IKey}\index{arc::IKey@{arc::IKey}}
+
+
+Interface for the keyboard management.  
+
+
+
+
+{\ttfamily \#include $<$IKey.\+hpp$>$}
+
+
+
+Inheritance diagram for arc\+::IKey\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{d9/d99/classarc_1_1IKey__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for arc\+::IKey\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{d2/d16/classarc_1_1IKey__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}} \{ \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af61c182cf3c99500066057575b0db932}{UNKNOWN}} = -\/1
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a223a263650a6f855905cc11e80f8490d}{A}} = 0
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669aeff4d05673feb367efe66d415522723d}{B}} = 1
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a01b7859636a308e65d7a8140d617b68a}{C}} = 2
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4496135ad4b51268810870230b5faa31}{D}} = 3
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a56519f412dd928e0499dca0d2ff06118}{E}} = 4
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1d7a6d94901868f79b560b7f8b3cb079}{F}} = 5
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6fe62b6cba8abe79860e07c868990bae}{G}} = 6
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1fa883e746cdcfe4486ec06b7015276d}{H}} = 7
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a863675477c69e5b77f43f9f35f972491}{I}} = 8
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4e7f4d31d980d05bf0363b80446f5fde}{J}} = 9
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab2b90a2f12018ec4dc7aa31a07c49f28}{K}} = 10
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2d9da9b5896da085f36c9c2aaf46b678}{L}} = 11
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af71cb98ceb14c8363ed67d11e5f9230d}{M}} = 12
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2a6e5d7fea78ca60e375d0e9e88c0345}{N}} = 13
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a718a3d8865c5737918d8bd561c4152cd}{O}} = 14
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ae714be10bd2d02a23011d25d8d63e567}{P}} = 15
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0877a1556cb5a2c485e9bbf7291588d3}{Q}} = 16
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af3821e8e662b2ee7c6f00cbc29f8ef5d}{R}} = 17
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a484d7b09a9d1a93b77a7bdd577c24afc}{S}} = 18
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9853b62dff899fd3c7b273b084484b6a}{T}} = 19
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6edbb6ee12f36e3a2edb8267d1f8975d}{U}} = 20
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab9a472fafb8b301c764e2ba00de714a8}{V}} = 21
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a29dc1cea1841f52ca62b75f0161a7838}{W}} = 22
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669affb647bfeead4322bdd45386375c9ecb}{X}} = 23
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669afb7dc47ce08327ac6e712fefe2cc03c1}{Y}} = 24
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a79fb2a134b3c379fa63cbf88dcaf03ed}{Z}} = 25
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a351d77473e4895a5ccff88b71f6e3aee}{NUM0}} = 26
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a122d9edd509c81ee2a06416120e3ddc1}{NUM1}} = 27
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a30853488a62c96e1ff95174d1310e661}{NUM2}} = 28
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a3e5539863371b810e8ada601f4acea58}{NUM3}} = 29
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ade5ddf8d37676131098fee6c4c6ccfc8}{NUM4}} = 30
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5dd0967927722a2159ade8ea343dbd54}{NUM5}} = 31
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a42980e4cff1fb2ea4011ccf5dd1c0280}{NUM6}} = 32
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0c273b9b16f0597893897cf5d8c1d065}{NUM7}} = 33
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9ed598d7024948c701687eb3271e1a46}{NUM8}} = 34
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af6ce53d15a843c889c450bb777e17a3f}{NUM9}} = 35
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a45e28f18efe6206072c665664d518fe4}{ESCAPE}} = 36
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a841e9879e9e8bd40e76da5644f49cd27}{SPACE}} = 57
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af892c63918b70bda4aff7072e1a3ed93}{RETURN}} = 58
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6a85e514fec3fa85f286b3ce83a67cf6}{BACKSPACE}} = 59
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a8499355ce53b5ea97453d801f1051c4c}{UP}} = 60
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0a864a81487e243131a8e414b8f7399d}{DOWN}} = 61
+, \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5b6f9a0c6ddac3af890ec9f8777dfde4}{LEFT}} = 62
+, \newline
+\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9c2b222d123d8c359ce92dce4c4ec564}{RIGHT}} = 63
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for the key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classarc_1_1IKey_aa9fdab9d4edc50ed9f3b4c9f88b7f89f}{is\+Key\+Pressed}} (\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}} key)=0
+\begin{DoxyCompactList}\small\item\em Check if a key is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for the keyboard management. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}} 
+\index{arc::IKey@{arc::IKey}!KeyEnum@{KeyEnum}}
+\index{KeyEnum@{KeyEnum}!arc::IKey@{arc::IKey}}
+\doxysubsubsection{\texorpdfstring{KeyEnum}{KeyEnum}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{arc\+::\+IKey\+::\+Key\+Enum}}}
+
+
+
+Enum for the key. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNKNOWN@{UNKNOWN}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!UNKNOWN@{UNKNOWN}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af61c182cf3c99500066057575b0db932}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af61c182cf3c99500066057575b0db932}} 
+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A@{A}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!A@{A}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a223a263650a6f855905cc11e80f8490d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a223a263650a6f855905cc11e80f8490d}} 
+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B@{B}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!B@{B}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669aeff4d05673feb367efe66d415522723d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669aeff4d05673feb367efe66d415522723d}} 
+B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C@{C}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!C@{C}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a01b7859636a308e65d7a8140d617b68a}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a01b7859636a308e65d7a8140d617b68a}} 
+C&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D@{D}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!D@{D}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4496135ad4b51268810870230b5faa31}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4496135ad4b51268810870230b5faa31}} 
+D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E@{E}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!E@{E}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a56519f412dd928e0499dca0d2ff06118}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a56519f412dd928e0499dca0d2ff06118}} 
+E&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F@{F}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!F@{F}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1d7a6d94901868f79b560b7f8b3cb079}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1d7a6d94901868f79b560b7f8b3cb079}} 
+F&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G@{G}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!G@{G}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6fe62b6cba8abe79860e07c868990bae}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6fe62b6cba8abe79860e07c868990bae}} 
+G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{H@{H}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!H@{H}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1fa883e746cdcfe4486ec06b7015276d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a1fa883e746cdcfe4486ec06b7015276d}} 
+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I@{I}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!I@{I}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a863675477c69e5b77f43f9f35f972491}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a863675477c69e5b77f43f9f35f972491}} 
+I&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J@{J}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!J@{J}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4e7f4d31d980d05bf0363b80446f5fde}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a4e7f4d31d980d05bf0363b80446f5fde}} 
+J&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{K@{K}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!K@{K}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab2b90a2f12018ec4dc7aa31a07c49f28}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab2b90a2f12018ec4dc7aa31a07c49f28}} 
+K&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L@{L}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!L@{L}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2d9da9b5896da085f36c9c2aaf46b678}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2d9da9b5896da085f36c9c2aaf46b678}} 
+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M@{M}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!M@{M}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af71cb98ceb14c8363ed67d11e5f9230d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af71cb98ceb14c8363ed67d11e5f9230d}} 
+M&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N@{N}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!N@{N}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2a6e5d7fea78ca60e375d0e9e88c0345}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a2a6e5d7fea78ca60e375d0e9e88c0345}} 
+N&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O@{O}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!O@{O}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a718a3d8865c5737918d8bd561c4152cd}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a718a3d8865c5737918d8bd561c4152cd}} 
+O&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P@{P}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!P@{P}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ae714be10bd2d02a23011d25d8d63e567}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ae714be10bd2d02a23011d25d8d63e567}} 
+P&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q@{Q}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!Q@{Q}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0877a1556cb5a2c485e9bbf7291588d3}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0877a1556cb5a2c485e9bbf7291588d3}} 
+Q&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R@{R}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!R@{R}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af3821e8e662b2ee7c6f00cbc29f8ef5d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af3821e8e662b2ee7c6f00cbc29f8ef5d}} 
+R&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S@{S}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!S@{S}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a484d7b09a9d1a93b77a7bdd577c24afc}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a484d7b09a9d1a93b77a7bdd577c24afc}} 
+S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T@{T}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!T@{T}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9853b62dff899fd3c7b273b084484b6a}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9853b62dff899fd3c7b273b084484b6a}} 
+T&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U@{U}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!U@{U}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6edbb6ee12f36e3a2edb8267d1f8975d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6edbb6ee12f36e3a2edb8267d1f8975d}} 
+U&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V@{V}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!V@{V}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab9a472fafb8b301c764e2ba00de714a8}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ab9a472fafb8b301c764e2ba00de714a8}} 
+V&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W@{W}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!W@{W}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a29dc1cea1841f52ca62b75f0161a7838}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a29dc1cea1841f52ca62b75f0161a7838}} 
+W&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X@{X}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!X@{X}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669affb647bfeead4322bdd45386375c9ecb}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669affb647bfeead4322bdd45386375c9ecb}} 
+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Y@{Y}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!Y@{Y}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669afb7dc47ce08327ac6e712fefe2cc03c1}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669afb7dc47ce08327ac6e712fefe2cc03c1}} 
+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Z@{Z}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!Z@{Z}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a79fb2a134b3c379fa63cbf88dcaf03ed}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a79fb2a134b3c379fa63cbf88dcaf03ed}} 
+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM0@{NUM0}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM0@{NUM0}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a351d77473e4895a5ccff88b71f6e3aee}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a351d77473e4895a5ccff88b71f6e3aee}} 
+NUM0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM1@{NUM1}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM1@{NUM1}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a122d9edd509c81ee2a06416120e3ddc1}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a122d9edd509c81ee2a06416120e3ddc1}} 
+NUM1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM2@{NUM2}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM2@{NUM2}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a30853488a62c96e1ff95174d1310e661}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a30853488a62c96e1ff95174d1310e661}} 
+NUM2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM3@{NUM3}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM3@{NUM3}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a3e5539863371b810e8ada601f4acea58}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a3e5539863371b810e8ada601f4acea58}} 
+NUM3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM4@{NUM4}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM4@{NUM4}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ade5ddf8d37676131098fee6c4c6ccfc8}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669ade5ddf8d37676131098fee6c4c6ccfc8}} 
+NUM4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM5@{NUM5}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM5@{NUM5}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5dd0967927722a2159ade8ea343dbd54}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5dd0967927722a2159ade8ea343dbd54}} 
+NUM5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM6@{NUM6}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM6@{NUM6}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a42980e4cff1fb2ea4011ccf5dd1c0280}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a42980e4cff1fb2ea4011ccf5dd1c0280}} 
+NUM6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM7@{NUM7}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM7@{NUM7}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0c273b9b16f0597893897cf5d8c1d065}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0c273b9b16f0597893897cf5d8c1d065}} 
+NUM7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM8@{NUM8}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM8@{NUM8}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9ed598d7024948c701687eb3271e1a46}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9ed598d7024948c701687eb3271e1a46}} 
+NUM8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM9@{NUM9}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!NUM9@{NUM9}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af6ce53d15a843c889c450bb777e17a3f}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af6ce53d15a843c889c450bb777e17a3f}} 
+NUM9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ESCAPE@{ESCAPE}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!ESCAPE@{ESCAPE}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a45e28f18efe6206072c665664d518fe4}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a45e28f18efe6206072c665664d518fe4}} 
+ESCAPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE@{SPACE}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!SPACE@{SPACE}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a841e9879e9e8bd40e76da5644f49cd27}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a841e9879e9e8bd40e76da5644f49cd27}} 
+SPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETURN@{RETURN}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!RETURN@{RETURN}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af892c63918b70bda4aff7072e1a3ed93}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669af892c63918b70bda4aff7072e1a3ed93}} 
+RETURN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKSPACE@{BACKSPACE}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!BACKSPACE@{BACKSPACE}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6a85e514fec3fa85f286b3ce83a67cf6}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a6a85e514fec3fa85f286b3ce83a67cf6}} 
+BACKSPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!UP@{UP}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a8499355ce53b5ea97453d801f1051c4c}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a8499355ce53b5ea97453d801f1051c4c}} 
+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!DOWN@{DOWN}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0a864a81487e243131a8e414b8f7399d}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a0a864a81487e243131a8e414b8f7399d}} 
+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!LEFT@{LEFT}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5b6f9a0c6ddac3af890ec9f8777dfde4}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a5b6f9a0c6ddac3af890ec9f8777dfde4}} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!arc::IKey@{arc::IKey}}\index{arc::IKey@{arc::IKey}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9c2b222d123d8c359ce92dce4c4ec564}\label{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669a9c2b222d123d8c359ce92dce4c4ec564}} 
+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1IKey_aa9fdab9d4edc50ed9f3b4c9f88b7f89f}\label{classarc_1_1IKey_aa9fdab9d4edc50ed9f3b4c9f88b7f89f}} 
+\index{arc::IKey@{arc::IKey}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!arc::IKey@{arc::IKey}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily virtual bool arc\+::\+IKey\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}}}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Check if a key is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the key is pressed, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1NcursesKey_aa78beb7f7af413ff69e62a7881a45fd0}{arc\+::\+Ncurses\+Key}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{IKey_8hpp}{IKey.\+hpp}}\end{DoxyCompactItemize}

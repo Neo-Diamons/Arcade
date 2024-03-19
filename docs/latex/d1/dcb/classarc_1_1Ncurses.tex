@@ -37,7 +37,7 @@ class \mbox{\hyperlink{classarc_1_1Ncurses_1_1NcursesException}{Ncurses\+Excepti
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_ade5da8bd65a5d906eee816b6fb0b55f0}{init}} () override
+void \mbox{\hyperlink{classarc_1_1Ncurses_aea109d16b49cef3bec47d3f473568140}{init}} (uint32\+\_\+t width, uint32\+\_\+t height) override
 \begin{DoxyCompactList}\small\item\em Initialize the graphical. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_af055fa2cc89f3955eaad2f84e99e7f22}{stop}} () override
 \begin{DoxyCompactList}\small\item\em Stop the graphical library and free the memory. \end{DoxyCompactList}\item 
@@ -49,15 +49,13 @@ bool \mbox{\hyperlink{classarc_1_1Ncurses_a8031b91b77ab7a1411e1186cd190bb66}{is\
 \begin{DoxyCompactList}\small\item\em Check if the window is open. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw text on the screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_a67e2b6dce210e86497639c81bd318b2b}{draw\+Line}} (int x1, int y1, int x2, int y2, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
-\begin{DoxyCompactList}\small\item\em Draw a line on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw a rectangle on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw a filled rectangle on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}{draw\+Texture}} (int x, int y, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture, uint32\+\_\+t width, uint32\+\_\+t height) override
 \begin{DoxyCompactList}\small\item\em Draw a texture on the screen. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classarc_1_1Key}{Key}} $\ast$ \mbox{\hyperlink{classarc_1_1Ncurses_a8f8d4dd1532604f6234f5bae8eaede60}{get\+Key}} () override
+\mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$ \mbox{\hyperlink{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}{get\+Key}} () override
 \begin{DoxyCompactList}\small\item\em Get the keyboard management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -77,7 +75,7 @@ Clear the screen.
 
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_afaf4869b2397cc1f4b7e31dd704ce465}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a2fa050843fb64f3cd342d0185d6d9d6b}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_a1bf243d1759e94938e049c2486f09ff8}\label{classarc_1_1Ncurses_a1bf243d1759e94938e049c2486f09ff8}} 
 \index{arc::Ncurses@{arc::Ncurses}!display@{display}}
@@ -91,7 +89,7 @@ Display the screen.
 
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a78e53709cabb6caf929d97f4653fd27f}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_af8da4425d2f527a76058307b09ecf210}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}\label{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}} 
 \index{arc::Ncurses@{arc::Ncurses}!drawFillRect@{drawFillRect}}
@@ -118,34 +116,7 @@ Draw a filled rectangle on the screen.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a051eb785c622bdd5014f120f08c0dd43}{arc\+::\+Graphical}}.
-
-\mbox{\Hypertarget{classarc_1_1Ncurses_a67e2b6dce210e86497639c81bd318b2b}\label{classarc_1_1Ncurses_a67e2b6dce210e86497639c81bd318b2b}} 
-\index{arc::Ncurses@{arc::Ncurses}!drawLine@{drawLine}}
-\index{drawLine@{drawLine}!arc::Ncurses@{arc::Ncurses}}
-\doxysubsubsection{\texorpdfstring{drawLine()}{drawLine()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Line (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Draw a line on the screen. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x1} & The x position of the start of the line \\
-\hline
-{\em y1} & The y position of the start of the line \\
-\hline
-{\em x2} & The x position of the end of the line \\
-\hline
-{\em y2} & The y position of the end of the line \\
-\hline
-{\em color} & The color of the line \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classarc_1_1Graphical_aa3a4b65b37a9c07fd25e1eaa7688ae44}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}\label{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}} 
 \index{arc::Ncurses@{arc::Ncurses}!drawRect@{drawRect}}
@@ -172,7 +143,7 @@ Draw a rectangle on the screen.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_aef4d455800003e2566cd3b46788bcfec}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}\label{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}} 
 \index{arc::Ncurses@{arc::Ncurses}!drawText@{drawText}}
@@ -197,7 +168,7 @@ Draw text on the screen.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a81015ae557ef7f7ec6a53c77564790c6}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}\label{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}} 
 \index{arc::Ncurses@{arc::Ncurses}!drawTexture@{drawTexture}}
@@ -211,7 +182,7 @@ Draw a texture on the screen.
 
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a00596d7cf9fdf3880a48bb857c705ae3}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}{arc\+::\+IGraphical}}.
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -221,11 +192,11 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{d1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{classarc_1_1Ncurses_a8f8d4dd1532604f6234f5bae8eaede60}\label{classarc_1_1Ncurses_a8f8d4dd1532604f6234f5bae8eaede60}} 
+\mbox{\Hypertarget{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}\label{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}} 
 \index{arc::Ncurses@{arc::Ncurses}!getKey@{getKey}}
 \index{getKey@{getKey}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classarc_1_1Key}{arc\+::\+Key}} $\ast$ arc\+::\+Ncurses\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classarc_1_1IKey}{arc\+::\+IKey}} $\ast$ arc\+::\+Ncurses\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -236,21 +207,28 @@ The keyboard management
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a2dbde2a52c3187baf39c4ea3d2e680ad}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_af1f724e9ac1ad43ab7fd19633f9500b2}{arc\+::\+IGraphical}}.
 
-\mbox{\Hypertarget{classarc_1_1Ncurses_ade5da8bd65a5d906eee816b6fb0b55f0}\label{classarc_1_1Ncurses_ade5da8bd65a5d906eee816b6fb0b55f0}} 
+\mbox{\Hypertarget{classarc_1_1Ncurses_aea109d16b49cef3bec47d3f473568140}\label{classarc_1_1Ncurses_aea109d16b49cef3bec47d3f473568140}} 
 \index{arc::Ncurses@{arc::Ncurses}!init@{init}}
 \index{init@{init}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void arc\+::\+Ncurses\+::init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Initialize the graphical. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the window \\
+\hline
+{\em height} & The height of the window \\
+\hline
+\end{DoxyParams}
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_ae6cb0b9d0cb5d73392800bdc724a6b19}{arc\+::\+Graphical}}.
+
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a62f2f245aae061ca75c0d397b7a64fe1}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_a8031b91b77ab7a1411e1186cd190bb66}\label{classarc_1_1Ncurses_a8031b91b77ab7a1411e1186cd190bb66}} 
 \index{arc::Ncurses@{arc::Ncurses}!isOpen@{isOpen}}
@@ -267,7 +245,7 @@ true if the window is open, false otherwise
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_a577bba17532189ec6781dca20f8a5b45}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_af3793c96aab17f10a0831f702636b76e}{arc\+::\+IGraphical}}.
 
 \mbox{\Hypertarget{classarc_1_1Ncurses_af055fa2cc89f3955eaad2f84e99e7f22}\label{classarc_1_1Ncurses_af055fa2cc89f3955eaad2f84e99e7f22}} 
 \index{arc::Ncurses@{arc::Ncurses}!stop@{stop}}
@@ -281,7 +259,7 @@ Stop the graphical library and free the memory.
 
 
 
-Implements \mbox{\hyperlink{classarc_1_1Graphical_aae989a0dde5f103ab76d78000b74a523}{arc\+::\+Graphical}}.
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_ac1b304d27675d3170f4ed8369f5888a6}{arc\+::\+IGraphical}}.
 
 
 

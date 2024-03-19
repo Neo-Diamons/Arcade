@@ -1,7 +1,7 @@
 <map id="lib/ncurses/NcursesKey.cpp" name="lib/ncurses/NcursesKey.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="96,5,293,32"/>
-<area shape="rect" id="node2" href="$dd/d78/NcursesKey_8hpp.html" title=" " alt="" coords="133,80,257,107"/>
-<area shape="rect" id="node3" href="$d8/dd7/Key_8hpp.html" title=" " alt="" coords="5,155,128,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="153,155,237,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="261,155,312,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="99,5,297,32"/>
+<area shape="rect" id="node2" href="$dd/d78/NcursesKey_8hpp.html" title=" " alt="" coords="136,80,260,107"/>
+<area shape="rect" id="node3" href="$dd/d03/IKey_8hpp.html" title=" " alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="156,155,240,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="265,155,315,181"/>
 </map>

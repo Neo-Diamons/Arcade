@@ -1,0 +1,99 @@
+\hypertarget{classarc_1_1DLLoader}{}\doxysection{arc\+::DLLoader$<$ T $>$ Class Template Reference}
+\label{classarc_1_1DLLoader}\index{arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}}
+
+
+Class to load a dynamic library.  
+
+
+
+
+{\ttfamily \#include $<$DLLoader.\+hpp$>$}
+
+
+
+Inheritance diagram for arc\+::DLLoader$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{da/d57/classarc_1_1DLLoader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for arc\+::DLLoader$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{d6/d14/classarc_1_1DLLoader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classarc_1_1DLLoader_1_1DLLoaderException}{DLLoader\+Exception}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classarc_1_1Exception}{Exception}} for the \mbox{\hyperlink{classarc_1_1DLLoader}{DLLoader}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T $\ast$ \mbox{\hyperlink{classarc_1_1DLLoader_a488c9210419714375e3e610889c9ad9c}{get\+Instance}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Get an instance of a Object from a dynamic library. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classarc_1_1DLLoader_aad935fc85db61a872fa09376ce851c12}{destroy\+Instance}} (T $\ast$instance)
+\begin{DoxyCompactList}\small\item\em Destroy an instance of a Object from a dynamic library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class arc\+::\+DLLoader$<$ T $>$}
+
+Class to load a dynamic library. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1DLLoader_aad935fc85db61a872fa09376ce851c12}\label{classarc_1_1DLLoader_aad935fc85db61a872fa09376ce851c12}} 
+\index{arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}!destroyInstance@{destroyInstance}}
+\index{destroyInstance@{destroyInstance}!arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{destroyInstance()}{destroyInstance()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classarc_1_1DLLoader}{arc\+::\+DLLoader}}$<$ T $>$\+::destroy\+Instance (\begin{DoxyParamCaption}\item[{T $\ast$}]{instance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy an instance of a Object from a dynamic library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & The instance to destroy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classarc_1_1DLLoader_a488c9210419714375e3e610889c9ad9c}\label{classarc_1_1DLLoader_a488c9210419714375e3e610889c9ad9c}} 
+\index{arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T$\ast$ \mbox{\hyperlink{classarc_1_1DLLoader}{arc\+::\+DLLoader}}$<$ T $>$\+::get\+Instance (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get an instance of a Object from a dynamic library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the dynamic library \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An new instance of the Object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{DLLoader_8hpp}{DLLoader.\+hpp}}\end{DoxyCompactItemize}

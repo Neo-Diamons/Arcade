@@ -1,11 +1,11 @@
 <map id="include/Color.hpp" name="include/Color.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="144,5,279,32"/>
-<area shape="rect" id="node2" href="$d0/ddc/Texture_8hpp.html" title=" " alt="" coords="137,80,286,107"/>
-<area shape="rect" id="node3" href="$de/de2/Graphical_8hpp.html" title=" " alt="" coords="130,155,293,181"/>
-<area shape="rect" id="node4" href="$d5/d4b/Game_8hpp.html" title=" " alt="" coords="51,229,191,256"/>
-<area shape="rect" id="node8" href="$df/d96/Ncurses_8hpp.html" title=" " alt="" coords="215,229,391,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="145,5,280,32"/>
+<area shape="rect" id="node2" href="$d0/ddc/Texture_8hpp.html" title=" " alt="" coords="138,80,287,107"/>
+<area shape="rect" id="node3" href="$d3/ded/IGraphical_8hpp.html" title=" " alt="" coords="129,155,296,181"/>
+<area shape="rect" id="node4" href="$d9/d40/IGame_8hpp.html" title=" " alt="" coords="49,229,193,256"/>
+<area shape="rect" id="node8" href="$df/d96/Ncurses_8hpp.html" title=" " alt="" coords="217,229,393,256"/>
 <area shape="rect" id="node5" href="$d7/d38/Core_8hpp.html" title=" " alt="" coords="69,304,172,331"/>
 <area shape="rect" id="node6" href="$d6/d27/Core_8cpp.html" title=" " alt="" coords="5,379,108,405"/>
 <area shape="rect" id="node7" href="$d5/de0/Main_8cpp.html" title=" " alt="" coords="133,379,237,405"/>
-<area shape="rect" id="node9" href="$d1/d88/Ncurses_8cpp.html" title=" " alt="" coords="216,304,391,331"/>
+<area shape="rect" id="node9" href="$d1/d88/Ncurses_8cpp.html" title=" " alt="" coords="217,304,392,331"/>
 </map>

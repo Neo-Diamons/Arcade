@@ -1,0 +1,275 @@
+\hypertarget{classarc_1_1IGraphical}{}\doxysection{arc\+::IGraphical Interface Reference}
+\label{classarc_1_1IGraphical}\index{arc::IGraphical@{arc::IGraphical}}
+
+
+Interface for the graphical library.  
+
+
+
+
+{\ttfamily \#include $<$IGraphical.\+hpp$>$}
+
+
+
+Inheritance diagram for arc\+::IGraphical\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{df/d8e/classarc_1_1IGraphical__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for arc\+::IGraphical\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{d2/d26/classarc_1_1IGraphical__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classarc_1_1IGraphical_1_1GraphicalException}{Graphical\+Exception}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classarc_1_1Exception}{Exception}} for the graphical library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}{$\sim$\+IGraphical}} ()=default
+\begin{DoxyCompactList}\small\item\em Initialize the graphical library. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a62f2f245aae061ca75c0d397b7a64fe1}{init}} (uint32\+\_\+t width, uint32\+\_\+t height)=0
+\begin{DoxyCompactList}\small\item\em Initialize the graphical. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_ac1b304d27675d3170f4ed8369f5888a6}{stop}} ()=0
+\begin{DoxyCompactList}\small\item\em Stop the graphical library and free the memory. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a2fa050843fb64f3cd342d0185d6d9d6b}{clear}} ()=0
+\begin{DoxyCompactList}\small\item\em Clear the screen. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_af8da4425d2f527a76058307b09ecf210}{display}} ()=0
+\begin{DoxyCompactList}\small\item\em Display the screen. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classarc_1_1IGraphical_af3793c96aab17f10a0831f702636b76e}{is\+Open}} ()=0
+\begin{DoxyCompactList}\small\item\em Check if the window is open. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+\begin{DoxyCompactList}\small\item\em Draw text on the screen. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+\begin{DoxyCompactList}\small\item\em Draw a rectangle on the screen. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+\begin{DoxyCompactList}\small\item\em Draw a filled rectangle on the screen. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}{draw\+Texture}} (int x, int y, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture, uint32\+\_\+t width, uint32\+\_\+t height)=0
+\begin{DoxyCompactList}\small\item\em Draw a texture on the screen. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$ \mbox{\hyperlink{classarc_1_1IGraphical_af1f724e9ac1ad43ab7fd19633f9500b2}{get\+Key}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the keyboard management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for the graphical library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}\label{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}} 
+\index{arc::IGraphical@{arc::IGraphical}!````~IGraphical@{$\sim$IGraphical}}
+\index{````~IGraphical@{$\sim$IGraphical}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{$\sim$IGraphical()}{~IGraphical()}}
+{\footnotesize\ttfamily virtual arc\+::\+IGraphical\+::$\sim$\+IGraphical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Initialize the graphical library. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1IGraphical_a2fa050843fb64f3cd342d0185d6d9d6b}\label{classarc_1_1IGraphical_a2fa050843fb64f3cd342d0185d6d9d6b}} 
+\index{arc::IGraphical@{arc::IGraphical}!clear@{clear}}
+\index{clear@{clear}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Clear the screen. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a3983a08d55ee5591ceaae173fb6c39d9}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_af8da4425d2f527a76058307b09ecf210}\label{classarc_1_1IGraphical_af8da4425d2f527a76058307b09ecf210}} 
+\index{arc::IGraphical@{arc::IGraphical}!display@{display}}
+\index{display@{display}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Display the screen. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a1bf243d1759e94938e049c2486f09ff8}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}\label{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}} 
+\index{arc::IGraphical@{arc::IGraphical}!drawFillRect@{drawFillRect}}
+\index{drawFillRect@{drawFillRect}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{drawFillRect()}{drawFillRect()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a filled rectangle on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position of the rectangle \\
+\hline
+{\em y} & The y position of the rectangle \\
+\hline
+{\em width} & The width of the rectangle \\
+\hline
+{\em height} & The height of the rectangle \\
+\hline
+{\em color} & The color of the rectangle \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}\label{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}} 
+\index{arc::IGraphical@{arc::IGraphical}!drawRect@{drawRect}}
+\index{drawRect@{drawRect}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{drawRect()}{drawRect()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a rectangle on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position of the rectangle \\
+\hline
+{\em y} & The y position of the rectangle \\
+\hline
+{\em width} & The width of the rectangle \\
+\hline
+{\em height} & The height of the rectangle \\
+\hline
+{\em color} & The color of the rectangle \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}\label{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}} 
+\index{arc::IGraphical@{arc::IGraphical}!drawText@{drawText}}
+\index{drawText@{drawText}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{drawText()}{drawText()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Text (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{text,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw text on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position of the text \\
+\hline
+{\em y} & The y position of the text \\
+\hline
+{\em text} & The text to draw \\
+\hline
+{\em color} & The color of the text \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}\label{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}} 
+\index{arc::IGraphical@{arc::IGraphical}!drawTexture@{drawTexture}}
+\index{drawTexture@{drawTexture}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{drawTexture()}{drawTexture()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Texture (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&}]{texture,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a texture on the screen. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_af1f724e9ac1ad43ab7fd19633f9500b2}\label{classarc_1_1IGraphical_af1f724e9ac1ad43ab7fd19633f9500b2}} 
+\index{arc::IGraphical@{arc::IGraphical}!getKey@{getKey}}
+\index{getKey@{getKey}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classarc_1_1IKey}{IKey}}$\ast$ arc\+::\+IGraphical\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the keyboard management. 
+
+\begin{DoxyReturn}{Returns}
+The keyboard management 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_a62f2f245aae061ca75c0d397b7a64fe1}\label{classarc_1_1IGraphical_a62f2f245aae061ca75c0d397b7a64fe1}} 
+\index{arc::IGraphical@{arc::IGraphical}!init@{init}}
+\index{init@{init}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize the graphical. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the window \\
+\hline
+{\em height} & The height of the window \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_aea109d16b49cef3bec47d3f473568140}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_af3793c96aab17f10a0831f702636b76e}\label{classarc_1_1IGraphical_af3793c96aab17f10a0831f702636b76e}} 
+\index{arc::IGraphical@{arc::IGraphical}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily virtual bool arc\+::\+IGraphical\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Check if the window is open. 
+
+\begin{DoxyReturn}{Returns}
+true if the window is open, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a8031b91b77ab7a1411e1186cd190bb66}{arc\+::\+Ncurses}}.
+
+\mbox{\Hypertarget{classarc_1_1IGraphical_ac1b304d27675d3170f4ed8369f5888a6}\label{classarc_1_1IGraphical_ac1b304d27675d3170f4ed8369f5888a6}} 
+\index{arc::IGraphical@{arc::IGraphical}!stop@{stop}}
+\index{stop@{stop}!arc::IGraphical@{arc::IGraphical}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stop the graphical library and free the memory. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_af055fa2cc89f3955eaad2f84e99e7f22}{arc\+::\+Ncurses}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{IGraphical_8hpp}{IGraphical.\+hpp}}\end{DoxyCompactItemize}

@@ -2,6 +2,11 @@
 \label{classarc_1_1NcursesKey}\index{arc::NcursesKey@{arc::NcursesKey}}
 
 
+\mbox{\hyperlink{classarc_1_1Ncurses}{Ncurses}} implementation of the key library.  
+
+
+
+
 {\ttfamily \#include $<$Ncurses\+Key.\+hpp$>$}
 
 
@@ -27,17 +32,20 @@ Collaboration diagram for arc\+::Ncurses\+Key\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{classarc_1_1NcursesKey_aa78beb7f7af413ff69e62a7881a45fd0}{is\+Key\+Pressed}} (\mbox{\hyperlink{classarc_1_1Key_a065fc5a7ef7a8a09fb9d0fd8c0139f31}{Key\+Enum}} key) override
+bool \mbox{\hyperlink{classarc_1_1NcursesKey_aa78beb7f7af413ff69e62a7881a45fd0}{is\+Key\+Pressed}} (\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}} key) override
 \begin{DoxyCompactList}\small\item\em Check if a key is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classarc_1_1Ncurses}{Ncurses}} implementation of the key library. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classarc_1_1NcursesKey_aa78beb7f7af413ff69e62a7881a45fd0}\label{classarc_1_1NcursesKey_aa78beb7f7af413ff69e62a7881a45fd0}} 
 \index{arc::NcursesKey@{arc::NcursesKey}!isKeyPressed@{isKeyPressed}}
 \index{isKeyPressed@{isKeyPressed}!arc::NcursesKey@{arc::NcursesKey}}
 \doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
-{\footnotesize\ttfamily bool arc\+::\+Ncurses\+Key\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1Key_a065fc5a7ef7a8a09fb9d0fd8c0139f31}{Key\+Enum}}}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool arc\+::\+Ncurses\+Key\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}}}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -53,7 +61,7 @@ true if the key is pressed, false otherwise
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classarc_1_1Key_ae13a77113abf5d55ab17f0b6d4d00ac8}{arc\+::\+Key}}.
+Implements \mbox{\hyperlink{classarc_1_1IKey_aa9fdab9d4edc50ed9f3b4c9f88b7f89f}{arc\+::\+IKey}}.
 
 
 

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ncurses_112',['Ncurses',['../d1/dcb/classarc_1_1Ncurses.html',1,'arc']]],
-  ['ncursesexception_113',['NcursesException',['../d8/db8/classarc_1_1Ncurses_1_1NcursesException.html',1,'arc::Ncurses']]],
-  ['ncurseskey_114',['NcursesKey',['../df/db9/classarc_1_1NcursesKey.html',1,'arc']]]
+  ['igame_121',['IGame',['../dc/d43/classarc_1_1IGame.html',1,'arc']]],
+  ['igraphical_122',['IGraphical',['../d7/dbb/classarc_1_1IGraphical.html',1,'arc']]],
+  ['ikey_123',['IKey',['../de/d3d/classarc_1_1IKey.html',1,'arc']]]
 ];

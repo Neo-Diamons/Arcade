@@ -1,4 +1,0 @@
-<map id="arc::Graphical" name="arc::Graphical">
-<area shape="rect" id="node1" title="Interface for the graphical library." alt="" coords="5,5,132,244"/>
-<area shape="rect" id="node2" href="$d1/dcb/classarc_1_1Ncurses.html" title="Ncurses implementation of the graphical library." alt="" coords="5,292,132,516"/>
-</map>

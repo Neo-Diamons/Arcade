@@ -90,14 +90,17 @@ $(document).ready(function(){initNavTree('df/db9/classarc_1_1NcursesKey.html','.
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html" title="Ncurses implementation of the graphical library.">Ncurses</a> implementation of the key library.  
+ <a href="../../df/db9/classarc_1_1NcursesKey.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d78/NcursesKey_8hpp_source.html">NcursesKey.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for arc::NcursesKey:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d4/d71/classarc_1_1NcursesKey__inherit__graph.png" border="0" usemap="#aarc_1_1NcursesKey_inherit__map" alt="Inheritance graph"/></div>
 <map name="aarc_1_1NcursesKey_inherit__map" id="aarc_1_1NcursesKey_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,131,139,208"/>
-<area shape="rect" href="../../dd/d63/classarc_1_1Key.html" title="Interface for the keyboard management." alt="" coords="5,5,139,83"/>
+<area shape="rect" title="Ncurses implementation of the key library." alt="" coords="5,131,139,208"/>
+<area shape="rect" href="../../de/d3d/classarc_1_1IKey.html" title="Interface for the keyboard management." alt="" coords="5,5,139,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -105,83 +108,85 @@ Collaboration diagram for arc::NcursesKey:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d27/classarc_1_1NcursesKey__coll__graph.png" border="0" usemap="#aarc_1_1NcursesKey_coll__map" alt="Collaboration graph"/></div>
 <map name="aarc_1_1NcursesKey_coll__map" id="aarc_1_1NcursesKey_coll__map">
-<area shape="rect" title=" " alt="" coords="5,131,139,208"/>
-<area shape="rect" href="../../dd/d63/classarc_1_1Key.html" title="Interface for the keyboard management." alt="" coords="5,5,139,83"/>
+<area shape="rect" title="Ncurses implementation of the key library." alt="" coords="5,131,139,208"/>
+<area shape="rect" href="../../de/d3d/classarc_1_1IKey.html" title="Interface for the keyboard management." alt="" coords="5,5,139,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa78beb7f7af413ff69e62a7881a45fd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db9/classarc_1_1NcursesKey.html#aa78beb7f7af413ff69e62a7881a45fd0">isKeyPressed</a> (<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31">KeyEnum</a> key) override</td></tr>
+<tr class="memitem:aa78beb7f7af413ff69e62a7881a45fd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db9/classarc_1_1NcursesKey.html#aa78beb7f7af413ff69e62a7881a45fd0">isKeyPressed</a> (<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669">KeyEnum</a> key) override</td></tr>
 <tr class="memdesc:aa78beb7f7af413ff69e62a7881a45fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key is pressed.  <a href="../../df/db9/classarc_1_1NcursesKey.html#aa78beb7f7af413ff69e62a7881a45fd0">More...</a><br /></td></tr>
 <tr class="separator:aa78beb7f7af413ff69e62a7881a45fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_classarc_1_1Key"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classarc_1_1Key')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../dd/d63/classarc_1_1Key.html">arc::Key</a></td></tr>
-<tr class="memitem:a065fc5a7ef7a8a09fb9d0fd8c0139f31 inherit pub_types_classarc_1_1Key"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31">KeyEnum</a> { <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a76150820baeaeb99e96faa019d8bef5e">UNKNOWN</a> = -1
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a329de1b03abf53281d5f57eb754671f2">A</a> = 0
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a9bb92a7098d59a0b6c870e60be0b5a70">B</a> = 1
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a18627447ea6ab8e6570ef2bfdfb1cf4a">C</a> = 2
+<tr class="inherit_header pub_types_classarc_1_1IKey"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classarc_1_1IKey')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../de/d3d/classarc_1_1IKey.html">arc::IKey</a></td></tr>
+<tr class="memitem:adf56a5336634db78e5a249a0271e2669 inherit pub_types_classarc_1_1IKey"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669">KeyEnum</a> { <br />
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669af61c182cf3c99500066057575b0db932">UNKNOWN</a> = -1
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a223a263650a6f855905cc11e80f8490d">A</a> = 0
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669aeff4d05673feb367efe66d415522723d">B</a> = 1
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a01b7859636a308e65d7a8140d617b68a">C</a> = 2
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a516562f58334a6ce3124ddbb66a7c884">D</a> = 3
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aa0ad51e480d3fe7b145ad9b30b62f25c">E</a> = 4
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ae003744807211e711868b3af0f8879a6">F</a> = 5
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a81a5dbc4f1cf31f71227e17b7f73d7fb">G</a> = 6
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a4496135ad4b51268810870230b5faa31">D</a> = 3
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a56519f412dd928e0499dca0d2ff06118">E</a> = 4
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a1d7a6d94901868f79b560b7f8b3cb079">F</a> = 5
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a6fe62b6cba8abe79860e07c868990bae">G</a> = 6
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aa6a16c249a6ea4e7f2150c7281555a79">H</a> = 7
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a6e59b3584432cc1b2077246f001f91ac">I</a> = 8
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a198f3ac30b886321603df83d1b1be13b">J</a> = 9
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ae5eecd2c7e09b53f8965162ef1748286">K</a> = 10
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a1fa883e746cdcfe4486ec06b7015276d">H</a> = 7
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a863675477c69e5b77f43f9f35f972491">I</a> = 8
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a4e7f4d31d980d05bf0363b80446f5fde">J</a> = 9
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669ab2b90a2f12018ec4dc7aa31a07c49f28">K</a> = 10
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ab61aee143639565165b8bfc51e9e7509">L</a> = 11
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a8b7531f69c9092beb2b2e3df335452eb">M</a> = 12
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a0c3decb09ae25852a4898c437ad50f80">N</a> = 13
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a12ef7b169234ad1dc8caebdc1e8b3c9f">O</a> = 14
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a2d9da9b5896da085f36c9c2aaf46b678">L</a> = 11
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669af71cb98ceb14c8363ed67d11e5f9230d">M</a> = 12
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a2a6e5d7fea78ca60e375d0e9e88c0345">N</a> = 13
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a718a3d8865c5737918d8bd561c4152cd">O</a> = 14
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31acadf549772eaadb5459944334ab1589c">P</a> = 15
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a7920d6db750b616cace924c6e53cb002">Q</a> = 16
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aae770e12f60cea662618eaff836d3b28">R</a> = 17
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aa30857671a62abae12bf74e573d36159">S</a> = 18
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669ae714be10bd2d02a23011d25d8d63e567">P</a> = 15
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a0877a1556cb5a2c485e9bbf7291588d3">Q</a> = 16
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669af3821e8e662b2ee7c6f00cbc29f8ef5d">R</a> = 17
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a484d7b09a9d1a93b77a7bdd577c24afc">S</a> = 18
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a92227ccf956c9611e5098731e7f6a6d1">T</a> = 19
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a10813f68973cc1dd8bd0f6bc0381c318">U</a> = 20
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a894fa0a72b0936ee773274221c51e6f2">V</a> = 21
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aa963934814102d9f6befb9e0fe20757a">W</a> = 22
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a9853b62dff899fd3c7b273b084484b6a">T</a> = 19
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a6edbb6ee12f36e3a2edb8267d1f8975d">U</a> = 20
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669ab9a472fafb8b301c764e2ba00de714a8">V</a> = 21
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a29dc1cea1841f52ca62b75f0161a7838">W</a> = 22
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31adb40261d151a32c7f1c5fd0c442e9588">X</a> = 23
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ad50c6a5aa304f3c430f1332d851e4a29">Y</a> = 24
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a36bc165b6ea163fbef7aadd6cd613b03">Z</a> = 25
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ac711041df2a42eccdcd57df5fa543f9e">NUM0</a> = 26
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669affb647bfeead4322bdd45386375c9ecb">X</a> = 23
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669afb7dc47ce08327ac6e712fefe2cc03c1">Y</a> = 24
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a79fb2a134b3c379fa63cbf88dcaf03ed">Z</a> = 25
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a351d77473e4895a5ccff88b71f6e3aee">NUM0</a> = 26
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a69d764a76087f021c2c21a1060fc2488">NUM1</a> = 27
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a09edda198bd53afa136d5237e1858369">NUM2</a> = 28
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a8587559b33033281729e40ed09156bce">NUM3</a> = 29
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a14bfb00e5acc74474a9e33e56b32e73d">NUM4</a> = 30
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a122d9edd509c81ee2a06416120e3ddc1">NUM1</a> = 27
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a30853488a62c96e1ff95174d1310e661">NUM2</a> = 28
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a3e5539863371b810e8ada601f4acea58">NUM3</a> = 29
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669ade5ddf8d37676131098fee6c4c6ccfc8">NUM4</a> = 30
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ae778de79079df36280eafcb6f9fffb4a">NUM5</a> = 31
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ab82bb557c6fdec70718175c274c9f042">NUM6</a> = 32
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31accb514b38235af551f39156f0df5806a">NUM7</a> = 33
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a24d0c9718245ceaebf4bbf37b535ffde">NUM8</a> = 34
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a5dd0967927722a2159ade8ea343dbd54">NUM5</a> = 31
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a42980e4cff1fb2ea4011ccf5dd1c0280">NUM6</a> = 32
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a0c273b9b16f0597893897cf5d8c1d065">NUM7</a> = 33
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a9ed598d7024948c701687eb3271e1a46">NUM8</a> = 34
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a32614354dc288c92ed7dd164fe393017">NUM9</a> = 35
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a42b3d5ddccedf7f94dd8200ae91e4daf">ESCAPE</a> = 36
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31aa97c20710c9147e0244fc0b3469e4f7e">SPACE</a> = 57
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a9fa0f1966c30039a5c35e9b93cd166dd">RETURN</a> = 58
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669af6ce53d15a843c889c450bb777e17a3f">NUM9</a> = 35
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a45e28f18efe6206072c665664d518fe4">ESCAPE</a> = 36
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a841e9879e9e8bd40e76da5644f49cd27">SPACE</a> = 57
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669af892c63918b70bda4aff7072e1a3ed93">RETURN</a> = 58
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a684541041022a0851454108e1e5fc62e">BACKSPACE</a> = 59
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a7a1fc1179238321b19d8bcbbc2ebade5">UP</a> = 60
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a058ca790a3404756a7684d6c4c197950">DOWN</a> = 61
-, <a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31ab97bda77dd8fca9e7597b1a76ed06f5c">LEFT</a> = 62
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a6a85e514fec3fa85f286b3ce83a67cf6">BACKSPACE</a> = 59
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a8499355ce53b5ea97453d801f1051c4c">UP</a> = 60
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a0a864a81487e243131a8e414b8f7399d">DOWN</a> = 61
+, <a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a5b6f9a0c6ddac3af890ec9f8777dfde4">LEFT</a> = 62
 , <br />
-&#160;&#160;<a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31a033360cf3b06fc10a2b7199cc01e867f">RIGHT</a> = 63
+&#160;&#160;<a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669a9c2b222d123d8c359ce92dce4c4ec564">RIGHT</a> = 63
 <br />
  }</td></tr>
-<tr class="memdesc:a065fc5a7ef7a8a09fb9d0fd8c0139f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the key.  <a href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31">More...</a><br /></td></tr>
-<tr class="separator:a065fc5a7ef7a8a09fb9d0fd8c0139f31 inherit pub_types_classarc_1_1Key"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:adf56a5336634db78e5a249a0271e2669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for the key.  <a href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669">More...</a><br /></td></tr>
+<tr class="separator:adf56a5336634db78e5a249a0271e2669 inherit pub_types_classarc_1_1IKey"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html" title="Ncurses implementation of the graphical library.">Ncurses</a> implementation of the key library. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa78beb7f7af413ff69e62a7881a45fd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa78beb7f7af413ff69e62a7881a45fd0">&#9670;&nbsp;</a></span>isKeyPressed()</h2>
 
@@ -194,7 +199,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">bool arc::NcursesKey::isKeyPressed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/d63/classarc_1_1Key.html#a065fc5a7ef7a8a09fb9d0fd8c0139f31">KeyEnum</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669">KeyEnum</a>&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -215,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the key is pressed, false otherwise </dd></dl>
 
-<p>Implements <a class="el" href="../../dd/d63/classarc_1_1Key.html#ae13a77113abf5d55ab17f0b6d4d00ac8">arc::Key</a>.</p>
+<p>Implements <a class="el" href="../../de/d3d/classarc_1_1IKey.html#aa9fdab9d4edc50ed9f3b4c9f88b7f89f">arc::IKey</a>.</p>
 
 </div>
 </div>

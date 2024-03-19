@@ -1,0 +1,4 @@
+<map id="arc::IKey" name="arc::IKey">
+<area shape="rect" id="node1" title="Interface for the keyboard management." alt="" coords="5,5,139,83"/>
+<area shape="rect" id="node2" href="$df/db9/classarc_1_1NcursesKey.html" title="Ncurses implementation of the key library." alt="" coords="5,131,139,208"/>
+</map>

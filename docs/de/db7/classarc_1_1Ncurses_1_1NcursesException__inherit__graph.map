@@ -1,6 +1,6 @@
 <map id="arc::Ncurses::NcursesException" name="arc::Ncurses::NcursesException">
 <area shape="rect" id="node1" title="Exception implementation for the Ncurses library." alt="" coords="5,411,232,488"/>
-<area shape="rect" id="node2" href="$d9/d01/classarc_1_1Graphical_1_1GraphicalException.html" title="Exception for the graphical library." alt="" coords="27,271,210,363"/>
+<area shape="rect" id="node2" href="$d9/dcb/classarc_1_1IGraphical_1_1GraphicalException.html" title="Exception for the graphical library." alt="" coords="25,271,212,363"/>
 <area shape="rect" id="node3" href="$d6/def/classarc_1_1Exception.html" title="Exception class for the arcade project." alt="" coords="61,131,176,223"/>
 <area shape="rect" id="node4" title=" " alt="" coords="61,5,176,83"/>
 </map>

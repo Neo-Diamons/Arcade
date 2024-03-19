@@ -8,8 +8,8 @@
 #include "Core.hpp"
 
 #include <dlfcn.h>
-#include <dirent.h>
 #include <iostream>
+#include <dirent.h>
 
 arc::Core::Core(const std::string &path)
 {
@@ -22,7 +22,7 @@ void *arc::Core::loadLib(const std::string &path)
     if (!_graphicalLib)
         throw CoreException(dlerror());
 
-    void *entryPoint = dlsym(_graphicalLib, "entryPoint");
+    void *entryPoint = dlsym(_graphicalLib, "create");
     if (!entryPoint)
         throw CoreException(dlerror());
     return entryPoint;
@@ -33,7 +33,7 @@ void arc::Core::loadGraphicalLib(const std::string &path)
     if (_graphical != nullptr)
         _graphical->stop();
     _graphical = reinterpret_cast<IGraphical *(*)()>(loadLib(path))();
-    _graphical->init(80, 80);
+    _graphical->init(800, 800);
     _key = _graphical->getKey();
 }
 
@@ -95,19 +95,20 @@ void arc::Core::selectionLoop()
         _name.pop_back();
 
     _graphical->clear();
-    uint16_t offsetX = (80 - 31) / 2;
-    uint16_t offsetY = (40 - 11 - _graphicalLibs.size() - _gameLibs.size()) / 2;
-    _graphical->drawText(offsetX, 1 + offsetY, "/-----------Arcade------------\\", WHITE);
-    _graphical->drawText(offsetX, 3 + offsetY, "  Player: " + _name           , WHITE);
-    _graphical->drawText(offsetX, 5 + offsetY, "|-+--   -  Graphical  -   --+-|" , WHITE);
-    for (uint8_t i = 0; i < (uint8_t)_graphicalLibs.size(); i++, offsetY++)
-        _graphical->drawText(offsetX, 7 + offsetY,
+    uint16_t offsetX = (800 - 310) / 2;
+    uint16_t offsetY = (400 - 110 - _graphicalLibs.size() - _gameLibs.size()) / 2;
+    _graphical->drawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE);
+    _graphical->drawText(offsetX + 10, 30 + offsetY, "  Player: " + _name           , WHITE);
+    _graphical->drawText(offsetX, 50 + offsetY, "|-+--   -  Graphical  -   --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_graphicalLibs.size(); i++, offsetY += 10)
+        _graphical->drawText(offsetX, 70 + offsetY,
                              (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 8 + offsetY, "|-+--   -    Game     -   --+-|" , WHITE);
-    for (uint8_t i = 0; i < (uint8_t)_gameLibs.size(); i++, offsetY++)
-        _graphical->drawText(offsetX, 10 + offsetY,
+    _graphical->drawText(offsetX, 80 + offsetY, "|-+--   -    Game     -   --+-|" , WHITE);
+    for (uint8_t i = 0; i < (uint8_t)_gameLibs.size(); i++, offsetY += 10)
+        _graphical->drawText(offsetX, 100 + offsetY,
                              (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 11 + offsetY, "\\-----------------------------/", WHITE);
+    _graphical->drawText(offsetX, 110 + offsetY, "\\-----------------------------/", WHITE);
+
 }
 
 void arc::Core::run()

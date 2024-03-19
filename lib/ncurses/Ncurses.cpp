@@ -5,7 +5,6 @@
 ** Ncurses
 */
 
-#include <iostream>
 #include "Ncurses.hpp"
 
 extern "C" arc::IGraphical *entryPoint()
@@ -15,14 +14,12 @@ extern "C" arc::IGraphical *entryPoint()
 
 void arc::Ncurses::init(uint32_t width, uint32_t height)
 {
-    _width = width;
-    _height = height;
+    _width = width / NCURSES_RATIO;
+    _height = height / NCURSES_RATIO;
 
     initscr();
     refresh();
 
-    std::cerr << "width: " << _width << " height: " << _height << std::endl;
-    std::cerr << "LINES: " << LINES << " COLS: " << COLS << std::endl;
     _window = newwin((int)_width, (int)_height, LINES / 2 - _height / 4, COLS / 2 - _width / 2);
     wrefresh(_window);
 
@@ -70,7 +67,7 @@ void arc::Ncurses::stop()
 void arc::Ncurses::clear()
 {
     werase(_window);
-    drawFillRect(0, 0, _width, _height / 2, BLACK);
+    drawFillRect(0, 0, _width * NCURSES_RATIO, _height * NCURSES_RATIO, BLACK);
 }
 
 void arc::Ncurses::display()
@@ -86,12 +83,17 @@ bool arc::Ncurses::isOpen()
 void arc::Ncurses::drawText(int x, int y, const std::string &text, const arc::Color &color)
 {
     wattron(_window, COLOR_PAIR(color));
-    mvwprintw(_window, y, x, text.c_str());
+    mvwprintw(_window, y / NCURSES_RATIO, x / NCURSES_RATIO, text.c_str());
     wattroff(_window, COLOR_PAIR(color));
 }
 
 void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
+    x /= NCURSES_RATIO;
+    y /= NCURSES_RATIO * 2;
+    width /= NCURSES_RATIO;
+    height /= NCURSES_RATIO * 2;
+
     wattron(_window, COLOR_PAIR(color + 8));
     mvwhline(_window, y,              x,             0, width);
     mvwhline(_window, y,              x,             0, height);
@@ -102,6 +104,11 @@ void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const
 
 void arc::Ncurses::drawFillRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color)
 {
+    x /= NCURSES_RATIO;
+    y /= NCURSES_RATIO * 2;
+    width /= NCURSES_RATIO;
+    height /= NCURSES_RATIO * 2;
+
     wattron(_window, COLOR_PAIR(color + 8));
     for (uint32_t i = 0; i < height; i++)
         mvwhline(_window, y + i, x, 0, width);
@@ -110,6 +117,11 @@ void arc::Ncurses::drawFillRect(int x, int y, uint32_t width, uint32_t height, c
 
 void arc::Ncurses::drawTexture(int x, int y, const arc::Texture &texture, uint32_t width, uint32_t height)
 {
+    x /= NCURSES_RATIO;
+    y /= NCURSES_RATIO * 2;
+    width /= NCURSES_RATIO;
+    height /= NCURSES_RATIO * 2;
+
     wattron(_window, COLOR_PAIR(texture.GetColor()));
     for (uint32_t i = 0; i < height; i++) {
         for (uint32_t j = 0; j < width; j++)

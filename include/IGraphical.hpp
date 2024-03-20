@@ -30,7 +30,7 @@ namespace arc {
         };
 
         /**
-         * @brief Initialize the graphical library
+         * @brief Destructor
          */
         virtual ~IGraphical() = default;
 

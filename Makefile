@@ -33,9 +33,10 @@ LIB3_DIR	:=	$(LIB_DIR)/lib3
 LIB3_SRC	+=	$(addprefix $(LIB3_DIR)/,							\
 				)
 
-LIB4_NAME	:=	$(LIB_DIR)/lib4.so
-LIB4_DIR	:=	$(LIB_DIR)/lib4
+LIB4_NAME	:=	$(LIB_DIR)/arcade_snake.so
+LIB4_DIR	:=	$(LIB_DIR)/snake
 LIB4_SRC	+=	$(addprefix $(LIB4_DIR)/,							\
+					Snake.cpp										\
 				)
 
 LIB5_NAME	:=	$(LIB_DIR)/lib5.so

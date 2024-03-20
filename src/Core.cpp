@@ -112,6 +112,8 @@ void arc::Core::globalAction()
 
         if (_key->isKeyPressed(IKey::ESCAPE)) {
             _game->stop();
+            _score = _game->getScore();
+            _gameLoader.destroyInstance(_game);
             _game = nullptr;
         }
     } else {

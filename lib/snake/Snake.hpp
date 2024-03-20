@@ -12,6 +12,9 @@
 #include "include/IGame.hpp"
 
 namespace arc {
+    /**
+     * @brief Snake game
+     */
     class Snake final : public IGame {
         const uint16_t WIDTH = 20;
         const uint16_t HEIGHT = 20;

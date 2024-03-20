@@ -15,6 +15,7 @@ namespace arc {
     /**
      * @interface IGame
      * @brief Interface for the game
+     * @attention Need to have a extern "C" create() and destroy() function
      */
     class IGame {
     public:

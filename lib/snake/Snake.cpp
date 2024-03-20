@@ -65,6 +65,11 @@ void arc::Snake::update()
 
     _snake.push_front(next);
     _snake.pop_back();
+
+    if (next == _food) {
+        _snake.push_back(_snake.back());
+        _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
+    }
 }
 
 void arc::Snake::draw(IGraphical &graphical)
@@ -77,6 +82,8 @@ void arc::Snake::draw(IGraphical &graphical)
             graphical.drawFillRect(x * 40, y * 40 + 10, 40, 40,
                                    (x + y) % 2 ? Color(170, 215, 81) : Color(162, 209, 73));
 
+    graphical.drawFillRect(_food.first * 40, _food.second * 40 + 10, 40, 40, Color(255, 0, 0));
+
     for (auto &[fst, snd] : _snake)
         graphical.drawFillRect(fst * 40, snd * 40 + 10, 40, 40, Color(71, 117, 235));
 
@@ -86,5 +93,6 @@ void arc::Snake::draw(IGraphical &graphical)
 
 uint64_t arc::Snake::getScore() const
 {
+    std::cerr << "Score: " << _snake.size() - 4 << std::endl;
     return _snake.size() - 4;
 }

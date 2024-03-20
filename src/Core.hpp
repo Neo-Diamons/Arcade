@@ -21,6 +21,9 @@ namespace arc {
      */
     class Core {
     private:
+        const uint16_t WIDTH = 800;
+        const uint16_t HEIGHT = 810;
+
         const std::vector<std::string> _graphicalLibFiles = {
             "arcade_ncurses.so",
             "arcade_sdl2.so",
@@ -45,8 +48,8 @@ namespace arc {
             "arcade_solarfox.so"
         };
 
-        DLLoader<IGraphical> _graphicalLoader;
-        DLLoader<IGame> _gameLoader;
+        DLLoader<IGraphical> _graphicalLoader{};
+        DLLoader<IGame> _gameLoader{};
 
         void *_graphicalLib{};
         void *_gameLib{};
@@ -61,6 +64,7 @@ namespace arc {
         uint8_t _gameIndex = 0;
 
         std::string _name;
+        uint64_t _score = 0;
 
         void loadGraphicalLib(const std::string &path);
         void loadGameLib(const std::string &path);
@@ -73,7 +77,7 @@ namespace arc {
         /**
          * @brief Exception implementation for the Core
          */
-        class CoreException : public Exception {
+        class CoreException final : public Exception {
         public:
             explicit CoreException(const std::string &message) : Exception("Core", message) {}
         };

@@ -27,9 +27,14 @@ namespace arc {
         };
 
         /**
+         * @brief Destructor
+         */
+        virtual ~IGame() = default;
+
+        /**
          * @brief Initialize the game
          */
-        virtual void init() = 0;
+        virtual void init(const std::string &name) = 0;
         /**
          * @brief Stop the game and free the memory
          */
@@ -51,6 +56,12 @@ namespace arc {
          * @param graphical Graphical library to draw the game
          */
         virtual void draw(IGraphical &graphical) = 0;
+
+        /**
+         * @brief Get the score of the game
+         * @return The score of the game
+         */
+        [[nodiscard]] virtual uint64_t getScore() const = 0;
     };
 }
 

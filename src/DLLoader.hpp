@@ -10,7 +10,6 @@
 
 #include <dlfcn.h>
 #include <string>
-#include <map>
 
 #include "include/Exception.hpp"
 
@@ -22,7 +21,7 @@ namespace arc {
     template<typename T>
     class DLLoader {
     private:
-        void *_lib;
+        void *_lib = nullptr;
 
     public:
         /**

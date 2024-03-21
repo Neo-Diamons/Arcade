@@ -127,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a803733201129c39d82e8e20d67f5ff39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">update</a> () override</td></tr>
 <tr class="memdesc:a803733201129c39d82e8e20d67f5ff39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game.  <a href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">More...</a><br /></td></tr>
 <tr class="separator:a803733201129c39d82e8e20d67f5ff39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c8ca45d5660d63e7c2e5ae3fceb342"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/classarc_1_1Snake.html#ad0c8ca45d5660d63e7c2e5ae3fceb342">draw</a> (<a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> &amp;graphical) override</td></tr>
-<tr class="memdesc:ad0c8ca45d5660d63e7c2e5ae3fceb342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game (example: draw the map, draw the player, etc.)  <a href="../../d5/d16/classarc_1_1Snake.html#ad0c8ca45d5660d63e7c2e5ae3fceb342">More...</a><br /></td></tr>
-<tr class="separator:ad0c8ca45d5660d63e7c2e5ae3fceb342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061712579e6d18b4cc4a8061d5f05c51"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html">DrawObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">draw</a> () override</td></tr>
+<tr class="memdesc:a061712579e6d18b4cc4a8061d5f05c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game (example: draw the map, draw the player, etc.)  <a href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">More...</a><br /></td></tr>
+<tr class="separator:a061712579e6d18b4cc4a8061d5f05c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a258030a3a5edeb4014e6fa8b8e8a03f0"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">getScore</a> () const override</td></tr>
 <tr class="memdesc:a258030a3a5edeb4014e6fa8b8e8a03f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the score of the game.  <a href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">More...</a><br /></td></tr>
 <tr class="separator:a258030a3a5edeb4014e6fa8b8e8a03f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,8 +141,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../d5/d16/classarc_1_1Snake.html" title="Snake game.">Snake</a> game. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad0c8ca45d5660d63e7c2e5ae3fceb342"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0c8ca45d5660d63e7c2e5ae3fceb342">&#9670;&nbsp;</a></span>draw()</h2>
+<a id="a061712579e6d18b4cc4a8061d5f05c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061712579e6d18b4cc4a8061d5f05c51">&#9670;&nbsp;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,10 +151,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void arc::Snake::draw </td>
+          <td class="memname">std::list&lt; <a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html">arc::DrawObject</a> * &gt; arc::Snake::draw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> &amp;&#160;</td>
-          <td class="paramname"><em>graphical</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -166,26 +165,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw the game (example: draw the map, draw the player, etc.) </p>
-<dl class="section warning"><dt>Warning</dt><dd>This function should not call the display function of the graphical library</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">graphical</td><td>Graphical library to draw the game </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of <a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html" title="Class for the object to draw.">DrawObject</a> to draw </dd></dl>
 
-<p>Implements <a class="el" href="../../dc/d43/classarc_1_1IGame.html#a5f4eaa3e0214f95eddeb955bc4dff802">arc::IGame</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d5/d16/classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342_cgraph.png" border="0" usemap="#ad5/d16/classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342_cgraph" alt=""/></div>
-<map name="ad5/d16/classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342_cgraph" id="ad5/d16/classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342_cgraph">
-<area shape="rect" title="Draw the game (example: draw the map, draw the player, etc.)" alt="" coords="5,56,135,83"/>
-<area shape="rect" href="../../d7/dbb/classarc_1_1IGraphical.html#a3c724df1dcb67b501b1067d74c42b14e" title="Draw a filled rectangle on the screen." alt="" coords="183,5,387,32"/>
-<area shape="rect" href="../../d7/dbb/classarc_1_1IGraphical.html#a27f02e4256d60edf958027bf45529f67" title="Draw text on the screen." alt="" coords="193,56,376,83"/>
-<area shape="rect" href="../../d7/dbb/classarc_1_1IGraphical.html#aab4557f4e81f550383878d1c06ed749a" title="Draw a texture on the screen." alt="" coords="183,107,387,133"/>
-</map>
-</div>
+<p>Implements <a class="el" href="../../dc/d43/classarc_1_1IGame.html#a1906196c279dac8e9535bff5a234e012">arc::IGame</a>.</p>
 
 </div>
 </div>

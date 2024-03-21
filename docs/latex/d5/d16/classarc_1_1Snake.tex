@@ -40,7 +40,7 @@ void \mbox{\hyperlink{classarc_1_1Snake_a6dd858aa69f873a815433a6478a79f1e}{event
 \begin{DoxyCompactList}\small\item\em Event for the game (example\+: keyboard input, mouse input, etc.) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Snake_a803733201129c39d82e8e20d67f5ff39}{update}} () override
 \begin{DoxyCompactList}\small\item\em Update the game. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342}{draw}} (\mbox{\hyperlink{classarc_1_1IGraphical}{IGraphical}} \&graphical) override
+std\+::list$<$ \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} $\ast$ $>$ \mbox{\hyperlink{classarc_1_1Snake_a061712579e6d18b4cc4a8061d5f05c51}{draw}} () override
 \begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\item 
 uint64\+\_\+t \mbox{\hyperlink{classarc_1_1Snake_a258030a3a5edeb4014e6fa8b8e8a03f0}{get\+Score}} () const override
 \begin{DoxyCompactList}\small\item\em Get the score of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -50,36 +50,23 @@ uint64\+\_\+t \mbox{\hyperlink{classarc_1_1Snake_a258030a3a5edeb4014e6fa8b8e8a03
 \mbox{\hyperlink{classarc_1_1Snake}{Snake}} game. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342}\label{classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342}} 
+\mbox{\Hypertarget{classarc_1_1Snake_a061712579e6d18b4cc4a8061d5f05c51}\label{classarc_1_1Snake_a061712579e6d18b4cc4a8061d5f05c51}} 
 \index{arc::Snake@{arc::Snake}!draw@{draw}}
 \index{draw@{draw}!arc::Snake@{arc::Snake}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void arc\+::\+Snake\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IGraphical}{IGraphical}} \&}]{graphical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classarc_1_1DrawObject}{arc\+::\+Draw\+Object}} $\ast$ $>$ arc\+::\+Snake\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Draw the game (example\+: draw the map, draw the player, etc.) 
 
-\begin{DoxyWarning}{Warning}
-This function should not call the display function of the graphical library
-\end{DoxyWarning}
-
-\begin{DoxyParams}{Parameters}
-{\em graphical} & Graphical library to draw the game \\
-\hline
-\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} to draw 
+\end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}{arc\+::\+IGame}}.
+Implements \mbox{\hyperlink{classarc_1_1IGame_a1906196c279dac8e9535bff5a234e012}{arc\+::\+IGame}}.
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{d5/d16/classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{classarc_1_1Snake_a6dd858aa69f873a815433a6478a79f1e}\label{classarc_1_1Snake_a6dd858aa69f873a815433a6478a79f1e}} 
 \index{arc::Snake@{arc::Snake}!event@{event}}
 \index{event@{event}!arc::Snake@{arc::Snake}}

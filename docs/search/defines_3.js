@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['magenta_247',['MAGENTA',['../d6/da3/Color_8hpp.html#a6f699060902f800f12aaae150f3a708e',1,'Color.hpp']]]
+  ['magenta_306',['MAGENTA',['../d6/da3/Color_8hpp.html#a6f699060902f800f12aaae150f3a708e',1,'Color.hpp']]]
 ];

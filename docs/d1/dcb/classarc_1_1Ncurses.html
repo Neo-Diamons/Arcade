@@ -146,9 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a521eeda9871f62380b832a2213bf7596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#a521eeda9871f62380b832a2213bf7596">drawFillRect</a> (int x, int y, uint32_t width, uint32_t height, const <a class="el" href="../../db/d56/classarc_1_1Color.html">Color</a> &amp;color) override</td></tr>
 <tr class="memdesc:a521eeda9871f62380b832a2213bf7596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a filled rectangle on the screen.  <a href="../../d1/dcb/classarc_1_1Ncurses.html#a521eeda9871f62380b832a2213bf7596">More...</a><br /></td></tr>
 <tr class="separator:a521eeda9871f62380b832a2213bf7596"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135a56c2026c14a2d269b9182894c5ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#a135a56c2026c14a2d269b9182894c5ec">drawTexture</a> (int x, int y, const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;texture, uint32_t width, uint32_t height) override</td></tr>
-<tr class="memdesc:a135a56c2026c14a2d269b9182894c5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture on the screen.  <a href="../../d1/dcb/classarc_1_1Ncurses.html#a135a56c2026c14a2d269b9182894c5ec">More...</a><br /></td></tr>
-<tr class="separator:a135a56c2026c14a2d269b9182894c5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcb838ba97e6ac5b7326fcbdad6ee3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#abfcb838ba97e6ac5b7326fcbdad6ee3f">drawTexture</a> (int x, int y, uint32_t width, uint32_t height, const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;texture) override</td></tr>
+<tr class="memdesc:abfcb838ba97e6ac5b7326fcbdad6ee3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture on the screen.  <a href="../../d1/dcb/classarc_1_1Ncurses.html#abfcb838ba97e6ac5b7326fcbdad6ee3f">More...</a><br /></td></tr>
+<tr class="separator:abfcb838ba97e6ac5b7326fcbdad6ee3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cb5c5973735aa3736cc9172542cf2a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#a5cb5c5973735aa3736cc9172542cf2a3">getKey</a> () override</td></tr>
 <tr class="memdesc:a5cb5c5973735aa3736cc9172542cf2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the keyboard management.  <a href="../../d1/dcb/classarc_1_1Ncurses.html#a5cb5c5973735aa3736cc9172542cf2a3">More...</a><br /></td></tr>
 <tr class="separator:a5cb5c5973735aa3736cc9172542cf2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -415,8 +415,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a135a56c2026c14a2d269b9182894c5ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a135a56c2026c14a2d269b9182894c5ec">&#9670;&nbsp;</a></span>drawTexture()</h2>
+<a id="abfcb838ba97e6ac5b7326fcbdad6ee3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfcb838ba97e6ac5b7326fcbdad6ee3f">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,12 +439,6 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
@@ -452,7 +446,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -468,13 +468,23 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw a texture on the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x position of the texture </td></tr>
+    <tr><td class="paramname">y</td><td>The y position of the texture </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the texture </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the texture </td></tr>
+    <tr><td class="paramname">texture</td><td>The texture to draw </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#aab4557f4e81f550383878d1c06ed749a">arc::IGraphical</a>.</p>
+<p>Implements <a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#a7acd8d5676d51400e61d1beffbc19b31">arc::IGraphical</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph.png" border="0" usemap="#ad1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph" alt=""/></div>
-<map name="ad1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph" id="ad1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph">
+<div class="center"><img src="../../d1/dcb/classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f_cgraph.png" border="0" usemap="#ad1/dcb/classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f_cgraph" alt=""/></div>
+<map name="ad1/dcb/classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f_cgraph" id="ad1/dcb/classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f_cgraph">
 <area shape="rect" title="Draw a texture on the screen." alt="" coords="5,31,196,57"/>
 <area shape="rect" href="../../da/d1d/classarc_1_1Texture.html#a7dfaf18390a2af5f932627f6391c5130" title="Get the color of the texture." alt="" coords="250,5,413,32"/>
 <area shape="rect" href="../../da/d1d/classarc_1_1Texture.html#a9afed086d04acc1a045962ed6f70e453" title="Get the pattern of the texture." alt="" coords="244,56,419,83"/>

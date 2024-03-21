@@ -2,6 +2,11 @@ var annotated_dup =
 [
     [ "arc", "dc/db3/namespacearc.html", [
       [ "Color", "db/d56/classarc_1_1Color.html", "db/d56/classarc_1_1Color" ],
+      [ "DrawFillRect", "d8/d7c/classarc_1_1DrawFillRect.html", "d8/d7c/classarc_1_1DrawFillRect" ],
+      [ "DrawObject", "d4/d8a/classarc_1_1DrawObject.html", "d4/d8a/classarc_1_1DrawObject" ],
+      [ "DrawRect", "d6/d09/classarc_1_1DrawRect.html", "d6/d09/classarc_1_1DrawRect" ],
+      [ "DrawText", "d9/dd3/classarc_1_1DrawText.html", "d9/dd3/classarc_1_1DrawText" ],
+      [ "DrawTexture", "d6/d91/classarc_1_1DrawTexture.html", "d6/d91/classarc_1_1DrawTexture" ],
       [ "Exception", "d6/def/classarc_1_1Exception.html", "d6/def/classarc_1_1Exception" ],
       [ "IGame", "dc/d43/classarc_1_1IGame.html", "dc/d43/classarc_1_1IGame" ],
       [ "IGraphical", "d7/dbb/classarc_1_1IGraphical.html", "d7/dbb/classarc_1_1IGraphical" ],

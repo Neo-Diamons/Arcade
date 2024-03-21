@@ -148,9 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c724df1dcb67b501b1067d74c42b14e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#a3c724df1dcb67b501b1067d74c42b14e">drawFillRect</a> (int x, int y, uint32_t width, uint32_t height, const <a class="el" href="../../db/d56/classarc_1_1Color.html">Color</a> &amp;color)=0</td></tr>
 <tr class="memdesc:a3c724df1dcb67b501b1067d74c42b14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a filled rectangle on the screen.  <a href="../../d7/dbb/classarc_1_1IGraphical.html#a3c724df1dcb67b501b1067d74c42b14e">More...</a><br /></td></tr>
 <tr class="separator:a3c724df1dcb67b501b1067d74c42b14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab4557f4e81f550383878d1c06ed749a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#aab4557f4e81f550383878d1c06ed749a">drawTexture</a> (int x, int y, const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;texture, uint32_t width, uint32_t height)=0</td></tr>
-<tr class="memdesc:aab4557f4e81f550383878d1c06ed749a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture on the screen.  <a href="../../d7/dbb/classarc_1_1IGraphical.html#aab4557f4e81f550383878d1c06ed749a">More...</a><br /></td></tr>
-<tr class="separator:aab4557f4e81f550383878d1c06ed749a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7acd8d5676d51400e61d1beffbc19b31"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#a7acd8d5676d51400e61d1beffbc19b31">drawTexture</a> (int x, int y, uint32_t width, uint32_t height, const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;texture)=0</td></tr>
+<tr class="memdesc:a7acd8d5676d51400e61d1beffbc19b31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture on the screen.  <a href="../../d7/dbb/classarc_1_1IGraphical.html#a7acd8d5676d51400e61d1beffbc19b31">More...</a><br /></td></tr>
+<tr class="separator:a7acd8d5676d51400e61d1beffbc19b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1f724e9ac1ad43ab7fd19633f9500b2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html#af1f724e9ac1ad43ab7fd19633f9500b2">getKey</a> ()=0</td></tr>
 <tr class="memdesc:af1f724e9ac1ad43ab7fd19633f9500b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the keyboard management.  <a href="../../d7/dbb/classarc_1_1IGraphical.html#af1f724e9ac1ad43ab7fd19633f9500b2">More...</a><br /></td></tr>
 <tr class="separator:af1f724e9ac1ad43ab7fd19633f9500b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -442,8 +442,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aab4557f4e81f550383878d1c06ed749a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab4557f4e81f550383878d1c06ed749a">&#9670;&nbsp;</a></span>drawTexture()</h2>
+<a id="a7acd8d5676d51400e61d1beffbc19b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7acd8d5676d51400e61d1beffbc19b31">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -466,12 +466,6 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
@@ -479,7 +473,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -495,8 +495,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw a texture on the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x position of the texture </td></tr>
+    <tr><td class="paramname">y</td><td>The y position of the texture </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the texture </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the texture </td></tr>
+    <tr><td class="paramname">texture</td><td>The texture to draw </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implemented in <a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#a135a56c2026c14a2d269b9182894c5ec">arc::Ncurses</a>.</p>
+<p>Implemented in <a class="el" href="../../d1/dcb/classarc_1_1Ncurses.html#abfcb838ba97e6ac5b7326fcbdad6ee3f">arc::Ncurses</a>.</p>
 
 </div>
 </div>

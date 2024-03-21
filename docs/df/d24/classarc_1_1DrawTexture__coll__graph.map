@@ -1,0 +1,5 @@
+<map id="arc::DrawTexture" name="arc::DrawTexture">
+<area shape="rect" id="node1" title="Class for the texture." alt="" coords="81,189,213,311"/>
+<area shape="rect" id="node2" href="$d4/d8a/classarc_1_1DrawObject.html" title="Class for the object to draw." alt="" coords="5,13,140,119"/>
+<area shape="rect" id="node3" href="$da/d1d/classarc_1_1Texture.html" title="Class for the texture which is used to handle the textures with graphical libraries change at runtime..." alt="" coords="164,5,280,127"/>
+</map>

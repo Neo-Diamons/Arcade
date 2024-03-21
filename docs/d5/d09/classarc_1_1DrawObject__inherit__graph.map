@@ -1,0 +1,7 @@
+<map id="arc::DrawObject" name="arc::DrawObject">
+<area shape="rect" id="node1" title="Class for the object to draw." alt="" coords="219,5,353,112"/>
+<area shape="rect" id="node2" href="$d8/d7c/classarc_1_1DrawFillRect.html" title="Class for the filled rectangle." alt="" coords="5,160,137,296"/>
+<area shape="rect" id="node3" href="$d6/d09/classarc_1_1DrawRect.html" title="Class for the rectangle." alt="" coords="161,160,275,296"/>
+<area shape="rect" id="node4" href="$d9/dd3/classarc_1_1DrawText.html" title="Class for the text." alt="" coords="299,167,409,289"/>
+<area shape="rect" id="node5" href="$d6/d91/classarc_1_1DrawTexture.html" title="Class for the texture." alt="" coords="433,160,565,296"/>
+</map>

@@ -5,6 +5,12 @@ var hierarchy =
     [ "arc::DLLoader< T >", "d6/d99/classarc_1_1DLLoader.html", null ],
     [ "arc::DLLoader< arc::IGame >", "d6/d99/classarc_1_1DLLoader.html", null ],
     [ "arc::DLLoader< arc::IGraphical >", "d6/d99/classarc_1_1DLLoader.html", null ],
+    [ "arc::DrawObject", "d4/d8a/classarc_1_1DrawObject.html", [
+      [ "arc::DrawFillRect", "d8/d7c/classarc_1_1DrawFillRect.html", null ],
+      [ "arc::DrawRect", "d6/d09/classarc_1_1DrawRect.html", null ],
+      [ "arc::DrawText", "d9/dd3/classarc_1_1DrawText.html", null ],
+      [ "arc::DrawTexture", "d6/d91/classarc_1_1DrawTexture.html", null ]
+    ] ],
     [ "std::exception", null, [
       [ "arc::Exception", "d6/def/classarc_1_1Exception.html", [
         [ "arc::Core::CoreException", "d8/db3/classarc_1_1Core_1_1CoreException.html", null ],

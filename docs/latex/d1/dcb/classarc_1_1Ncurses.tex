@@ -53,7 +53,7 @@ void \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}{dra
 \begin{DoxyCompactList}\small\item\em Draw a rectangle on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw a filled rectangle on the screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}{draw\+Texture}} (int x, int y, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture, uint32\+\_\+t width, uint32\+\_\+t height) override
+void \mbox{\hyperlink{classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f}{draw\+Texture}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture) override
 \begin{DoxyCompactList}\small\item\em Draw a texture on the screen. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$ \mbox{\hyperlink{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}{get\+Key}} () override
 \begin{DoxyCompactList}\small\item\em Get the keyboard management. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -170,26 +170,39 @@ Draw text on the screen.
 
 Implements \mbox{\hyperlink{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}{arc\+::\+IGraphical}}.
 
-\mbox{\Hypertarget{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}\label{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}} 
+\mbox{\Hypertarget{classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f}\label{classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f}} 
 \index{arc::Ncurses@{arc::Ncurses}!drawTexture@{drawTexture}}
 \index{drawTexture@{drawTexture}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{drawTexture()}{drawTexture()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Texture (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&}]{texture,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Texture (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Draw a texture on the screen. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position of the texture \\
+\hline
+{\em y} & The y position of the texture \\
+\hline
+{\em width} & The width of the texture \\
+\hline
+{\em height} & The height of the texture \\
+\hline
+{\em texture} & The texture to draw \\
+\hline
+\end{DoxyParams}
 
-Implements \mbox{\hyperlink{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}{arc\+::\+IGraphical}}.
+
+Implements \mbox{\hyperlink{classarc_1_1IGraphical_a7acd8d5676d51400e61d1beffbc19b31}{arc\+::\+IGraphical}}.
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d1/dcb/classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec_cgraph}
+\includegraphics[width=350pt]{d1/dcb/classarc_1_1Ncurses_abfcb838ba97e6ac5b7326fcbdad6ee3f_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}\label{classarc_1_1Ncurses_a5cb5c5973735aa3736cc9172542cf2a3}} 

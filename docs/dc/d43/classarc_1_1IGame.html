@@ -136,9 +136,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a5848f621d3d87d341528ad3b9ecb29"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d43/classarc_1_1IGame.html#a8a5848f621d3d87d341528ad3b9ecb29">update</a> ()=0</td></tr>
 <tr class="memdesc:a8a5848f621d3d87d341528ad3b9ecb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the game.  <a href="../../dc/d43/classarc_1_1IGame.html#a8a5848f621d3d87d341528ad3b9ecb29">More...</a><br /></td></tr>
 <tr class="separator:a8a5848f621d3d87d341528ad3b9ecb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4eaa3e0214f95eddeb955bc4dff802"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d43/classarc_1_1IGame.html#a5f4eaa3e0214f95eddeb955bc4dff802">draw</a> (<a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> &amp;graphical)=0</td></tr>
-<tr class="memdesc:a5f4eaa3e0214f95eddeb955bc4dff802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game (example: draw the map, draw the player, etc.)  <a href="../../dc/d43/classarc_1_1IGame.html#a5f4eaa3e0214f95eddeb955bc4dff802">More...</a><br /></td></tr>
-<tr class="separator:a5f4eaa3e0214f95eddeb955bc4dff802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1906196c279dac8e9535bff5a234e012"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; <a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html">DrawObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d43/classarc_1_1IGame.html#a1906196c279dac8e9535bff5a234e012">draw</a> ()=0</td></tr>
+<tr class="memdesc:a1906196c279dac8e9535bff5a234e012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the game (example: draw the map, draw the player, etc.)  <a href="../../dc/d43/classarc_1_1IGame.html#a1906196c279dac8e9535bff5a234e012">More...</a><br /></td></tr>
+<tr class="separator:a1906196c279dac8e9535bff5a234e012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297c7e95a871d3f4f69b6440d6bf5d6e"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d43/classarc_1_1IGame.html#a297c7e95a871d3f4f69b6440d6bf5d6e">getScore</a> () const =0</td></tr>
 <tr class="memdesc:a297c7e95a871d3f4f69b6440d6bf5d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the score of the game.  <a href="../../dc/d43/classarc_1_1IGame.html#a297c7e95a871d3f4f69b6440d6bf5d6e">More...</a><br /></td></tr>
 <tr class="separator:a297c7e95a871d3f4f69b6440d6bf5d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,8 +175,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5f4eaa3e0214f95eddeb955bc4dff802"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4eaa3e0214f95eddeb955bc4dff802">&#9670;&nbsp;</a></span>draw()</h2>
+<a id="a1906196c279dac8e9535bff5a234e012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1906196c279dac8e9535bff5a234e012">&#9670;&nbsp;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,10 +185,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void arc::IGame::draw </td>
+          <td class="memname">virtual std::list&lt;<a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html">DrawObject</a> *&gt; arc::IGame::draw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> &amp;&#160;</td>
-          <td class="paramname"><em>graphical</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -200,15 +199,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw the game (example: draw the map, draw the player, etc.) </p>
-<dl class="section warning"><dt>Warning</dt><dd>This function should not call the display function of the graphical library</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">graphical</td><td>Graphical library to draw the game </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of <a class="el" href="../../d4/d8a/classarc_1_1DrawObject.html" title="Class for the object to draw.">DrawObject</a> to draw </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d5/d16/classarc_1_1Snake.html#ad0c8ca45d5660d63e7c2e5ae3fceb342">arc::Snake</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">arc::Snake</a>.</p>
 
 </div>
 </div>

@@ -47,7 +47,7 @@ virtual void \mbox{\hyperlink{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b466
 \begin{DoxyCompactList}\small\item\em Event for the game (example\+: keyboard input, mouse input, etc.) \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGame_a8a5848f621d3d87d341528ad3b9ecb29}{update}} ()=0
 \begin{DoxyCompactList}\small\item\em Update the game. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}{draw}} (\mbox{\hyperlink{classarc_1_1IGraphical}{IGraphical}} \&graphical)=0
+virtual std\+::list$<$ \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} $\ast$ $>$ \mbox{\hyperlink{classarc_1_1IGame_a1906196c279dac8e9535bff5a234e012}{draw}} ()=0
 \begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\item 
 virtual uint64\+\_\+t \mbox{\hyperlink{classarc_1_1IGame_a297c7e95a871d3f4f69b6440d6bf5d6e}{get\+Score}} () const =0
 \begin{DoxyCompactList}\small\item\em Get the score of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -75,27 +75,22 @@ Destructor.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}\label{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}} 
+\mbox{\Hypertarget{classarc_1_1IGame_a1906196c279dac8e9535bff5a234e012}\label{classarc_1_1IGame_a1906196c279dac8e9535bff5a234e012}} 
 \index{arc::IGame@{arc::IGame}!draw@{draw}}
 \index{draw@{draw}!arc::IGame@{arc::IGame}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily virtual void arc\+::\+IGame\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IGraphical}{IGraphical}} \&}]{graphical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual std\+::list$<$\mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} $\ast$$>$ arc\+::\+IGame\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
 Draw the game (example\+: draw the map, draw the player, etc.) 
 
-\begin{DoxyWarning}{Warning}
-This function should not call the display function of the graphical library
-\end{DoxyWarning}
-
-\begin{DoxyParams}{Parameters}
-{\em graphical} & Graphical library to draw the game \\
-\hline
-\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} to draw 
+\end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342}{arc\+::\+Snake}}.
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_a061712579e6d18b4cc4a8061d5f05c51}{arc\+::\+Snake}}.
 
 \mbox{\Hypertarget{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b4661}\label{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b4661}} 
 \index{arc::IGame@{arc::IGame}!event@{event}}

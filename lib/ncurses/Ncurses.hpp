@@ -12,38 +12,34 @@
 #include "NcursesKey.hpp"
 
 #include <ncurses.h>
+#include <list>
 
 namespace arc {
     /**
      * @brief Ncurses implementation of the graphical library
      */
-    class Ncurses : public arc::IGraphical {
+    class Ncurses final : public IGraphical {
     private:
-        enum BLOCK_COLOR {
-            BLOCK_BLACK = 8,
-            BLOCK_RED = 9,
-            BLOCK_GREEN = 10,
-            BLOCK_YELLOW = 11,
-            BLOCK_BLUE = 12,
-            BLOCK_MAGENTA = 13,
-            BLOCK_CYAN = 14,
-            BLOCK_WHITE = 15
-        };
+        std::list<std::pair<short, Color>> _colorList;
+        std::list<std::pair<short, Color>> _colorBlockList;
 
         NcursesKey _key;
         bool _isOpen = true;
 
-        uint32_t _width;
-        uint32_t _height;
+        uint32_t _width = 0;
+        uint32_t _height = 0;
 
-        WINDOW *_window;
+        WINDOW *_window = nullptr;
         const uint16_t NCURSES_RATIO = 10;
+
+        short _getColor(const Color &color);
+        short _getBlockColor(const Color &color);
 
     public:
         /**
          * @brief Exception implementation for the Ncurses library
          */
-        class NcursesException : public GraphicalException {
+        class NcursesException final : public GraphicalException {
         public:
             explicit NcursesException(const std::string &message) : GraphicalException("Ncurses", message) {}
         };

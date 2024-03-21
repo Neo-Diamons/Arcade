@@ -17,7 +17,7 @@ namespace arc {
     /**
      * @brief Ncurses implementation of the key library
      */
-    class NcursesKey : public arc::IKey {
+    class NcursesKey final : public IKey {
     private:
         int _lastKeyPressed = UNKNOWN;
         const std::map<KeyEnum, int> _keyMap = {
@@ -59,7 +59,7 @@ namespace arc {
                 {NUM9, '9'},
                 {ESCAPE, 27},
                 {SPACE, ' '},
-                {RETURN, KEY_ENTER},
+                {RETURN, 36},
                 {BACKSPACE, KEY_BACKSPACE},
                 {UP, KEY_UP},
                 {DOWN, KEY_DOWN},

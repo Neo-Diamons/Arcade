@@ -18,6 +18,7 @@ namespace arc {
     /**
      * @interface IGraphical
      * @brief Interface for the graphical library
+     * @attention Need to have a extern "C" create() and destroy() function
      */
     class IGraphical {
     public:
@@ -30,7 +31,7 @@ namespace arc {
         };
 
         /**
-         * @brief Initialize the graphical library
+         * @brief Destructor
          */
         virtual ~IGraphical() = default;
 

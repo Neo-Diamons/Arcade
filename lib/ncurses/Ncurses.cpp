@@ -148,7 +148,7 @@ void arc::Ncurses::drawFillRect(int x, int y, uint32_t width, uint32_t height, c
     wattroff(_window, COLOR_PAIR(index));
 }
 
-void arc::Ncurses::drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height)
+void arc::Ncurses::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture)
 {
     const short index = _getColor(texture.GetColor());
 

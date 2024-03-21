@@ -56,7 +56,7 @@ namespace arc {
 
         void event(IKey *key) override;
         void update() override;
-        void draw(IGraphical &graphical) override;
+        std::list<DrawObject *> draw() override;
 
         [[nodiscard]] uint64_t getScore() const override;
     };

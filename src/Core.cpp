@@ -105,6 +105,7 @@ void arc::Core::globalAction()
 
     if (_game != nullptr) {
         if (_key->isKeyPressed(IKey::R)) {
+            std::cerr << "Reload" << std::endl;
             _game->stop();
             _score = _game->getScore();
             _game->init(_name);
@@ -132,7 +133,7 @@ void arc::Core::globalAction()
     }
 }
 
-void arc::Core::selectionLoop()
+std::list<arc::DrawObject *> arc::Core::selectionLoop()
 {
     if (_name.length() < 16)
         for (uint16_t i = IKey::A; i < IKey::Z; i++)
@@ -141,21 +142,61 @@ void arc::Core::selectionLoop()
     if (_key->isKeyPressed(IKey::BACKSPACE) && !_name.empty())
         _name.pop_back();
 
-    _graphical->clear();
+    std::list<DrawObject *> objects;
     uint16_t offsetX = (800 - 310) / 4;
     uint16_t offsetY = (400 - 120) / 2 - _graphicalLibs.size() * 10 - _gameLibs.size() * 10;
-    _graphical->drawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE);
-    _graphical->drawText(offsetX + 10, 30 + offsetY, "  Player: " + _name           , WHITE);
-    _graphical->drawText(offsetX + 10, 40 + offsetY, "  Score: " + std::to_string(_score), WHITE);
-    _graphical->drawText(offsetX, 60 + offsetY, "|-+--   -  Graphical  -   --+-|" , WHITE);
+    objects.push_back(new DrawText(offsetX, 10 + offsetY     , "/-----------Arcade------------\\", WHITE));
+    objects.push_back(new DrawText(offsetX + 10, 30 + offsetY, "  Player: " + _name                , WHITE));
+    objects.push_back(new DrawText(offsetX + 10, 40 + offsetY, "  Score: " + std::to_string(_score), WHITE));
+    objects.push_back(new DrawText(offsetX, 60 + offsetY     , "|-+--   -  Graphical  -   --+-|" , WHITE));
     for (uint8_t i = 0; i < static_cast<uint8_t>(_graphicalLibs.size()); i++, offsetY += 10)
-        _graphical->drawText(offsetX, 80 + offsetY,
-                             (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 90 + offsetY, "|-+--   -    Game     -   --+-|" , WHITE);
+        objects.push_back(new DrawText(offsetX, 80 + offsetY,
+                                       (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE));
+    objects.push_back(new DrawText(offsetX, 90 + offsetY     , "|-+--   -    Game     -   --+-|" , WHITE));
     for (uint8_t i = 0; i < static_cast<uint8_t>(_gameLibs.size()); i++, offsetY += 10)
-        _graphical->drawText(offsetX, 110 + offsetY,
-                             (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE);
-    _graphical->drawText(offsetX, 120 + offsetY, "\\-----------------------------/", WHITE);
+        objects.push_back(new DrawText(offsetX, 110 + offsetY,
+                                       (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE));
+    objects.push_back(new DrawText(offsetX, 120 + offsetY    , "\\-----------------------------/", WHITE));
+    return objects;
+}
+
+void arc::Core::draw(DrawObject *object) const
+{
+    switch (object->getType()) {
+    case TEXT:
+        draw(dynamic_cast<DrawText *>(object));
+        break;
+    case RECT:
+        draw(dynamic_cast<DrawRect *>(object));
+        break;
+    case FILLRECT:
+        draw(dynamic_cast<DrawFillRect *>(object));
+        break;
+    case TEXTURE:
+        draw(dynamic_cast<DrawTexture *>(object));
+        break;
+    }
+    delete object;
+}
+
+void arc::Core::draw(const DrawText *object) const
+{
+    _graphical->drawText(object->x, object->y, object->text, object->color);
+}
+
+void arc::Core::draw(const DrawRect *object) const
+{
+    _graphical->drawRect(object->x, object->y, object->width, object->height, object->color);
+}
+
+void arc::Core::draw(const DrawFillRect *object) const
+{
+    _graphical->drawFillRect(object->x, object->y, object->width, object->height, object->color);
+}
+
+void arc::Core::draw(const DrawTexture *object) const
+{
+    _graphical->drawTexture(object->x, object->y, object->width, object->height, object->texture);
 }
 
 void arc::Core::run()
@@ -167,30 +208,34 @@ void arc::Core::run()
         exit(84);
     }
 
+    std::list<DrawObject *> objects;
     while (_graphical->isOpen()) {
         globalAction();
         if (!_graphical->isOpen())
             break;
 
         if (_game == nullptr) {
-            selectionLoop();
+            objects = selectionLoop();
         } else {
             try {
                 _game->event(_key);
                 _game->update();
+                objects = _game->draw();
             } catch (const IGame::GameException &e) {
                 std::cerr << e.what() << std::endl;
                 exit(84);
             }
-
-            try {
-                _graphical->clear();
-                _game->draw(*_graphical);
-            } catch (const IGraphical::GraphicalException &e) {
-                std::cerr << e.what() << std::endl;
-                exit(84);
-            }
         }
-        _graphical->display();
+
+        try {
+            _graphical->clear();
+            for (const auto object : objects)
+                draw(object);
+            objects.clear();
+            _graphical->display();
+        } catch (const IGraphical::GraphicalException &e) {
+            std::cerr << e.what() << std::endl;
+            exit(84);
+        }
     }
 }

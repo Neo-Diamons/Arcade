@@ -8,8 +8,10 @@
 #ifndef ARCADE_IGAME_HPP
 #define ARCADE_IGAME_HPP
 
-#include "Exception.hpp"
+#include <list>
+
 #include "IGraphical.hpp"
+#include "DrawObject/DrawObject.hpp"
 
 namespace arc {
     /**
@@ -52,11 +54,9 @@ namespace arc {
         virtual void update() = 0;
         /**
          * @brief Draw the game (example: draw the map, draw the player, etc.)
-         * @warning This function should not call the display function of the graphical library
-         *
-         * @param graphical Graphical library to draw the game
+         * @return List of DrawObject to draw
          */
-        virtual void draw(IGraphical &graphical) = 0;
+        virtual std::list<DrawObject *> draw() = 0;
 
         /**
          * @brief Get the score of the game

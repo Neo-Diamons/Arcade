@@ -88,7 +88,7 @@ UT_TEST		:=	$(DIR_BIN)/unit_test
 RM			:=	rm -rf
 
 CXX			:=	g++
-CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra
+CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra -fno-gnu-unique
 LD			:=	ld -shared
 LD_FLAGS	:=
 

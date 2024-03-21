@@ -1,0 +1,4 @@
+<map id="arc::Snake::event" name="arc::Snake::event">
+<area shape="rect" id="node1" title="Event for the game (example: keyboard input, mouse input, etc.)" alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node2" href="$de/d3d/classarc_1_1IKey.html#aa9fdab9d4edc50ed9f3b4c9f88b7f89f" title="Check if a key is pressed." alt="" coords="188,5,359,32"/>
+</map>

@@ -47,11 +47,11 @@ void \mbox{\hyperlink{classarc_1_1Ncurses_a1bf243d1759e94938e049c2486f09ff8}{dis
 \begin{DoxyCompactList}\small\item\em Display the screen. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classarc_1_1Ncurses_a8031b91b77ab7a1411e1186cd190bb66}{is\+Open}} () override
 \begin{DoxyCompactList}\small\item\em Check if the window is open. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
+void \mbox{\hyperlink{classarc_1_1Ncurses_aae5e029e6ad71abb6cd0467300a515df}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw text on the screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
+void \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd607272814214c}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw a rectangle on the screen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color) override
+void \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213bf7596}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color) override
 \begin{DoxyCompactList}\small\item\em Draw a filled rectangle on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1Ncurses_a135a56c2026c14a2d269b9182894c5ec}{draw\+Texture}} (int x, int y, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture, uint32\+\_\+t width, uint32\+\_\+t height) override
 \begin{DoxyCompactList}\small\item\em Draw a texture on the screen. \end{DoxyCompactList}\item 
@@ -95,7 +95,7 @@ Implements \mbox{\hyperlink{classarc_1_1IGraphical_af8da4425d2f527a76058307b09ec
 \index{arc::Ncurses@{arc::Ncurses}!drawFillRect@{drawFillRect}}
 \index{drawFillRect@{drawFillRect}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{drawFillRect()}{drawFillRect()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -122,7 +122,7 @@ Implements \mbox{\hyperlink{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42
 \index{arc::Ncurses@{arc::Ncurses}!drawRect@{drawRect}}
 \index{drawRect@{drawRect}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{drawRect()}{drawRect()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -149,7 +149,7 @@ Implements \mbox{\hyperlink{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dc
 \index{arc::Ncurses@{arc::Ncurses}!drawText@{drawText}}
 \index{drawText@{drawText}!arc::Ncurses@{arc::Ncurses}}
 \doxysubsubsection{\texorpdfstring{drawText()}{drawText()}}
-{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Text (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{text,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void arc\+::\+Ncurses\+::draw\+Text (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{text,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

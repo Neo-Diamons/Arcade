@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_173',['update',['../dc/d43/classarc_1_1IGame.html#a8a5848f621d3d87d341528ad3b9ecb29',1,'arc::IGame']]]
+  ['texture_188',['Texture',['../da/d1d/classarc_1_1Texture.html#abf6a799348a6514da85d0e1e592304c3',1,'arc::Texture']]]
 ];

@@ -1,8 +1,9 @@
 <map id="lib/ncurses/Ncurses.hpp" name="lib/ncurses/Ncurses.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="388,5,564,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="437,5,613,32"/>
 <area shape="rect" id="node2" href="$d3/ded/IGraphical_8hpp.html" title=" " alt="" coords="201,80,367,107"/>
 <area shape="rect" id="node10" href="$dd/d78/NcursesKey_8hpp.html" title=" " alt="" coords="414,80,538,107"/>
 <area shape="rect" id="node11" title=" " alt="" coords="534,155,618,181"/>
+<area shape="rect" id="node13" title=" " alt="" coords="613,80,656,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,72,181"/>
 <area shape="rect" id="node4" href="$da/d42/Exception_8hpp.html" title=" " alt="" coords="96,155,211,181"/>
 <area shape="rect" id="node7" href="$d0/ddc/Texture_8hpp.html" title=" " alt="" coords="235,155,333,181"/>

@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "arc::Color", "db/d56/classarc_1_1Color.html", null ],
     [ "arc::Core", "d3/dd6/classarc_1_1Core.html", null ],
     [ "arc::DLLoader< T >", "d6/d99/classarc_1_1DLLoader.html", null ],
     [ "arc::DLLoader< arc::IGame >", "d6/d99/classarc_1_1DLLoader.html", null ],
@@ -14,7 +15,9 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "arc::IGame", "dc/d43/classarc_1_1IGame.html", null ],
+    [ "arc::IGame", "dc/d43/classarc_1_1IGame.html", [
+      [ "arc::Snake", "d5/d16/classarc_1_1Snake.html", null ]
+    ] ],
     [ "arc::IGraphical", "d7/dbb/classarc_1_1IGraphical.html", [
       [ "arc::Ncurses", "d1/dcb/classarc_1_1Ncurses.html", null ]
     ] ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_170',['run',['../d3/dd6/classarc_1_1Core.html#aeb7e960dea34e0c9a15bc8db2458ab0e',1,'arc::Core']]]
+  ['operator_3d_3d_185',['operator==',['../db/d56/classarc_1_1Color.html#a0246e0e3bf6ba3c523434dd4e8362a0b',1,'arc::Color']]]
 ];

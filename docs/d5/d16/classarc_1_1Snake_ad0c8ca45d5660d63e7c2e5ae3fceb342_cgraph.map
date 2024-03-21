@@ -1,0 +1,6 @@
+<map id="arc::Snake::draw" name="arc::Snake::draw">
+<area shape="rect" id="node1" title="Draw the game (example: draw the map, draw the player, etc.)" alt="" coords="5,56,135,83"/>
+<area shape="rect" id="node2" href="$d7/dbb/classarc_1_1IGraphical.html#a3c724df1dcb67b501b1067d74c42b14e" title="Draw a filled rectangle on the screen." alt="" coords="183,5,387,32"/>
+<area shape="rect" id="node3" href="$d7/dbb/classarc_1_1IGraphical.html#a27f02e4256d60edf958027bf45529f67" title="Draw text on the screen." alt="" coords="193,56,376,83"/>
+<area shape="rect" id="node4" href="$d7/dbb/classarc_1_1IGraphical.html#aab4557f4e81f550383878d1c06ed749a" title="Draw a texture on the screen." alt="" coords="183,107,387,133"/>
+</map>

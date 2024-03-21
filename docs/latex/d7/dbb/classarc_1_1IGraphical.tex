@@ -38,7 +38,7 @@ class \mbox{\hyperlink{classarc_1_1IGraphical_1_1GraphicalException}{Graphical\+
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}{$\sim$\+IGraphical}} ()=default
-\begin{DoxyCompactList}\small\item\em Initialize the graphical library. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a62f2f245aae061ca75c0d397b7a64fe1}{init}} (uint32\+\_\+t width, uint32\+\_\+t height)=0
 \begin{DoxyCompactList}\small\item\em Initialize the graphical. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGraphical_ac1b304d27675d3170f4ed8369f5888a6}{stop}} ()=0
@@ -49,11 +49,11 @@ virtual void \mbox{\hyperlink{classarc_1_1IGraphical_af8da4425d2f527a76058307b09
 \begin{DoxyCompactList}\small\item\em Display the screen. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classarc_1_1IGraphical_af3793c96aab17f10a0831f702636b76e}{is\+Open}} ()=0
 \begin{DoxyCompactList}\small\item\em Check if the window is open. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a27f02e4256d60edf958027bf45529f67}{draw\+Text}} (int x, int y, const std\+::string \&text, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color)=0
 \begin{DoxyCompactList}\small\item\em Draw text on the screen. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a009b078f641ea86861b2c1d8f8dca72e}{draw\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color)=0
 \begin{DoxyCompactList}\small\item\em Draw a rectangle on the screen. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&color)=0
+virtual void \mbox{\hyperlink{classarc_1_1IGraphical_a3c724df1dcb67b501b1067d74c42b14e}{draw\+Fill\+Rect}} (int x, int y, uint32\+\_\+t width, uint32\+\_\+t height, const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&color)=0
 \begin{DoxyCompactList}\small\item\em Draw a filled rectangle on the screen. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGraphical_aab4557f4e81f550383878d1c06ed749a}{draw\+Texture}} (int x, int y, const \mbox{\hyperlink{classarc_1_1Texture}{Texture}} \&texture, uint32\+\_\+t width, uint32\+\_\+t height)=0
 \begin{DoxyCompactList}\small\item\em Draw a texture on the screen. \end{DoxyCompactList}\item 
@@ -64,6 +64,11 @@ virtual \mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$ \mbox{\hyperlink{classa
 \doxysubsection{Detailed Description}
 Interface for the graphical library. 
 
+\begin{DoxyAttention}{Attention}
+Need to have a extern \char`\"{}\+C\char`\"{} \mbox{\hyperlink{Ncurses_8cpp_ab2645cccf391359a1f15b59cacc83ba8}{create()}} and \mbox{\hyperlink{Ncurses_8cpp_a6c2d730e332c101d79699fe503d2b11e}{destroy()}} function 
+\end{DoxyAttention}
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}\label{classarc_1_1IGraphical_a92029fdce722f907481ec99c3833f852}} 
 \index{arc::IGraphical@{arc::IGraphical}!````~IGraphical@{$\sim$IGraphical}}
@@ -73,7 +78,7 @@ Interface for the graphical library.
 
 
 
-Initialize the graphical library. 
+Destructor. 
 
 
 
@@ -110,7 +115,7 @@ Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a1bf243d1759e94938e049c2486f
 \index{arc::IGraphical@{arc::IGraphical}!drawFillRect@{drawFillRect}}
 \index{drawFillRect@{drawFillRect}!arc::IGraphical@{arc::IGraphical}}
 \doxysubsubsection{\texorpdfstring{drawFillRect()}{drawFillRect()}}
-{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -137,7 +142,7 @@ Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a521eeda9871f62380b832a2213b
 \index{arc::IGraphical@{arc::IGraphical}!drawRect@{drawRect}}
 \index{drawRect@{drawRect}!arc::IGraphical@{arc::IGraphical}}
 \doxysubsubsection{\texorpdfstring{drawRect()}{drawRect()}}
-{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -164,7 +169,7 @@ Implemented in \mbox{\hyperlink{classarc_1_1Ncurses_a60251300ee466ed71dd60727281
 \index{arc::IGraphical@{arc::IGraphical}!drawText@{drawText}}
 \index{drawText@{drawText}!arc::IGraphical@{arc::IGraphical}}
 \doxysubsubsection{\texorpdfstring{drawText()}{drawText()}}
-{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Text (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{text,  }\item[{const \mbox{\hyperlink{namespacearc_a9f4e01f8b5630a827de8ee52399567f8}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGraphical\+::draw\+Text (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const std\+::string \&}]{text,  }\item[{const \mbox{\hyperlink{classarc_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 

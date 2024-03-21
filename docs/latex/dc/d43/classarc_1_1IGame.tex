@@ -11,12 +11,22 @@ Interface for the game.
 
 
 
+Inheritance diagram for arc\+::IGame\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{df/d40/classarc_1_1IGame__inherit__graph}
+\end{center}
+\end{figure}
+
+
 Collaboration diagram for arc\+::IGame\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=150pt]{d1/d43/classarc_1_1IGame__coll__graph}
+\includegraphics[width=158pt]{d1/d43/classarc_1_1IGame__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Classes}
@@ -27,7 +37,9 @@ class \mbox{\hyperlink{classarc_1_1IGame_1_1GameException}{Game\+Exception}}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{classarc_1_1IGame_ae2ccf08d9f2acbeea46d4aabfea01162}{init}} ()=0
+virtual \mbox{\hyperlink{classarc_1_1IGame_a35b0c983ceff303b26a5d15a5b66963b}{$\sim$\+IGame}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classarc_1_1IGame_a71e07b98b630806f92e5486dba5063db}{init}} (const std\+::string \&name)=0
 \begin{DoxyCompactList}\small\item\em Initialize the game. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGame_a83b4ad663041c8bfbe74cc2db3c0542d}{stop}} ()=0
 \begin{DoxyCompactList}\small\item\em Stop the game and free the memory. \end{DoxyCompactList}\item 
@@ -36,11 +48,31 @@ virtual void \mbox{\hyperlink{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b466
 virtual void \mbox{\hyperlink{classarc_1_1IGame_a8a5848f621d3d87d341528ad3b9ecb29}{update}} ()=0
 \begin{DoxyCompactList}\small\item\em Update the game. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}{draw}} (\mbox{\hyperlink{classarc_1_1IGraphical}{IGraphical}} \&graphical)=0
-\begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\item 
+virtual uint64\+\_\+t \mbox{\hyperlink{classarc_1_1IGame_a297c7e95a871d3f4f69b6440d6bf5d6e}{get\+Score}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the score of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Interface for the game. 
+
+\begin{DoxyAttention}{Attention}
+Need to have a extern \char`\"{}\+C\char`\"{} \mbox{\hyperlink{Ncurses_8cpp_ab2645cccf391359a1f15b59cacc83ba8}{create()}} and \mbox{\hyperlink{Ncurses_8cpp_a6c2d730e332c101d79699fe503d2b11e}{destroy()}} function 
+\end{DoxyAttention}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classarc_1_1IGame_a35b0c983ceff303b26a5d15a5b66963b}\label{classarc_1_1IGame_a35b0c983ceff303b26a5d15a5b66963b}} 
+\index{arc::IGame@{arc::IGame}!````~IGame@{$\sim$IGame}}
+\index{````~IGame@{$\sim$IGame}!arc::IGame@{arc::IGame}}
+\doxysubsubsection{\texorpdfstring{$\sim$IGame()}{~IGame()}}
+{\footnotesize\ttfamily virtual arc\+::\+IGame\+::$\sim$\+IGame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor. 
+
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}\label{classarc_1_1IGame_a5f4eaa3e0214f95eddeb955bc4dff802}} 
@@ -61,6 +93,10 @@ This function should not call the display function of the graphical library
 {\em graphical} & Graphical library to draw the game \\
 \hline
 \end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_ad0c8ca45d5660d63e7c2e5ae3fceb342}{arc\+::\+Snake}}.
+
 \mbox{\Hypertarget{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b4661}\label{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b4661}} 
 \index{arc::IGame@{arc::IGame}!event@{event}}
 \index{event@{event}!arc::IGame@{arc::IGame}}
@@ -76,15 +112,40 @@ Event for the game (example\+: keyboard input, mouse input, etc.)
 {\em key} & Key input \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classarc_1_1IGame_ae2ccf08d9f2acbeea46d4aabfea01162}\label{classarc_1_1IGame_ae2ccf08d9f2acbeea46d4aabfea01162}} 
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_a6dd858aa69f873a815433a6478a79f1e}{arc\+::\+Snake}}.
+
+\mbox{\Hypertarget{classarc_1_1IGame_a297c7e95a871d3f4f69b6440d6bf5d6e}\label{classarc_1_1IGame_a297c7e95a871d3f4f69b6440d6bf5d6e}} 
+\index{arc::IGame@{arc::IGame}!getScore@{getScore}}
+\index{getScore@{getScore}!arc::IGame@{arc::IGame}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily virtual uint64\+\_\+t arc\+::\+IGame\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the score of the game. 
+
+\begin{DoxyReturn}{Returns}
+The score of the game 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_a258030a3a5edeb4014e6fa8b8e8a03f0}{arc\+::\+Snake}}.
+
+\mbox{\Hypertarget{classarc_1_1IGame_a71e07b98b630806f92e5486dba5063db}\label{classarc_1_1IGame_a71e07b98b630806f92e5486dba5063db}} 
 \index{arc::IGame@{arc::IGame}!init@{init}}
 \index{init@{init}!arc::IGame@{arc::IGame}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily virtual void arc\+::\+IGame\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void arc\+::\+IGame\+::init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
 Initialize the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_a2733b42ce1f01a6674aff500c6d27a87}{arc\+::\+Snake}}.
 
 \mbox{\Hypertarget{classarc_1_1IGame_a83b4ad663041c8bfbe74cc2db3c0542d}\label{classarc_1_1IGame_a83b4ad663041c8bfbe74cc2db3c0542d}} 
 \index{arc::IGame@{arc::IGame}!stop@{stop}}
@@ -96,6 +157,10 @@ Initialize the game.
 
 Stop the game and free the memory. 
 
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_aceafb1d7d056ec6c27f565f9cff93767}{arc\+::\+Snake}}.
+
 \mbox{\Hypertarget{classarc_1_1IGame_a8a5848f621d3d87d341528ad3b9ecb29}\label{classarc_1_1IGame_a8a5848f621d3d87d341528ad3b9ecb29}} 
 \index{arc::IGame@{arc::IGame}!update@{update}}
 \index{update@{update}!arc::IGame@{arc::IGame}}
@@ -105,6 +170,10 @@ Stop the game and free the memory.
 
 
 Update the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classarc_1_1Snake_a803733201129c39d82e8e20d67f5ff39}{arc\+::\+Snake}}.
 
 
 

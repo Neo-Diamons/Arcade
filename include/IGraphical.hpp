@@ -90,8 +90,13 @@ namespace arc {
 
         /**
          * @brief Draw a texture on the screen
+         * @param x The x position of the texture
+         * @param y The y position of the texture
+         * @param width The width of the texture
+         * @param height The height of the texture
+         * @param texture The texture to draw
          */
-        virtual void drawTexture(int x, int y, const Texture &texture, uint32_t width, uint32_t height) = 0;
+        virtual void drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture) = 0;
 
         /**
          * @brief Get the keyboard management

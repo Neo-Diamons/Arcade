@@ -5,17 +5,19 @@
 ** Game
 */
 
-#ifndef ARCADE_GAME_HPP
-#define ARCADE_GAME_HPP
+#ifndef ARCADE_IGAME_HPP
+#define ARCADE_IGAME_HPP
 
 #include "Exception.hpp"
-#include "Graphical.hpp"
+#include "IGraphical.hpp"
 
 namespace arc {
     /**
+     * @interface IGame
      * @brief Interface for the game
+     * @attention Need to have a extern "C" create() and destroy() function
      */
-    class Game {
+    class IGame {
     public:
         /**
          * @brief Exception for the game
@@ -26,9 +28,14 @@ namespace arc {
         };
 
         /**
+         * @brief Destructor
+         */
+        virtual ~IGame() = default;
+
+        /**
          * @brief Initialize the game
          */
-        virtual void init() = 0;
+        virtual void init(const std::string &name) = 0;
         /**
          * @brief Stop the game and free the memory
          */
@@ -38,7 +45,7 @@ namespace arc {
          * @brief Event for the game (example: keyboard input, mouse input, etc.)
          * @param key Key input
          */
-        virtual void event(Key *key) = 0;
+        virtual void event(IKey *key) = 0;
         /**
          * @brief Update the game
          */
@@ -49,8 +56,14 @@ namespace arc {
          *
          * @param graphical Graphical library to draw the game
          */
-        virtual void draw(Graphical &graphical) = 0;
+        virtual void draw(IGraphical &graphical) = 0;
+
+        /**
+         * @brief Get the score of the game
+         * @return The score of the game
+         */
+        [[nodiscard]] virtual uint64_t getScore() const = 0;
     };
 }
 
-#endif //ARCADE_GAME_HPP
+#endif //ARCADE_IGAME_HPP

@@ -8,14 +8,18 @@
 #ifndef ARCADE_NCURSES_KEY_HPP
 #define ARCADE_NCURSES_KEY_HPP
 
-#include "include/Key.hpp"
+#include "include/IKey.hpp"
 
 #include <ncurses.h>
 #include <map>
 
 namespace arc {
-    class NcursesKey : public arc::Key {
+    /**
+     * @brief Ncurses implementation of the key library
+     */
+    class NcursesKey final : public IKey {
     private:
+        int _lastKeyPressed = UNKNOWN;
         const std::map<KeyEnum, int> _keyMap = {
                 {A, 'a'},
                 {B, 'b'},
@@ -55,7 +59,7 @@ namespace arc {
                 {NUM9, '9'},
                 {ESCAPE, 27},
                 {SPACE, ' '},
-                {RETURN, KEY_ENTER},
+                {RETURN, 36},
                 {BACKSPACE, KEY_BACKSPACE},
                 {UP, KEY_UP},
                 {DOWN, KEY_DOWN},

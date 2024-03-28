@@ -6,6 +6,7 @@
 */
 
 
+#include <iostream>
 #include "SDL.hpp"
 
 extern "C"
@@ -23,28 +24,42 @@ extern "C"
 
 void arc::SDL::init(uint32_t width, uint32_t height)
 {
-    this->width = width;
-    this->height = height;
+    this->_width = width;
+    this->_height = height;
 
     if (SDL_Init( SDL_INIT_VIDEO ) < 0)
         throw SDLException("SDL could not initialize.");
-    this->window = SDL_CreateWindow("Arcade", 0, 0, width, height, SDL_WINDOW_SHOWN);
-    if (this->window == nullptr)
+    this->_window = SDL_CreateWindow("Arcade", 0, 0, width, height, SDL_WINDOW_SHOWN);
+    if (this->_window == nullptr)
         throw SDLException("SDL window could not be created.");
-    SDL_CreateRenderer(this->window, 0, SDL_RENDERER_ACCELERATED);
+    SDL_CreateRenderer(this->_window, 0, SDL_RENDERER_ACCELERATED);
+    this->_isOpen = true;
+    SDL_PollEvent(&(*_event));
+}
+
+bool arc::SDL::isOpen()
+{
+    return this->_isOpen;
 }
 
 void arc::SDL::stop()
 {
-    SDL_DestroyWindow(this->window);
+    SDL_DestroyWindow(this->_window);
     SDL_Quit();
+    this->_isOpen = false;
 }
+
 void arc::SDL::clear()
 {
-    SDL_Event event;
+    if (SDL_PollEvent(&(*_event)) && (*_event).type == SDL_QUIT)
+        stop();
 
-    if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
-        this->stop();
+    // SDL_Event event;
+
+    // if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
+    //     std::cout << "test" << std::endl;
+    //     this->stop();
+    // }
 }
 
 void arc::SDL::display(){}

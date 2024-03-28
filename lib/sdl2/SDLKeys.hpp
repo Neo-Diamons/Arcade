@@ -10,6 +10,7 @@
 #include "include/IKey.hpp"
 
 #include <SDL2/SDL.h>
+#include <memory>
 #include <map>
 
 namespace arc {
@@ -65,7 +66,14 @@ namespace arc {
                 {RIGHT, SDLK_RIGHT}
         };
 
+        std::shared_ptr<SDL_Event> _event{};
+
     public:
+        SDLKeys() = delete;
+        explicit SDLKeys(std::shared_ptr<SDL_Event> event)
+            : _event(event)
+        {}
+
         bool isKeyPressed(KeyEnum key) override;
     };
 }

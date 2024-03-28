@@ -9,8 +9,5 @@
 
 bool arc::SDLKeys::isKeyPressed(KeyEnum key)
 {
-    SDL_Event event;
-
-    return SDL_PollEvent(&event)
-        && event.key.keysym.sym == _keyMap.at(key);
+    return (*_event).key.keysym.sym == _keyMap.at(key);
 }

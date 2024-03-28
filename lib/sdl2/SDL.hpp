@@ -28,7 +28,7 @@ namespace arc {
             void drawText(int x, int y, const std::string &text, const Color &color) override;
             void drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
 
-            bool isOpen() override {};
+            bool isOpen() override;
 
             void drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color) override;
             void drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture) override;
@@ -36,11 +36,14 @@ namespace arc {
             IKey *getKey() override;
 
         private:
-            uint32_t width = 0;
-            uint32_t height = 0;
+            uint32_t _width = 0;
+            uint32_t _height = 0;
 
-            SDL_Window *window = nullptr;
-            SDL_Renderer *render = nullptr;
-            SDLKeys _key;
+            SDL_Window *_window = nullptr;
+            SDL_Renderer *_render = nullptr;
+            bool _isOpen = false;
+            
+            std::shared_ptr<SDL_Event> _event;
+            SDLKeys _key{_event};
     };
 }

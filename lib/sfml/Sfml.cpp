@@ -9,102 +9,100 @@
 
 extern "C"
 {
-    arc::IGraphical *create() {
+    arc::IGraphical *create()
+    {
         return new arc::SFML();
     }
 
-    void destroy(const arc::IGraphical *ptr) {
+    void destroy(const arc::IGraphical *ptr)
+    {
         delete ptr;
     }
 }
 
-void arc::SFML::init(uint32_t width, uint32_t height) {
-    this->_width = width;
-    this->_height = height;
-    this->_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML");
-    this->_font = std::make_shared<sf::Font>();
-    if (!this->_font->loadFromFile("assets/JetBrainsMono-Regular.ttf"))
+void arc::SFML::init(uint32_t width, uint32_t height)
+{
+    _width = width;
+    _height = height;
+
+    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML");
+    _font = std::make_shared<sf::Font>();
+
+    if (!_font->loadFromFile("assets/JetBrainsMono-Regular.ttf"))
         throw std::runtime_error("Cannot load font /assets/JetBrainsMono-Regular.ttf");
 }
 
-void arc::SFML::stop() {
-    this->_texts.clear();
-    this->_sprites.clear();
-    this->_rects.clear();
-    this->_preloadedTextures.clear();
-    this->_window->close();
+void arc::SFML::stop()
+{
+    _font.reset();
+    _preloadedTextures.clear();
+    _window->close();
 }
 
-void arc::SFML::clear() {
-    this->_texts.clear();
-    this->_sprites.clear();
-    this->_rects.clear();
-    this->_window->clear();
+void arc::SFML::clear()
+{
+    _window->clear();
 }
 
 void arc::SFML::display() {
-    while (this->_window->pollEvent(this->_event)){
-        if (this->_event.type == sf::Event::Closed)
-            this->_window->close();
-        if (this->_event.type == sf::Event::KeyPressed)
-            this->_key.setKeyPressed(this->_event.key.code);
-    }
-    this->_window->display();
+    while (_window->pollEvent(_event))
+        switch (_event.type) {
+            case sf::Event::Closed:
+                _window->close();
+                break;
+            case sf::Event::KeyPressed:
+                _key.setKeyPressed(_event.key.code);
+                break;
+            default: break;
+        }
+    _window->display();
 }
 
-bool arc::SFML::isOpen() {
-    return this->_window->isOpen();
+bool arc::SFML::isOpen()
+{
+    return _window->isOpen();
 }
 
-void arc::SFML::drawText(int x, int y, const std::string &text, const arc::Color &color) {
-    std::shared_ptr<sf::Text> textPtr = std::make_shared<sf::Text>(text, *this->_font, 50);
-
-    this->_texts.push_back(textPtr);
-    textPtr->setPosition((float)x, (float)y);
-    this->_window->draw(*textPtr);
+void arc::SFML::drawText(int x, int y, const std::string &text, const Color &color)
+{
+    sf::Text sfText{text, *_font, 20};
+    sfText.setPosition(static_cast<float>(x * 2), static_cast<float>(y * 2));
+    sfText.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
+    _window->draw(sfText);
 }
 
-void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color) {
-    std::shared_ptr<sf::RectangleShape> rectPtr = std::make_shared<sf::RectangleShape>(sf::Vector2f((float)width, (float)height));
-
-    this->_rects.push_back(rectPtr);
-    rectPtr->setPosition((float)x, (float)y);
-    rectPtr->setFillColor(sf::Color::Red);
-    this->_window->draw(*rectPtr);
+void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)
+{
+    sf::RectangleShape rectangle{{static_cast<float>(width), static_cast<float>(height)}};
+    rectangle.setPosition(static_cast<float>(x), static_cast<float>(y));
+    rectangle.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
+    _window->draw(rectangle);
 }
 
-void arc::SFML::drawFillRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color) {
-    std::shared_ptr<sf::RectangleShape> rectPtr = std::make_shared<sf::RectangleShape>(sf::Vector2f((float)width, (float)height));
-
-    this->_rects.push_back(rectPtr);
-    rectPtr->setPosition((float)x, (float)y);
-    rectPtr->setFillColor(sf::Color::Red);
-    this->_window->draw(*rectPtr);
+void arc::SFML::drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color& color)
+{
+    sf::RectangleShape rectangle{{static_cast<float>(width), static_cast<float>(height)}};
+    rectangle.setPosition(static_cast<float>(x), static_cast<float>(y));
+    rectangle.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
+    _window->draw(rectangle);
 }
 
-void arc::SFML::drawTexture(int x, int y, uint32_t, uint32_t, const arc::Texture &texture) {
-    sf::Texture *sfTexture;
-    auto it = this->_preloadedTextures.find(texture.GetPath());
-
-    if (it == this->_preloadedTextures.end()) {
-        std::shared_ptr texturePtr = std::make_shared<sf::Texture>();
-
-        this->_preloadedTextures.insert({texture.GetPath(), texturePtr});
-        sfTexture = texturePtr.get();
-        sfTexture->loadFromFile(texture.GetPath());
-    } else {
-        sfTexture = it->second.get();
+void arc::SFML::drawTexture(int x, int y, uint32_t, uint32_t, const Texture &texture)
+{
+    if (!_preloadedTextures.contains(texture.GetPath())) {
+        sf::Texture sfTexture;
+        sfTexture.loadFromFile(texture.GetPath());
+        _preloadedTextures.insert({texture.GetPath(), sfTexture});
     }
 
-    sf::Sprite *sfSprite;
-    std::shared_ptr spritePtr = std::make_shared<sf::Sprite>();
+    const sf::Texture sfTexture = _preloadedTextures[texture.GetPath()];
+    sf::Sprite sfSprite{sfTexture};
 
-    sfSprite = spritePtr.get();
-    sfSprite->setTexture(*sfTexture);
-    sfSprite->setPosition((float)x, (float)y);
-    this->_window->draw(*sfSprite);
+    sfSprite.setPosition(static_cast<float>(x), static_cast<float>(y));
+    _window->draw(sfSprite);
 }
 
-arc::IKey *arc::SFML::getKey() {
-    return &this->_key;
+arc::IKey *arc::SFML::getKey()
+{
+    return &_key;
 }

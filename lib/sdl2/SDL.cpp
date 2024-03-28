@@ -93,7 +93,22 @@ void arc::SDL::drawFillRect(int x, int y, uint32_t width, uint32_t height, const
     SDL_RenderDrawRect(this->_render, &rect);
 }
 
-void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture){}
+void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture)
+{
+    std::string path = texture.GetPath();
+    SDL_Texture *text = IMG_LoadTexture(this->_render, path.c_str());
+    SDL_Rect rect;
+
+    rect.x = x;
+    rect.y = y;
+    rect.h = height;
+    rect.w = width;
+    SDL_SetRenderDrawColor(this->_render, 0, 0, 0, 0);
+    SDL_RenderDrawRect(this->_render, &rect);
+    SDL_RenderCopy(this->_render, text, NULL, &rect);
+    SDL_DestroyTexture(text);
+}
+
 arc::IKey *arc::SDL::getKey()
 {
     return &_key;

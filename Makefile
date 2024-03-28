@@ -27,6 +27,7 @@ LIB2_NAME	:=	$(LIB_DIR)/arcade_sdl2.so
 LIB2_DIR	:=	$(LIB_DIR)/sdl2
 LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
 					SDL.cpp											\
+					SDLKeys.cpp										\
 				)
 
 LIB3_NAME	:=	$(LIB_DIR)/lib3.so

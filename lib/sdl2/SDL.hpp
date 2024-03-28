@@ -40,8 +40,7 @@ namespace arc {
             uint32_t height = 0;
 
             SDL_Window *window = nullptr;
-            SDL_Surface *screenSurface = nullptr;
-
+            SDL_Renderer *render = nullptr;
             SDLKeys _key;
     };
 }

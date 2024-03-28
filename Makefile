@@ -28,9 +28,11 @@ LIB2_DIR	:=	$(LIB_DIR)/sdl2
 LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
 				)
 
-LIB3_NAME	:=	$(LIB_DIR)/lib3.so
-LIB3_DIR	:=	$(LIB_DIR)/lib3
+LIB3_NAME	:=	$(LIB_DIR)/arcade_sfml.so
+LIB3_DIR	:=	$(LIB_DIR)/sfml
 LIB3_SRC	+=	$(addprefix $(LIB3_DIR)/,							\
+					SFML.cpp										\
+					SFMLKey.cpp										\
 				)
 
 LIB4_NAME	:=	$(LIB_DIR)/arcade_snake.so

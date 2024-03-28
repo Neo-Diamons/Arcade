@@ -89,7 +89,7 @@ UT_TEST		:=	$(DIR_BIN)/unit_test
 RM			:=	rm -rf
 
 CXX			:=	g++
-CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra
+CXXFLAGS	:=	-std=c++20 -iquote. -Wall -Wextra -fno-gnu-unique
 LD			:=	ld -shared
 LD_FLAGS	:=
 
@@ -120,14 +120,14 @@ $(DG_DIR_OBJ)/%.o:	%$(EXT); $(BUILD_OBJ)
 
 define COMPILE
 	$(CREATE_DIR)
-	@$(CXX) $(CXXFLAGS) -o $@ $^			 						\
+	@$(CXX) $(CXXFLAGS) $^ -o $@			 						\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@						\
 	|| printf "\033[31m[ERROR]\033[0m %s\n"  $@
 endef
 
 define COMPILE_LIB
 	$(CREATE_DIR)
-	@$(LD) $(LD_FLAGS) -o $@ $^										\
+	@$(LD) $(LD_FLAGS) $^ -o $@										\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@						\
 	|| printf "\033[31m[ERROR]\033[0m %s\n"  $@
 endef

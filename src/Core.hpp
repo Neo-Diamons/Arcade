@@ -9,8 +9,13 @@
 #define ARCADE_CORE_HPP
 
 #include <vector>
-#include "include/IGame.hpp"
+
 #include "DLLoader.hpp"
+#include "include/IGame.hpp"
+#include "include/DrawObject/DrawText.hpp"
+#include "include/DrawObject/DrawRect.hpp"
+#include "include/DrawObject/DrawFillRect.hpp"
+#include "include/DrawObject/DrawTexture.hpp"
 
 /**
  * @brief Namespace for the arcade project
@@ -72,7 +77,14 @@ namespace arc {
         void getLib();
 
         void globalAction();
-        void selectionLoop();
+        std::list<arc::DrawObject *> selectionLoop();
+
+        void draw(DrawObject *object) const;
+        void draw(const DrawText *object) const;
+        void draw(const DrawRect *object) const;
+        void draw(const DrawFillRect *object) const;
+        void draw(const DrawTexture *object) const;
+
     public:
         /**
          * @brief Exception implementation for the Core

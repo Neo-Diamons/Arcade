@@ -13,9 +13,9 @@
 #include "SDLKeys.hpp"
 
 namespace arc {
-    class SDL : public arc::IGraphical{
+    class SDL final : public arc::IGraphical{
         public:
-            class SDLException : public GraphicalException {
+            class SDLException final : public GraphicalException {
             public:
                 explicit SDLException(const std::string &message) : GraphicalException("SDL", message) {}
             };
@@ -43,7 +43,7 @@ namespace arc {
             SDL_Renderer *_render = nullptr;
             bool _isOpen = false;
             
-            std::shared_ptr<SDL_Event> _event;
+            std::shared_ptr<SDL_Event> _event = std::make_shared<SDL_Event>();
             SDLKeys _key{_event};
     };
 }

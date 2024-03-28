@@ -70,9 +70,14 @@ namespace arc {
 
     public:
         SDLKeys() = delete;
-        explicit SDLKeys(std::shared_ptr<SDL_Event> event)
+        explicit SDLKeys(const std::shared_ptr<SDL_Event>& event)
             : _event(event)
         {}
+
+        // explicit SDLKeys(const SDL_Event& sdl_event)
+        // {
+        //     _event = std::make_shared<SDL_Event>(sdl_event);
+        // }
 
         bool isKeyPressed(KeyEnum key) override;
     };

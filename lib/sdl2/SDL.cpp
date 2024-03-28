@@ -24,48 +24,51 @@ extern "C"
 
 void arc::SDL::init(uint32_t width, uint32_t height)
 {
-    this->_width = width;
-    this->_height = height;
+    _width = width;
+    _height = height;
 
     if (SDL_Init( SDL_INIT_VIDEO ) < 0)
         throw SDLException("SDL could not initialize.");
-    this->_window = SDL_CreateWindow("Arcade", 0, 0, width, height, SDL_WINDOW_SHOWN);
-    if (this->_window == nullptr)
+    _window = SDL_CreateWindow("Arcade", 0, 0, width, height, SDL_WINDOW_SHOWN);
+    if (_window == nullptr)
         throw SDLException("SDL window could not be created.");
-    SDL_CreateRenderer(this->_window, 0, SDL_RENDERER_ACCELERATED);
-    this->_isOpen = true;
+    _render = SDL_CreateRenderer(this->_window, 0, SDL_RENDERER_ACCELERATED);
+    if (_render == nullptr)
+        throw SDLException("SDL renderer could not be created.");
+
+    _isOpen = true;
     SDL_PollEvent(&(*_event));
 }
 
 bool arc::SDL::isOpen()
 {
-    return this->_isOpen;
+    return _isOpen;
 }
 
 void arc::SDL::stop()
 {
-    SDL_DestroyWindow(this->_window);
+    SDL_DestroyWindow(_window);
+    SDL_DestroyRenderer(_render);
     SDL_Quit();
-    this->_isOpen = false;
+    _isOpen = false;
 }
 
 void arc::SDL::clear()
 {
-    if (SDL_PollEvent(&(*_event)) && (*_event).type == SDL_QUIT)
-        stop();
-
-    // SDL_Event event;
-
-    // if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
-    //     std::cout << "test" << std::endl;
-    //     this->stop();
-    // }
+    SDL_RenderClear(_render);
 }
 
-void arc::SDL::display(){}
-void arc::SDL::drawText(int x, int y, const std::string &text, const arc::Color &color){}
-void arc::SDL::drawRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color){}
-void arc::SDL::drawFillRect(int x, int y, uint32_t width, uint32_t height, const arc::Color &color){}
+void arc::SDL::display()
+{
+    SDL_RenderPresent(_render);
+
+    if (SDL_PollEvent(&(*_event)) && _event->type == SDL_QUIT)
+        stop();
+}
+
+void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color){}
+void arc::SDL::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color){}
+void arc::SDL::drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color){}
 void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture){}
 arc::IKey *arc::SDL::getKey()
 {

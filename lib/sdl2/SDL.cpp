@@ -67,8 +67,32 @@ void arc::SDL::display()
 }
 
 void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color){}
-void arc::SDL::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color){}
-void arc::SDL::drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color){}
+
+void arc::SDL::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)
+{
+    SDL_Rect rect;
+
+    rect.x = x;
+    rect.y = y;
+    rect.h = height;
+    rect.w = width;
+    SDL_SetRenderDrawColor(this->_render, color.r, color.g, color.b, 255);
+    SDL_RenderDrawRect(this->_render, &rect);
+}
+
+void arc::SDL::drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color &color)
+{
+    SDL_Rect rect;
+
+    rect.x = x;
+    rect.y = y;
+    rect.h = height;
+    rect.w = width;
+    SDL_SetRenderDrawColor(this->_render, color.r, color.g, color.b, 255);
+    SDL_RenderFillRect(this->_render, &rect);
+    SDL_RenderDrawRect(this->_render, &rect);
+}
+
 void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture){}
 arc::IKey *arc::SDL::getKey()
 {

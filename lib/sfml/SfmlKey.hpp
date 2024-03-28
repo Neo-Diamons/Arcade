@@ -9,7 +9,6 @@
 
 #include <map>
 #include <SFML/Window/Keyboard.hpp>
-#include "Sfml.hpp"
 #include "include/IKey.hpp"
 
 namespace arc {
@@ -65,5 +64,6 @@ namespace arc {
 
     public:
         bool isKeyPressed(KeyEnum key) override;
+        void setKeyPressed(sf::Keyboard::Key key);
     };
 }

@@ -7,10 +7,12 @@
 
 #include "SfmlKey.hpp"
 
-void arc::SfmlKey::setKeyPressed(sf::Keyboard::Key key) {
-    this->_lastKeyPressed = key;
+void arc::SfmlKey::setKeyPressed(sf::Keyboard::Key key)
+{
+    _lastKeyPressed = key;
 }
 
-bool arc::SfmlKey::isKeyPressed(arc::IKey::KeyEnum key) {
-    return this->_keyMap.find(key)->second == this->_lastKeyPressed;
+bool arc::SfmlKey::isKeyPressed(KeyEnum key)
+{
+    return _keyMap.find(key)->second == _lastKeyPressed;
 }

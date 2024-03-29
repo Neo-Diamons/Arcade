@@ -8,13 +8,26 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "include/IGraphical.hpp"
 #include "SDLKeys.hpp"
 
 namespace arc {
-    class SDL final : public arc::IGraphical{
+    class SDL final : public IGraphical{
+        private:
+            uint32_t _width = 0;
+            uint32_t _height = 0;
+
+            SDL_Window *_window = nullptr;
+            SDL_Renderer *_render = nullptr;
+            bool _isOpen = false;
+
+            std::shared_ptr<SDL_Event> _event = std::make_shared<SDL_Event>();
+            SDLKeys _key{_event};
+
+            TTF_Font *_font = nullptr;
+            std::map<std::string, SDL_Texture *> _textures;
+
         public:
             class SDLException final : public GraphicalException {
             public:
@@ -35,16 +48,5 @@ namespace arc {
             void drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture) override;
 
             IKey *getKey() override;
-
-        private:
-            uint32_t _width = 0;
-            uint32_t _height = 0;
-
-            SDL_Window *_window = nullptr;
-            SDL_Renderer *_render = nullptr;
-            bool _isOpen = false;
-            
-            std::shared_ptr<SDL_Event> _event = std::make_shared<SDL_Event>();
-            SDLKeys _key{_event};
     };
 }

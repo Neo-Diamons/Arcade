@@ -9,6 +9,7 @@
 #define ARCADE_CORE_HPP
 
 #include <vector>
+#include <limits>
 
 #include "DLLoader.hpp"
 #include "include/IGame.hpp"
@@ -65,7 +66,7 @@ namespace arc {
 
         std::vector<std::string> _graphicalLibs{};
         std::vector<std::string> _gameLibs{};
-        uint8_t _graphicalIndex = 0;
+        uint8_t _graphicalIndex = std::numeric_limits<uint8_t>::max();
         uint8_t _gameIndex = 0;
 
         std::string _name;
@@ -77,7 +78,7 @@ namespace arc {
         void getLib();
 
         void globalAction();
-        std::list<arc::DrawObject *> selectionLoop();
+        std::list<DrawObject *> selectionLoop();
 
         void draw(DrawObject *object) const;
         void draw(const DrawText *object) const;

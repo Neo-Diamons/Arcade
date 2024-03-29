@@ -6,7 +6,6 @@
 */
 
 #include "SfmlKey.hpp"
-#include <iostream>
 
 void arc::SfmlKey::setKeyPressed(sf::Keyboard::Key key)
 {

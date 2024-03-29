@@ -11,6 +11,7 @@
 #include "SfmlKey.hpp"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <list>
 
 namespace arc {
     class SFML final : public IGraphical {
@@ -25,7 +26,7 @@ namespace arc {
         SfmlKey _key;
 
         std::map<std::string, sf::Texture> _preloadedTextures;
-
+        std::list<sf::Text> _texts;
     public:
         void init(uint32_t width, uint32_t height) override;
         void stop() override;

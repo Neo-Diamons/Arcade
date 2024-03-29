@@ -58,6 +58,9 @@ void arc::SFML::display() {
                 break;
             default: break;
         }
+    for (auto &text : _texts)
+        _window->draw(text);
+    _texts.clear();
     _window->display();
 }
 
@@ -72,7 +75,7 @@ void arc::SFML::drawText(int x, int y, const std::string &text, const Color &col
 
     sfText.setPosition(static_cast<float>(x * 2), static_cast<float>(y * 2));
     sfText.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
-    _window->draw(sfText);
+    _texts.push_back(sfText);
 }
 
 void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)

@@ -51,11 +51,7 @@ bool arc::SDL::isOpen()
 
 void arc::SDL::stop()
 {
-    for (const auto & [fst, snd] : _textures)
-        SDL_DestroyTexture(snd);
     TTF_Quit();
-    SDL_DestroyWindow(_window);
-    SDL_DestroyRenderer(_render);
     SDL_Quit();
     _isOpen = false;
 }

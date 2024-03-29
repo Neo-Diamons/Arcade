@@ -26,7 +26,7 @@ void arc::SFML::init(uint32_t width, uint32_t height)
     _width = width;
     _height = height;
 
-    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML");
+    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML", sf::Style::Close | sf::Style::Titlebar);
 
     _font = std::make_shared<sf::Font>();
 

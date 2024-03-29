@@ -6,6 +6,7 @@
 */
 
 #include "Sfml.hpp"
+#include <iostream>
 
 extern "C"
 {
@@ -26,6 +27,7 @@ void arc::SFML::init(uint32_t width, uint32_t height)
     _height = height;
 
     _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML");
+
     _font = std::make_shared<sf::Font>();
 
     if (!_font->loadFromFile("assets/JetBrainsMono-Regular.ttf"))
@@ -45,6 +47,7 @@ void arc::SFML::clear()
 }
 
 void arc::SFML::display() {
+    _key.resetKey();
     while (_window->pollEvent(_event))
         switch (_event.type) {
             case sf::Event::Closed:
@@ -66,6 +69,7 @@ bool arc::SFML::isOpen()
 void arc::SFML::drawText(int x, int y, const std::string &text, const Color &color)
 {
     sf::Text sfText{text, *_font, 20};
+
     sfText.setPosition(static_cast<float>(x * 2), static_cast<float>(y * 2));
     sfText.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
     _window->draw(sfText);
@@ -74,6 +78,7 @@ void arc::SFML::drawText(int x, int y, const std::string &text, const Color &col
 void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)
 {
     sf::RectangleShape rectangle{{static_cast<float>(width), static_cast<float>(height)}};
+
     rectangle.setPosition(static_cast<float>(x), static_cast<float>(y));
     rectangle.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
     _window->draw(rectangle);
@@ -82,6 +87,7 @@ void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Co
 void arc::SFML::drawFillRect(int x, int y, uint32_t width, uint32_t height, const Color& color)
 {
     sf::RectangleShape rectangle{{static_cast<float>(width), static_cast<float>(height)}};
+
     rectangle.setPosition(static_cast<float>(x), static_cast<float>(y));
     rectangle.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
     _window->draw(rectangle);
@@ -91,6 +97,7 @@ void arc::SFML::drawTexture(int x, int y, uint32_t, uint32_t, const Texture &tex
 {
     if (!_preloadedTextures.contains(texture.GetPath())) {
         sf::Texture sfTexture;
+
         sfTexture.loadFromFile(texture.GetPath());
         _preloadedTextures.insert({texture.GetPath(), sfTexture});
     }

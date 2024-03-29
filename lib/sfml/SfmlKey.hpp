@@ -65,5 +65,6 @@ namespace arc {
     public:
         bool isKeyPressed(KeyEnum key) override;
         void setKeyPressed(sf::Keyboard::Key key);
+        void resetKey();
     };
 }

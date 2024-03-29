@@ -12,6 +12,18 @@
 
 arc::Core::Core(const std::string &path)
 {
+    try {
+        getLib();
+        for (uint8_t i = 0; i < static_cast<uint8_t>(_graphicalLibs.size()); i++)
+            if ("./lib/" + _graphicalLibs[i] == path)
+                _graphicalIndex = i;
+        if (_graphicalIndex == std::numeric_limits<uint8_t>::max())
+            throw CoreException("No graphical library found");
+    } catch (const CoreException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    }
+
     loadGraphicalLib(path);
 }
 
@@ -105,9 +117,10 @@ void arc::Core::globalAction()
 
     if (_game != nullptr) {
         if (_key->isKeyPressed(IKey::R)) {
-            std::cerr << "Reload" << std::endl;
             _game->stop();
             _score = _game->getScore();
+            _gameLoader.destroyInstance(_game);
+            _game = _gameLoader.getInstance("lib/" + _gameLibs[_gameIndex]);
             _game->init(_name);
         }
 
@@ -201,13 +214,6 @@ void arc::Core::draw(const DrawTexture *object) const
 
 void arc::Core::run()
 {
-    try {
-        getLib();
-    } catch (const CoreException &e) {
-        std::cerr << e.what() << std::endl;
-        exit(84);
-    }
-
     std::list<DrawObject *> objects;
     while (_graphical->isOpen()) {
         globalAction();

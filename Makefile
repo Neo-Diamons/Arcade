@@ -26,6 +26,8 @@ LIB1_SRC	+=	$(addprefix $(LIB1_DIR)/,							\
 LIB2_NAME	:=	$(LIB_DIR)/arcade_sdl2.so
 LIB2_DIR	:=	$(LIB_DIR)/sdl2
 LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
+					SDL.cpp											\
+					SDLKeys.cpp										\
 				)
 
 LIB3_NAME	:=	$(LIB_DIR)/lib3.so
@@ -141,7 +143,7 @@ $(LIB1_NAME):		LD_FLAGS += -lncurses
 $(LIB1_NAME):		$(LIB1_OBJ);	$(COMPILE_LIB)
 -include $(LIB2_DEP)
 $(LIB2_NAME):		CXXFLAGS += -fPIC
-$(LIB2_NAME):		LD_FLAGS += -lSDL2
+$(LIB2_NAME):		LD_FLAGS += -lSDL2 -lSDL2_image -lSDL2_ttf
 $(LIB2_NAME):		$(LIB2_OBJ);	$(COMPILE_LIB)
 -include $(LIB3_DEP)
 $(LIB3_NAME):		CXXFLAGS += -fPIC

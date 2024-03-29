@@ -9,6 +9,7 @@
 #define ARCADE_DLLOADER_HPP
 
 #include <dlfcn.h>
+#include <iostream>
 #include <string>
 
 #include "include/Exception.hpp"
@@ -27,7 +28,7 @@ namespace arc {
         /**
          * @brief Exception for the DLLoader
          */
-        class DLLoaderException : public Exception {
+        class DLLoaderException final : public Exception {
         public:
             explicit DLLoaderException(const std::string &message) : Exception("DLLoader", message) {}
         };

@@ -10,7 +10,6 @@
 
 void arc::SfmlKey::setKeyPressed(sf::Keyboard::Key key)
 {
-    std::cout << "Key pressed: " << key << std::endl;
     _lastKeyPressed = key;
 }
 

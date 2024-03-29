@@ -76,12 +76,13 @@ void arc::SDL::drawText(int x, int y, const std::string &text, const Color &colo
     SDL_Color fontColor = {(Uint8)color.r, (Uint8)color.g, (Uint8)color.b, 255};
     SDL_Surface* surfaceMessage = TTF_RenderText_Solid(freedomFont, ntext.c_str(), fontColor);
     SDL_Texture* Message = SDL_CreateTextureFromSurface(this->_render, surfaceMessage);
-    SDL_Rect messageRect;
+    int texW = 0;
+    int texH = 0;
 
-    messageRect.x = x;
-    messageRect.y = y;
-    messageRect.w = 16 * text.size();
-    messageRect.h = 14;
+    SDL_QueryTexture(Message, NULL, NULL, &texW, &texH);
+    
+    SDL_Rect messageRect = {x, y, texW, texH};
+    
     SDL_RenderCopy(this->_render, Message, NULL, &messageRect);
     SDL_FreeSurface(surfaceMessage);
     SDL_DestroyTexture(Message);

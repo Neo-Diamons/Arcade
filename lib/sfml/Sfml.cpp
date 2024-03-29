@@ -80,7 +80,9 @@ void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Co
     sf::RectangleShape rectangle{{static_cast<float>(width), static_cast<float>(height)}};
 
     rectangle.setPosition(static_cast<float>(x), static_cast<float>(y));
-    rectangle.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
+    rectangle.setOutlineThickness(3);
+    rectangle.setFillColor(sf::Color::Transparent);
+    rectangle.setOutlineColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
     _window->draw(rectangle);
 }
 

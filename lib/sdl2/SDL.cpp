@@ -29,6 +29,8 @@ void arc::SDL::init(uint32_t width, uint32_t height)
 
     if (SDL_Init( SDL_INIT_VIDEO ) < 0)
         throw SDLException("SDL could not initialize.");
+    if (TTF_Init() < 0)
+        throw SDLException("SDL_ttf could not initialize.");
     _window = SDL_CreateWindow("Arcade", 0, 0, width, height, SDL_WINDOW_SHOWN);
     if (_window == nullptr)
         throw SDLException("SDL window could not be created.");
@@ -49,6 +51,7 @@ void arc::SDL::stop()
 {
     SDL_DestroyWindow(_window);
     SDL_DestroyRenderer(_render);
+    TTF_Quit();
     SDL_Quit();
     _isOpen = false;
 }
@@ -66,7 +69,23 @@ void arc::SDL::display()
         stop();
 }
 
-void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color){}
+void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color)
+{
+    std::string ntext = text;
+    TTF_Font *freedomFont = TTF_OpenFont("assets/test.TTF", 12);
+    SDL_Color fontColor = {(Uint8)color.r, (Uint8)color.g, (Uint8)color.b, 255};
+    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(freedomFont, ntext.c_str(), fontColor);
+    SDL_Texture* Message = SDL_CreateTextureFromSurface(this->_render, surfaceMessage);
+    SDL_Rect messageRect;
+
+    messageRect.x = x;
+    messageRect.y = y;
+    messageRect.w = 16 * text.size();
+    messageRect.h = 14;
+    SDL_RenderCopy(this->_render, Message, NULL, &messageRect);
+    SDL_FreeSurface(surfaceMessage);
+    SDL_DestroyTexture(Message);
+}
 
 void arc::SDL::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)
 {
@@ -103,8 +122,6 @@ void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const 
     rect.y = y;
     rect.h = height;
     rect.w = width;
-    SDL_SetRenderDrawColor(this->_render, 0, 0, 0, 0);
-    SDL_RenderDrawRect(this->_render, &rect);
     SDL_RenderCopy(this->_render, text, NULL, &rect);
     SDL_DestroyTexture(text);
 }

@@ -30,6 +30,7 @@ namespace arc {
          * @param y Y position of the rectangle
          * @param width Width of the rectangle
          * @param height Height of the rectangle
+         * @param color Color of the rectangle
          */
         DrawRect(const int x, const int y, const int width, const int height, const Color &color)
             : DrawObject(RECT), x(x), y(y), width(width), height(height), color(color) {}

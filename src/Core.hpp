@@ -66,7 +66,7 @@ namespace arc {
 
         std::vector<std::string> _graphicalLibs{};
         std::vector<std::string> _gameLibs{};
-        uint8_t _graphicalIndex = std::numeric_limits<uint8_t>::max();
+        uint8_t _graphicalIndex = 0;
         uint8_t _gameIndex = 0;
 
         std::string _name;

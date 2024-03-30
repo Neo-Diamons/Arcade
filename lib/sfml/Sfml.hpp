@@ -27,7 +27,13 @@ namespace arc {
 
         std::map<std::string, sf::Texture> _preloadedTextures;
         std::list<sf::Text> _texts;
+
     public:
+        class SFMLException final : public GraphicalException {
+        public:
+            explicit SFMLException(const std::string &message) : GraphicalException("SFML", message) {}
+        };
+
         void init(uint32_t width, uint32_t height) override;
         void stop() override;
         void clear() override;

@@ -6,7 +6,6 @@
 */
 
 #include "Sfml.hpp"
-#include <iostream>
 
 extern "C"
 {
@@ -26,17 +25,16 @@ void arc::SFML::init(uint32_t width, uint32_t height)
     _width = width;
     _height = height;
 
-    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(height, width), "SFML", sf::Style::Close | sf::Style::Titlebar);
+    _window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), "SFML", sf::Style::Close | sf::Style::Titlebar);
 
     _font = std::make_shared<sf::Font>();
 
-    if (!_font->loadFromFile("assets/JetBrainsMono-Regular.ttf"))
-        throw std::runtime_error("Cannot load font /assets/JetBrainsMono-Regular.ttf");
+    if (!_font->loadFromFile("assets/test.TTF"))
+        throw SFMLException("Cannot load font assets/test.TTF");
 }
 
 void arc::SFML::stop()
 {
-    _font.reset();
     _preloadedTextures.clear();
     _window->close();
 }
@@ -71,11 +69,11 @@ bool arc::SFML::isOpen()
 
 void arc::SFML::drawText(int x, int y, const std::string &text, const Color &color)
 {
-    sf::Text sfText{text, *_font, 20};
+    sf::Text sfText{text, *_font, 12};
 
     sfText.setPosition(static_cast<float>(x * 2), static_cast<float>(y * 2));
     sfText.setFillColor({static_cast<sf::Uint8>(color.r), static_cast<sf::Uint8>(color.g), static_cast<sf::Uint8>(color.b), 255});
-    _texts.push_back(sfText);
+    _window->draw(sfText);
 }
 
 void arc::SFML::drawRect(int x, int y, uint32_t width, uint32_t height, const Color &color)

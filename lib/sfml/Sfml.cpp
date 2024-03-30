@@ -96,7 +96,7 @@ void arc::SFML::drawFillRect(int x, int y, uint32_t width, uint32_t height, cons
     _window->draw(rectangle);
 }
 
-void arc::SFML::drawTexture(int x, int y, uint32_t, uint32_t, const Texture &texture)
+void arc::SFML::drawTexture(int x, int y, uint32_t width, uint32_t height, const Texture &texture)
 {
     if (!_preloadedTextures.contains(texture.GetPath())) {
         sf::Texture sfTexture;
@@ -108,7 +108,8 @@ void arc::SFML::drawTexture(int x, int y, uint32_t, uint32_t, const Texture &tex
     const sf::Texture sfTexture = _preloadedTextures[texture.GetPath()];
     sf::Sprite sfSprite{sfTexture};
 
-    sfSprite.setPosition(static_cast<float>(x), static_cast<float>(y));
+    sfSprite.setPosition(static_cast<float>(x), static_cast<float>(y * 2));
+    sfSprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(width), static_cast<int>(height)));
     _window->draw(sfSprite);
 }
 

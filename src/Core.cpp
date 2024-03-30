@@ -27,7 +27,6 @@ arc::Core::Core(const std::string &path)
         exit(84);
     }
 
-    std::cerr << "Graphical library: " << _graphicalIndex << std::endl;
     loadGraphicalLib(path);
 }
 

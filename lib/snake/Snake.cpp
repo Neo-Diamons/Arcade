@@ -69,9 +69,11 @@ void arc::Snake::update()
     _snake.push_front(next);
     _snake.pop_back();
 
-    if (next == _food) {
+    if (next == _food && _snake.size() < WIDTH * HEIGHT) {
         _snake.push_back(_snake.back());
-        _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
+        // _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
+        while (std::ranges::find(_snake, _food) != _snake.end())
+            _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
     }
 }
 

@@ -113,7 +113,7 @@ void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const 
     if (!_textures.contains(texture.GetPath()))
         _textures[texture.GetPath()] = IMG_LoadTexture(_render, texture.GetPath().c_str());
     const SDL_Rect srect{0, 0, static_cast<int>(width), static_cast<int>(height)};
-    const SDL_Rect drect{x, y * 2, static_cast<int>(width), static_cast<int>(height)};
+    const SDL_Rect drect{x, y, static_cast<int>(width), static_cast<int>(height)};
     SDL_RenderCopy(_render, _textures[texture.GetPath()],  &srect, &drect);
 }
 

@@ -108,7 +108,7 @@ void arc::SFML::drawTexture(int x, int y, uint32_t width, uint32_t height, const
     const sf::Texture sfTexture = _preloadedTextures[texture.GetPath()];
     sf::Sprite sfSprite{sfTexture};
 
-    sfSprite.setPosition(static_cast<float>(x), static_cast<float>(y * 2));
+    sfSprite.setPosition(static_cast<float>(x), static_cast<float>(y));
     sfSprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(width), static_cast<int>(height)));
     _window->draw(sfSprite);
 }

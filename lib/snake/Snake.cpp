@@ -86,7 +86,7 @@ std::list<arc::DrawObject *> arc::Snake::draw()
         objects.push_back(new DrawFillRect(fst * 40, snd * 40 + 10, 40, 40, Color(71, 117, 235)));
 
     if (_state == LOSE)
-        objects.push_back(new DrawTexture(200, 155, 400, 90, _loseTexture));
+        objects.push_back(new DrawTexture(200, 340, 400, 180, _loseTexture));
     return objects;
 }
 

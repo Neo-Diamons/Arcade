@@ -7,7 +7,6 @@
 
 #include "Snake.hpp"
 
-#include <algorithm>
 #include <ctime>
 
 #include "include/DrawObject/DrawFillRect.hpp"
@@ -33,20 +32,14 @@ void arc::Snake::init(const std::string &name)
 }
 
 void arc::Snake::stop()
-{
-
-}
+{}
 
 void arc::Snake::event(IKey *key)
 {
-    if (key->isKeyPressed(IKey::Z))
-        _orientation = {0, -1};
-    if (key->isKeyPressed(IKey::S))
-        _orientation = {0, 1};
-    if (key->isKeyPressed(IKey::Q))
-        _orientation = {-1, 0};
     if (key->isKeyPressed(IKey::D))
-        _orientation = {1, 0};
+        _orientation = {-_orientation.second, _orientation.first};
+    if (key->isKeyPressed(IKey::Q))
+        _orientation = {_orientation.second, -_orientation.first};
 }
 
 void arc::Snake::update()
@@ -71,7 +64,6 @@ void arc::Snake::update()
 
     if (next == _food && _snake.size() < WIDTH * HEIGHT) {
         _snake.push_back(_snake.back());
-        // _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
         while (std::ranges::find(_snake, _food) != _snake.end())
             _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
     }
@@ -82,7 +74,7 @@ std::list<arc::DrawObject *> arc::Snake::draw()
     std::list<DrawObject *> objects;
 
     objects.push_back(new DrawText(10, 0, "Player: " + _name, WHITE));
-    objects.push_back(new DrawText(200, 0, "Score: " + std::to_string(_snake.size() - 4), WHITE));
+    objects.push_back(new DrawText(200, 0, "Score: " + std::to_string(getScore()), WHITE));
 
     for (uint16_t x = 0; x < WIDTH; x++)
         for (uint16_t y = 0; y < HEIGHT; y++)
@@ -100,5 +92,5 @@ std::list<arc::DrawObject *> arc::Snake::draw()
 
 uint64_t arc::Snake::getScore() const
 {
-    return _snake.size() - 4;
+    return (_snake.size() - 4) * 100;
 }

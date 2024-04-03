@@ -5,5 +5,7 @@
 <area shape="rect" id="node4" href="$df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html" title="Exception for the DLLoader." alt="" coords="355,57,510,98"/>
 <area shape="rect" id="node5" href="$d6/d54/classarc_1_1IGame_1_1GameException.html" title="Exception for the game." alt="" coords="331,123,535,149"/>
 <area shape="rect" id="node6" href="$d9/dcb/classarc_1_1IGraphical_1_1GraphicalException.html" title="Exception for the graphical library." alt="" coords="339,174,526,215"/>
-<area shape="rect" id="node7" href="$d8/db8/classarc_1_1Ncurses_1_1NcursesException.html" title="Exception implementation for the Ncurses library." alt="" coords="583,181,809,208"/>
+<area shape="rect" id="node7" href="$d8/db8/classarc_1_1Ncurses_1_1NcursesException.html" title="Exception implementation for the Ncurses library." alt="" coords="583,131,809,157"/>
+<area shape="rect" id="node8" href="$d3/d90/classarc_1_1SDL_1_1SDLException.html" title=" " alt="" coords="610,181,782,208"/>
+<area shape="rect" id="node9" href="$dc/d69/classarc_1_1SFML_1_1SFMLException.html" title=" " alt="" coords="600,232,792,259"/>
 </map>

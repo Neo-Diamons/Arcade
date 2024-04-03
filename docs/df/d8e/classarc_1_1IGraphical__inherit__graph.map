@@ -1,4 +1,6 @@
 <map id="arc::IGraphical" name="arc::IGraphical">
-<area shape="rect" id="node1" title="Interface for the graphical library." alt="" coords="5,5,132,229"/>
+<area shape="rect" id="node1" title="Interface for the graphical library." alt="" coords="156,5,283,229"/>
 <area shape="rect" id="node2" href="$d1/dcb/classarc_1_1Ncurses.html" title="Ncurses implementation of the graphical library." alt="" coords="5,277,132,487"/>
+<area shape="rect" id="node3" href="$dc/d37/classarc_1_1SDL.html" title=" " alt="" coords="156,277,283,487"/>
+<area shape="rect" id="node4" href="$db/d49/classarc_1_1SFML.html" title=" " alt="" coords="307,277,433,487"/>
 </map>

@@ -1,13 +1,17 @@
 <map id="include/Exception.hpp" name="include/Exception.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="259,5,425,32"/>
-<area shape="rect" id="node2" href="$d3/ded/IGraphical_8hpp.html" title=" " alt="" coords="172,80,339,107"/>
-<area shape="rect" id="node11" href="$d9/d38/DLLoader_8hpp.html" title=" " alt="" coords="363,80,497,107"/>
-<area shape="rect" id="node3" href="$d9/d40/IGame_8hpp.html" title=" " alt="" coords="207,155,351,181"/>
-<area shape="rect" id="node9" href="$df/d96/Ncurses_8hpp.html" title=" " alt="" coords="6,155,182,181"/>
-<area shape="rect" id="node4" href="$d8/dbf/Snake_8hpp.html" title=" " alt="" coords="204,229,355,256"/>
-<area shape="rect" id="node6" href="$d7/d38/Core_8hpp.html" title=" " alt="" coords="379,229,481,256"/>
-<area shape="rect" id="node5" href="$d3/d84/Snake_8cpp.html" title=" " alt="" coords="203,304,353,331"/>
-<area shape="rect" id="node7" href="$d6/d27/Core_8cpp.html" title=" " alt="" coords="507,304,609,331"/>
-<area shape="rect" id="node8" href="$d5/de0/Main_8cpp.html" title=" " alt="" coords="378,304,482,331"/>
-<area shape="rect" id="node10" href="$d1/d88/Ncurses_8cpp.html" title=" " alt="" coords="5,229,180,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="428,5,593,32"/>
+<area shape="rect" id="node2" href="$d3/ded/IGraphical_8hpp.html" title=" " alt="" coords="341,80,507,107"/>
+<area shape="rect" id="node15" href="$d9/d38/DLLoader_8hpp.html" title=" " alt="" coords="580,80,713,107"/>
+<area shape="rect" id="node3" href="$d9/d40/IGame_8hpp.html" title=" " alt="" coords="515,155,659,181"/>
+<area shape="rect" id="node9" href="$df/d96/Ncurses_8hpp.html" title=" " alt="" coords="5,155,181,181"/>
+<area shape="rect" id="node11" href="$d9/d37/SDL_8hpp.html" title=" " alt="" coords="206,155,333,181"/>
+<area shape="rect" id="node13" href="$df/d15/Sfml_8hpp.html" title=" " alt="" coords="357,155,491,181"/>
+<area shape="rect" id="node4" href="$d8/dbf/Snake_8hpp.html" title=" " alt="" coords="511,229,662,256"/>
+<area shape="rect" id="node6" href="$d7/d38/Core_8hpp.html" title=" " alt="" coords="686,229,789,256"/>
+<area shape="rect" id="node5" href="$d3/d84/Snake_8cpp.html" title=" " alt="" coords="510,304,661,331"/>
+<area shape="rect" id="node7" href="$d6/d27/Core_8cpp.html" title=" " alt="" coords="814,304,917,331"/>
+<area shape="rect" id="node8" href="$d5/de0/Main_8cpp.html" title=" " alt="" coords="685,304,789,331"/>
+<area shape="rect" id="node10" href="$d1/d88/Ncurses_8cpp.html" title=" " alt="" coords="6,229,181,256"/>
+<area shape="rect" id="node12" href="$d6/dfd/SDL_8cpp.html" title=" " alt="" coords="205,229,331,256"/>
+<area shape="rect" id="node14" href="$d5/db9/Sfml_8cpp.html" title=" " alt="" coords="355,229,487,256"/>
 </map>

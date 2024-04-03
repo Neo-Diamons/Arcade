@@ -1,4 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$de/d3d/classarc_1_1IKey.html" title="Interface for the keyboard management." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node1" href="$de/d3d/classarc_1_1IKey.html" title="Interface for the keyboard management." alt="" coords="5,56,84,83"/>
 <area shape="rect" id="node2" href="$df/db9/classarc_1_1NcursesKey.html" title="Ncurses implementation of the key library." alt="" coords="132,5,259,32"/>
+<area shape="rect" id="node3" href="$d2/d63/classarc_1_1SDLKeys.html" title="SDL implementation of the key library." alt="" coords="142,56,249,83"/>
+<area shape="rect" id="node4" href="$df/d85/classarc_1_1SfmlKey.html" title=" " alt="" coords="143,107,247,133"/>
 </map>

@@ -1,0 +1,90 @@
+\hypertarget{classarc_1_1SDLKeys}{}\doxysection{arc\+::SDLKeys Class Reference}
+\label{classarc_1_1SDLKeys}\index{arc::SDLKeys@{arc::SDLKeys}}
+
+
+\mbox{\hyperlink{classarc_1_1SDL}{SDL}} implementation of the key library.  
+
+
+
+
+{\ttfamily \#include $<$SDLKeys.\+hpp$>$}
+
+
+
+Inheritance diagram for arc\+::SDLKeys\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{d2/da8/classarc_1_1SDLKeys__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for arc\+::SDLKeys\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{d2/d7a/classarc_1_1SDLKeys__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classarc_1_1SDLKeys_ad9a0884128639838d9f91a2f99b3ed52}{SDLKeys}} ()=delete
+\item 
+\mbox{\hyperlink{classarc_1_1SDLKeys_af065eb9948b49aaf1c4a865d178d9a02}{SDLKeys}} (const std\+::shared\+\_\+ptr$<$ SDL\+\_\+\+Event $>$ \&event)
+\item 
+bool \mbox{\hyperlink{classarc_1_1SDLKeys_a2e08663eea017d36130b04c90c326c3e}{is\+Key\+Pressed}} (\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}} key) override
+\begin{DoxyCompactList}\small\item\em Check if a key is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classarc_1_1SDL}{SDL}} implementation of the key library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classarc_1_1SDLKeys_ad9a0884128639838d9f91a2f99b3ed52}\label{classarc_1_1SDLKeys_ad9a0884128639838d9f91a2f99b3ed52}} 
+\index{arc::SDLKeys@{arc::SDLKeys}!SDLKeys@{SDLKeys}}
+\index{SDLKeys@{SDLKeys}!arc::SDLKeys@{arc::SDLKeys}}
+\doxysubsubsection{\texorpdfstring{SDLKeys()}{SDLKeys()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily arc\+::\+SDLKeys\+::\+SDLKeys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classarc_1_1SDLKeys_af065eb9948b49aaf1c4a865d178d9a02}\label{classarc_1_1SDLKeys_af065eb9948b49aaf1c4a865d178d9a02}} 
+\index{arc::SDLKeys@{arc::SDLKeys}!SDLKeys@{SDLKeys}}
+\index{SDLKeys@{SDLKeys}!arc::SDLKeys@{arc::SDLKeys}}
+\doxysubsubsection{\texorpdfstring{SDLKeys()}{SDLKeys()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily arc\+::\+SDLKeys\+::\+SDLKeys (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ SDL\+\_\+\+Event $>$ \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1SDLKeys_a2e08663eea017d36130b04c90c326c3e}\label{classarc_1_1SDLKeys_a2e08663eea017d36130b04c90c326c3e}} 
+\index{arc::SDLKeys@{arc::SDLKeys}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!arc::SDLKeys@{arc::SDLKeys}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily bool arc\+::\+SDLKeys\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IKey_adf56a5336634db78e5a249a0271e2669}{Key\+Enum}}}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if a key is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the key is pressed, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classarc_1_1IKey_aa9fdab9d4edc50ed9f3b4c9f88b7f89f}{arc\+::\+IKey}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/sdl2/\mbox{\hyperlink{SDLKeys_8hpp}{SDLKeys.\+hpp}}\item 
+lib/sdl2/\mbox{\hyperlink{SDLKeys_8cpp}{SDLKeys.\+cpp}}\end{DoxyCompactItemize}

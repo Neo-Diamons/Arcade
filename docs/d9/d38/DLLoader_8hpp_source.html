@@ -97,53 +97,54 @@ $(document).ready(function(){initNavTree('d9/d38/DLLoader_8hpp_source.html','../
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define ARCADE_DLLOADER_HPP</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dlfcn.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d42/Exception_8hpp.html">include/Exception.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/db3/namespacearc.html">arc</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html">   22</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> *_lib = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">   30</a></span>&#160;        <span class="keyword">class </span><a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a> : <span class="keyword">public</span> <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">   32</a></span>&#160;            <span class="keyword">explicit</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">DLLoaderException</a>(<span class="keyword">const</span> std::string &amp;message) : <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a>(<span class="stringliteral">&quot;DLLoader&quot;</span>, message) {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">   40</a></span>&#160;        T *<a class="code" href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">getInstance</a>(<span class="keyword">const</span> std::string &amp;path)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            _lib = dlopen(path.c_str(), RTLD_LAZY);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (!_lib)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordtype">void</span> *constructor = dlsym(_lib, <span class="stringliteral">&quot;create&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span> (!constructor)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T *(*)()<span class="keyword">&gt;</span>(constructor)();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">   55</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">destroyInstance</a>(T *instance)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">void</span> *destructor = dlsym(_lib, <span class="stringliteral">&quot;destroy&quot;</span>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">if</span> (!destructor)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span> (*)(T *)<span class="keyword">&gt;</span>(destructor)(instance);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            dlclose(_lib);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d42/Exception_8hpp.html">include/Exception.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/db3/namespacearc.html">arc</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> *_lib = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">   31</a></span>&#160;        <span class="keyword">class </span><a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a> final : <span class="keyword">public</span> <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">   33</a></span>&#160;            <span class="keyword">explicit</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">DLLoaderException</a>(<span class="keyword">const</span> std::string &amp;message) : <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a>(<span class="stringliteral">&quot;DLLoader&quot;</span>, message) {}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">   41</a></span>&#160;        T *<a class="code" href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">getInstance</a>(<span class="keyword">const</span> std::string &amp;path)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            _lib = dlopen(path.c_str(), RTLD_LAZY);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (!_lib)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordtype">void</span> *constructor = dlsym(_lib, <span class="stringliteral">&quot;create&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (!constructor)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T *(*)()<span class="keyword">&gt;</span>(constructor)();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">   56</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">destroyInstance</a>(T *instance)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordtype">void</span> *destructor = dlsym(_lib, <span class="stringliteral">&quot;destroy&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (!destructor)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">DLLoaderException</a>(dlerror());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span> (*)(T *)<span class="keyword">&gt;</span>(destructor)(instance);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            dlclose(_lib);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_DLLOADER_HPP</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_DLLOADER_HPP</span></div>
 <div class="ttc" id="aException_8hpp_html"><div class="ttname"><a href="../../da/d42/Exception_8hpp.html">Exception.hpp</a></div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_1_1DLLoaderException_html"><div class="ttname"><a href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">arc::DLLoader::DLLoaderException</a></div><div class="ttdoc">Exception for the DLLoader.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:30</div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_1_1DLLoaderException_html_a5b3d94e098d64bca7a463807deb45e67"><div class="ttname"><a href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">arc::DLLoader::DLLoaderException::DLLoaderException</a></div><div class="ttdeci">DLLoaderException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:32</div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_html"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html">arc::DLLoader</a></div><div class="ttdoc">Class to load a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:22</div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_html_a488c9210419714375e3e610889c9ad9c"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">arc::DLLoader::getInstance</a></div><div class="ttdeci">T * getInstance(const std::string &amp;path)</div><div class="ttdoc">Get an instance of a Object from a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:40</div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_html_aad935fc85db61a872fa09376ce851c12"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">arc::DLLoader::destroyInstance</a></div><div class="ttdeci">void destroyInstance(T *instance)</div><div class="ttdoc">Destroy an instance of a Object from a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:55</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_1_1DLLoaderException_html"><div class="ttname"><a href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html">arc::DLLoader::DLLoaderException</a></div><div class="ttdoc">Exception for the DLLoader.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:31</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_1_1DLLoaderException_html_a5b3d94e098d64bca7a463807deb45e67"><div class="ttname"><a href="../../df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html#a5b3d94e098d64bca7a463807deb45e67">arc::DLLoader::DLLoaderException::DLLoaderException</a></div><div class="ttdeci">DLLoaderException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:33</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_html"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html">arc::DLLoader</a></div><div class="ttdoc">Class to load a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:23</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_html_a488c9210419714375e3e610889c9ad9c"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html#a488c9210419714375e3e610889c9ad9c">arc::DLLoader::getInstance</a></div><div class="ttdeci">T * getInstance(const std::string &amp;path)</div><div class="ttdoc">Get an instance of a Object from a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:41</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_html_aad935fc85db61a872fa09376ce851c12"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html#aad935fc85db61a872fa09376ce851c12">arc::DLLoader::destroyInstance</a></div><div class="ttdeci">void destroyInstance(T *instance)</div><div class="ttdoc">Destroy an instance of a Object from a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:56</div></div>
 <div class="ttc" id="aclassarc_1_1Exception_html"><div class="ttname"><a href="../../d6/def/classarc_1_1Exception.html">arc::Exception</a></div><div class="ttdoc">Exception class for the arcade project.</div><div class="ttdef"><b>Definition:</b> Exception.hpp:18</div></div>
 <div class="ttc" id="anamespacearc_html"><div class="ttname"><a href="../../dc/db3/namespacearc.html">arc</a></div><div class="ttdoc">Namespace for the arcade project.</div><div class="ttdef"><b>Definition:</b> Color.hpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->

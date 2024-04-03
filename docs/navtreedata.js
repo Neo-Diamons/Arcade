@@ -25,6 +25,12 @@
 var NAVTREE =
 [
   [ "Arcade", "index.html", [
+    [ "Description", "index.html#autotoc_md1", null ],
+    [ "Usage", "index.html#autotoc_md2", null ],
+    [ "Requirements", "index.html#autotoc_md3", null ],
+    [ "Installation", "index.html#autotoc_md4", null ],
+    [ "Documentation", "index.html#autotoc_md5", null ],
+    [ "Authors", "index.html#autotoc_md6", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -58,7 +64,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"de/d3d/classarc_1_1IKey.html#adf56a5336634db78e5a249a0271e2669affb647bfeead4322bdd45386375c9ecb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

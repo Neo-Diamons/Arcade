@@ -17,7 +17,9 @@ var hierarchy =
         [ "arc::DLLoader< T >::DLLoaderException", "df/d70/classarc_1_1DLLoader_1_1DLLoaderException.html", null ],
         [ "arc::IGame::GameException", "d6/d54/classarc_1_1IGame_1_1GameException.html", null ],
         [ "arc::IGraphical::GraphicalException", "d9/dcb/classarc_1_1IGraphical_1_1GraphicalException.html", [
-          [ "arc::Ncurses::NcursesException", "d8/db8/classarc_1_1Ncurses_1_1NcursesException.html", null ]
+          [ "arc::Ncurses::NcursesException", "d8/db8/classarc_1_1Ncurses_1_1NcursesException.html", null ],
+          [ "arc::SDL::SDLException", "d3/d90/classarc_1_1SDL_1_1SDLException.html", null ],
+          [ "arc::SFML::SFMLException", "dc/d69/classarc_1_1SFML_1_1SFMLException.html", null ]
         ] ]
       ] ]
     ] ],
@@ -25,10 +27,14 @@ var hierarchy =
       [ "arc::Snake", "d5/d16/classarc_1_1Snake.html", null ]
     ] ],
     [ "arc::IGraphical", "d7/dbb/classarc_1_1IGraphical.html", [
-      [ "arc::Ncurses", "d1/dcb/classarc_1_1Ncurses.html", null ]
+      [ "arc::Ncurses", "d1/dcb/classarc_1_1Ncurses.html", null ],
+      [ "arc::SDL", "dc/d37/classarc_1_1SDL.html", null ],
+      [ "arc::SFML", "db/d49/classarc_1_1SFML.html", null ]
     ] ],
     [ "arc::IKey", "de/d3d/classarc_1_1IKey.html", [
-      [ "arc::NcursesKey", "df/db9/classarc_1_1NcursesKey.html", null ]
+      [ "arc::NcursesKey", "df/db9/classarc_1_1NcursesKey.html", null ],
+      [ "arc::SDLKeys", "d2/d63/classarc_1_1SDLKeys.html", null ],
+      [ "arc::SfmlKey", "df/d85/classarc_1_1SfmlKey.html", null ]
     ] ],
     [ "arc::Texture", "da/d1d/classarc_1_1Texture.html", null ]
 ];

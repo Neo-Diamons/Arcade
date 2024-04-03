@@ -15,9 +15,12 @@ arc::Core::Core(const std::string &path)
     try {
         getLib();
         for (uint8_t i = 0; i < static_cast<uint8_t>(_graphicalLibs.size()); i++)
-            if ("./lib/" + _graphicalLibs[i] == path)
+            if (path.find(_graphicalLibs[i]) != std::string::npos) {
                 _graphicalIndex = i;
-        if (_graphicalIndex == std::numeric_limits<uint8_t>::max())
+                break;
+            }
+
+        if (_graphicalIndex == _graphicalLibs.size())
             throw CoreException("No graphical library found");
     } catch (const CoreException &e) {
         std::cerr << e.what() << std::endl;
@@ -106,11 +109,12 @@ void arc::Core::globalAction()
 {
     if (!_graphicalLibs.empty()) {
         if (_key->isKeyPressed(IKey::RIGHT)) {
-            _graphicalIndex = (_graphicalIndex - 1) % _graphicalLibs.size();
+            _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
         if (_key->isKeyPressed(IKey::LEFT)) {
-            _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
+            _graphicalIndex = std::min<uint8_t>(_graphicalLibs.size() - 1, _graphicalIndex - 1);
+            std::cerr << _graphicalIndex << std::endl;
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
     }
@@ -139,7 +143,7 @@ void arc::Core::globalAction()
 
         if (!_gameLibs.empty()) {
             if (_key->isKeyPressed(IKey::UP))
-                _gameIndex = (_gameIndex - 1) % _gameLibs.size();
+                _gameIndex = std::max<uint8_t>(_gameLibs.size() - 1, _gameIndex - 1);
             if (_key->isKeyPressed(IKey::DOWN))
                 _gameIndex = (_gameIndex + 1) % _gameLibs.size();
         }

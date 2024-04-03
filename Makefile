@@ -30,9 +30,11 @@ LIB2_SRC	+=	$(addprefix $(LIB2_DIR)/,							\
 					SDLKeys.cpp										\
 				)
 
-LIB3_NAME	:=	$(LIB_DIR)/lib3.so
-LIB3_DIR	:=	$(LIB_DIR)/lib3
+LIB3_NAME	:=	$(LIB_DIR)/arcade_sfml.so
+LIB3_DIR	:=	$(LIB_DIR)/sfml
 LIB3_SRC	+=	$(addprefix $(LIB3_DIR)/,							\
+					Sfml.cpp										\
+					SfmlKey.cpp										\
 				)
 
 LIB4_NAME	:=	$(LIB_DIR)/arcade_snake.so
@@ -147,7 +149,7 @@ $(LIB2_NAME):		LD_FLAGS += -lSDL2 -lSDL2_image -lSDL2_ttf
 $(LIB2_NAME):		$(LIB2_OBJ);	$(COMPILE_LIB)
 -include $(LIB3_DEP)
 $(LIB3_NAME):		CXXFLAGS += -fPIC
-$(LIB3_NAME):		LD_FLAGS +=
+$(LIB3_NAME):		LD_FLAGS += -lsfml-graphics -lsfml-window -lsfml-system
 $(LIB3_NAME):		$(LIB3_OBJ);	$(COMPILE_LIB)
 graphicals:			$(LIB1_NAME) $(LIB2_NAME) $(LIB3_NAME)
 

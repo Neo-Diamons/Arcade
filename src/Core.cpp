@@ -12,6 +12,21 @@
 
 arc::Core::Core(const std::string &path)
 {
+    try {
+        getLib();
+        for (uint8_t i = 0; i < static_cast<uint8_t>(_graphicalLibs.size()); i++)
+            if (path.find(_graphicalLibs[i]) != std::string::npos) {
+                _graphicalIndex = i;
+                break;
+            }
+
+        if (_graphicalIndex == _graphicalLibs.size())
+            throw CoreException("No graphical library found");
+    } catch (const CoreException &e) {
+        std::cerr << e.what() << std::endl;
+        exit(84);
+    }
+
     loadGraphicalLib(path);
 }
 
@@ -94,20 +109,22 @@ void arc::Core::globalAction()
 {
     if (!_graphicalLibs.empty()) {
         if (_key->isKeyPressed(IKey::RIGHT)) {
-            _graphicalIndex = (_graphicalIndex - 1) % _graphicalLibs.size();
+            _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
         if (_key->isKeyPressed(IKey::LEFT)) {
-            _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
+            _graphicalIndex = std::min<uint8_t>(_graphicalLibs.size() - 1, _graphicalIndex - 1);
+            std::cerr << _graphicalIndex << std::endl;
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
     }
 
     if (_game != nullptr) {
         if (_key->isKeyPressed(IKey::R)) {
-            std::cerr << "Reload" << std::endl;
             _game->stop();
             _score = _game->getScore();
+            _gameLoader.destroyInstance(_game);
+            _game = _gameLoader.getInstance("lib/" + _gameLibs[_gameIndex]);
             _game->init(_name);
         }
 
@@ -126,7 +143,7 @@ void arc::Core::globalAction()
 
         if (!_gameLibs.empty()) {
             if (_key->isKeyPressed(IKey::UP))
-                _gameIndex = (_gameIndex - 1) % _gameLibs.size();
+                _gameIndex = std::max<uint8_t>(_gameLibs.size() - 1, _gameIndex - 1);
             if (_key->isKeyPressed(IKey::DOWN))
                 _gameIndex = (_gameIndex + 1) % _gameLibs.size();
         }
@@ -201,13 +218,6 @@ void arc::Core::draw(const DrawTexture *object) const
 
 void arc::Core::run()
 {
-    try {
-        getLib();
-    } catch (const CoreException &e) {
-        std::cerr << e.what() << std::endl;
-        exit(84);
-    }
-
     std::list<DrawObject *> objects;
     while (_graphical->isOpen()) {
         globalAction();

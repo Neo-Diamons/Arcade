@@ -153,9 +153,9 @@ void arc::Ncurses::drawTexture(int x, int y, uint32_t width, uint32_t height, co
     const short index = _getColor(texture.GetColor());
 
     x = static_cast<int>(round(static_cast<double>(x) / NCURSES_RATIO));
-    y = static_cast<int>(round(static_cast<double>(y) / NCURSES_RATIO));
+    y = static_cast<int>(round(static_cast<double>(y) / NCURSES_RATIO / 2));
     width = static_cast<int>(round(static_cast<double>(width) / NCURSES_RATIO));
-    height = static_cast<int>(round(static_cast<double>(height) / NCURSES_RATIO));
+    height = static_cast<int>(round(static_cast<double>(height) / NCURSES_RATIO / 2));
 
     wattron(_window, COLOR_PAIR(index));
     for (uint32_t i = 0; i < height; i++)

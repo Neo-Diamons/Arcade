@@ -18,7 +18,7 @@ namespace arc {
     /**
      * @interface IGraphical
      * @brief Interface for the graphical library
-     * @attention Need to have a extern "C" create() and destroy() function
+     * @attention Need to have a extern "C" create(), destroy() and getType() function
      */
     class IGraphical {
     public:

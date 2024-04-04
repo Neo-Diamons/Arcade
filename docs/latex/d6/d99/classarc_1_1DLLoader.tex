@@ -16,7 +16,7 @@ Inheritance diagram for arc\+::DLLoader$<$ T $>$\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=348pt]{da/d57/classarc_1_1DLLoader__inherit__graph}
+\includegraphics[width=347pt]{da/d57/classarc_1_1DLLoader__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -37,6 +37,10 @@ class \mbox{\hyperlink{classarc_1_1DLLoader_1_1DLLoaderException}{DLLoader\+Exce
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classarc_1_1DLLoader_abbe7826b6b62feee9526fd775293e95b}{DLLoader}} (const \mbox{\hyperlink{namespacearc_afe15e738a5955f0445a7636eb35dd69e}{Library\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacearc_afe15e738a5955f0445a7636eb35dd69e}{Library\+Type}} \mbox{\hyperlink{classarc_1_1DLLoader_aead8f23f8289b7130ae0b4121ad92b72}{get\+Type}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Get the type of the library. \end{DoxyCompactList}\item 
 T $\ast$ \mbox{\hyperlink{classarc_1_1DLLoader_a488c9210419714375e3e610889c9ad9c}{get\+Instance}} (const std\+::string \&path)
 \begin{DoxyCompactList}\small\item\em Get an instance of a Object from a dynamic library. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classarc_1_1DLLoader_aad935fc85db61a872fa09376ce851c12}{destroy\+Instance}} (T $\ast$instance)
@@ -54,6 +58,25 @@ Class to load a dynamic library.
 {\em T} & \\
 \hline
 \end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classarc_1_1DLLoader_abbe7826b6b62feee9526fd775293e95b}\label{classarc_1_1DLLoader_abbe7826b6b62feee9526fd775293e95b}} 
+\index{arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}!DLLoader@{DLLoader}}
+\index{DLLoader@{DLLoader}!arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DLLoader()}{DLLoader()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classarc_1_1DLLoader}{arc\+::\+DLLoader}}$<$ T $>$\+::\mbox{\hyperlink{classarc_1_1DLLoader}{DLLoader}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacearc_afe15e738a5955f0445a7636eb35dd69e}{Library\+Type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the library \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -91,6 +114,28 @@ Get an instance of a Object from a dynamic library.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 An new instance of the Object 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d99/classarc_1_1DLLoader_a488c9210419714375e3e610889c9ad9c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classarc_1_1DLLoader_aead8f23f8289b7130ae0b4121ad92b72}\label{classarc_1_1DLLoader_aead8f23f8289b7130ae0b4121ad92b72}} 
+\index{arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}!getType@{getType}}
+\index{getType@{getType}!arc::DLLoader$<$ T $>$@{arc::DLLoader$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{namespacearc_afe15e738a5955f0445a7636eb35dd69e}{Library\+Type}} \mbox{\hyperlink{classarc_1_1DLLoader}{arc\+::\+DLLoader}}$<$ T $>$\+::get\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the type of the library. 
+
+\begin{DoxyReturn}{Returns}
+The type of the library 
 \end{DoxyReturn}
 
 

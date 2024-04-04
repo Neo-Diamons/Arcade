@@ -1,0 +1,4 @@
+<map id="arc::DLLoader::getInstance" name="arc::DLLoader::getInstance">
+<area shape="rect" id="node1" title="Get an instance of a Object from a dynamic library." alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="$d6/d99/classarc_1_1DLLoader.html#aead8f23f8289b7130ae0b4121ad92b72" title="Get the type of the library." alt="" coords="248,5,419,32"/>
+</map>

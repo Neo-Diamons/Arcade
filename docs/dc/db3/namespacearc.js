@@ -20,6 +20,10 @@ var namespacearc =
     [ "Snake", "d5/d16/classarc_1_1Snake.html", "d5/d16/classarc_1_1Snake" ],
     [ "Core", "d3/dd6/classarc_1_1Core.html", "d3/dd6/classarc_1_1Core" ],
     [ "DLLoader", "d6/d99/classarc_1_1DLLoader.html", "d6/d99/classarc_1_1DLLoader" ],
+    [ "LibraryType", "dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69e", [
+      [ "GRAPHICAL", "dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69eae64109c8cbe1bfdfdbb2df565980ec1f", null ],
+      [ "GAME", "dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69ea2b94d6c1816e58e2be829cf57b49a76d", null ]
+    ] ],
     [ "ObjectType", "dc/db3/namespacearc.html#afa7f3859b46a471e48df63bf0b976723", [
       [ "TEXT", "dc/db3/namespacearc.html#afa7f3859b46a471e48df63bf0b976723a8e3f7ceba2838b6797aa0ea7c2b3077e", null ],
       [ "RECT", "dc/db3/namespacearc.html#afa7f3859b46a471e48df63bf0b976723ab0b2982ff606ac127362437bf0fed6c2", null ],

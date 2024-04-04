@@ -97,115 +97,99 @@ $(document).ready(function(){initNavTree('d7/d38/Core_8hpp_source.html','../../'
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define ARCADE_CORE_HPP</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d38/DLLoader_8hpp.html">DLLoader.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d40/IGame_8hpp.html">include/IGame.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d0d/DrawText_8hpp.html">include/DrawObject/DrawText.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d32/DrawRect_8hpp.html">include/DrawObject/DrawRect.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d17/DrawFillRect_8hpp.html">include/DrawObject/DrawFillRect.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/dcf/DrawTexture_8hpp.html">include/DrawObject/DrawTexture.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/db3/namespacearc.html">arc</a> {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d3/dd6/classarc_1_1Core.html">   28</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d3/dd6/classarc_1_1Core.html">Core</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">const</span> uint16_t WIDTH = 800;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">const</span> uint16_t HEIGHT = 810;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::string&gt; _graphicalLibFiles = {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="stringliteral">&quot;arcade_ncurses.so&quot;</span>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="stringliteral">&quot;arcade_sdl2.so&quot;</span>,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="stringliteral">&quot;arcade_ndk++.so&quot;</span>,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="stringliteral">&quot;arcade_aalib.so&quot;</span>,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="stringliteral">&quot;arcade_libcaca.so&quot;</span>,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="stringliteral">&quot;arcade_allegro5.so&quot;</span>,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="stringliteral">&quot;arcade_xlib.so&quot;</span>,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="stringliteral">&quot;arcade_gtk+.so&quot;</span>,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="stringliteral">&quot;arcade_sfml.so&quot;</span>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="stringliteral">&quot;arcade_irrlicht.so&quot;</span>,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="stringliteral">&quot;arcade_opengl.so&quot;</span>,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="stringliteral">&quot;arcade_vulkan.so&quot;</span>,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="stringliteral">&quot;arcade_qt5.so&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::string&gt; _gameLibFiles = {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="stringliteral">&quot;arcade_snake.so&quot;</span>,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="stringliteral">&quot;arcade_nibbler.so&quot;</span>,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="stringliteral">&quot;arcade_pacman.so&quot;</span>,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="stringliteral">&quot;arcade_qix.so&quot;</span>,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="stringliteral">&quot;arcade_centipede.so&quot;</span>,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="stringliteral">&quot;arcade_solarfox.so&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        };</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d17/DrawFillRect_8hpp.html">include/DrawObject/DrawFillRect.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/dcf/DrawTexture_8hpp.html">include/DrawObject/DrawTexture.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d0d/DrawText_8hpp.html">include/DrawObject/DrawText.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d32/DrawRect_8hpp.html">include/DrawObject/DrawRect.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/ded/IGraphical_8hpp.html">include/IGraphical.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d73/LibraryType_8h.html">include/LibraryType.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d40/IGame_8hpp.html">include/IGame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d38/DLLoader_8hpp.html">DLLoader.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/db3/namespacearc.html">arc</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d3/dd6/classarc_1_1Core.html">   29</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d3/dd6/classarc_1_1Core.html">Core</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">const</span> uint16_t WIDTH = 800;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> uint16_t HEIGHT = 810;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader&lt;IGraphical&gt;</a> _graphicalLoader{<a class="code" href="../../dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69eae64109c8cbe1bfdfdbb2df565980ec1f">GRAPHICAL</a>};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader&lt;IGame&gt;</a> _gameLoader{<a class="code" href="../../dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69ea2b94d6c1816e58e2be829cf57b49a76d">GAME</a>};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> *_graphicalLib{};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> *_gameLib{};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> *_graphical = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *_key = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../dc/d43/classarc_1_1IGame.html">IGame</a> *_game = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::vector&lt;std::string&gt; _graphicalLibs{};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::vector&lt;std::string&gt; _gameLibs{};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        uint8_t _graphicalIndex = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        uint8_t _gameIndex = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::string _name;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        uint64_t _score = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> loadGraphicalLib(<span class="keyword">const</span> std::string &amp;path);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> loadGameLib(<span class="keyword">const</span> std::string &amp;path);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> getLib();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader&lt;IGraphical&gt;</a> _graphicalLoader{};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="../../d6/d99/classarc_1_1DLLoader.html">DLLoader&lt;IGame&gt;</a> _gameLoader{};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> globalAction();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::list&lt;DrawObject *&gt; selectionLoop();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> *_graphicalLib{};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> *_gameLib{};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../d7/dbb/classarc_1_1IGraphical.html">IGraphical</a> *_graphical = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *_key = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="../../dc/d43/classarc_1_1IGame.html">IGame</a> *_game = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::vector&lt;std::string&gt; _graphicalLibs{};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::vector&lt;std::string&gt; _gameLibs{};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        uint8_t _graphicalIndex = 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        uint8_t _gameIndex = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::string _name;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        uint64_t _score = 0;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> loadGraphicalLib(<span class="keyword">const</span> std::string &amp;path);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> loadGameLib(<span class="keyword">const</span> std::string &amp;path);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> getLib();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> globalAction();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        std::list&lt;DrawObject *&gt; selectionLoop();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> draw(<a class="code" href="../../d4/d8a/classarc_1_1DrawObject.html">DrawObject</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d9/dd3/classarc_1_1DrawText.html">DrawText</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d6/d09/classarc_1_1DrawRect.html">DrawRect</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d8/d7c/classarc_1_1DrawFillRect.html">DrawFillRect</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d6/d91/classarc_1_1DrawTexture.html">DrawTexture</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> draw(<a class="code" href="../../d4/d8a/classarc_1_1DrawObject.html">DrawObject</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d9/dd3/classarc_1_1DrawText.html">DrawText</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d6/d09/classarc_1_1DrawRect.html">DrawRect</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d8/d7c/classarc_1_1DrawFillRect.html">DrawFillRect</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code" href="../../d6/d91/classarc_1_1DrawTexture.html">DrawTexture</a> *<span class="keywordtype">object</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    public</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    :</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">   71</a></span>&#160;        <span class="keyword">class </span><a class="code" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">CoreException</a> final : <span class="keyword">public</span> <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">   73</a></span>&#160;            <span class="keyword">explicit</span> <a class="code" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">CoreException</a>(<span class="keyword">const</span> std::string &amp;message) : <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a>(<span class="stringliteral">&quot;Core&quot;</span>, message) {}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d3/dd6/classarc_1_1Core.html#a04d58b6e0486b9feb9a97883ae9d2439">Core</a>(</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">const</span> std::string &amp;path</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="../../d3/dd6/classarc_1_1Core.html#a0008e7e89be0102e23cae2a7c7b38850">~Core</a>();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">   93</a></span>&#160;        <span class="keyword">class </span><a class="code" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">CoreException</a> final : <span class="keyword">public</span> <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a> {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">   95</a></span>&#160;            <span class="keyword">explicit</span> <a class="code" href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">CoreException</a>(<span class="keyword">const</span> std::string &amp;message) : <a class="code" href="../../d6/def/classarc_1_1Exception.html">Exception</a>(<span class="stringliteral">&quot;Core&quot;</span>, message) {}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d3/dd6/classarc_1_1Core.html#a04d58b6e0486b9feb9a97883ae9d2439">Core</a>(<span class="keyword">const</span> std::string &amp;path);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../d3/dd6/classarc_1_1Core.html#a0008e7e89be0102e23cae2a7c7b38850">~Core</a>();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d3/dd6/classarc_1_1Core.html#aeb7e960dea34e0c9a15bc8db2458ab0e">run</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    };</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_CORE_HPP</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d3/dd6/classarc_1_1Core.html#aeb7e960dea34e0c9a15bc8db2458ab0e">run</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_CORE_HPP</span></div>
 <div class="ttc" id="aDLLoader_8hpp_html"><div class="ttname"><a href="../../d9/d38/DLLoader_8hpp.html">DLLoader.hpp</a></div></div>
 <div class="ttc" id="aDrawFillRect_8hpp_html"><div class="ttname"><a href="../../d6/d17/DrawFillRect_8hpp.html">DrawFillRect.hpp</a></div></div>
 <div class="ttc" id="aDrawRect_8hpp_html"><div class="ttname"><a href="../../d2/d32/DrawRect_8hpp.html">DrawRect.hpp</a></div></div>
 <div class="ttc" id="aDrawText_8hpp_html"><div class="ttname"><a href="../../d7/d0d/DrawText_8hpp.html">DrawText.hpp</a></div></div>
 <div class="ttc" id="aDrawTexture_8hpp_html"><div class="ttname"><a href="../../d2/dcf/DrawTexture_8hpp.html">DrawTexture.hpp</a></div></div>
 <div class="ttc" id="aIGame_8hpp_html"><div class="ttname"><a href="../../d9/d40/IGame_8hpp.html">IGame.hpp</a></div></div>
-<div class="ttc" id="aclassarc_1_1Core_1_1CoreException_html"><div class="ttname"><a href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">arc::Core::CoreException</a></div><div class="ttdoc">Exception implementation for the Core.</div><div class="ttdef"><b>Definition:</b> Core.hpp:93</div></div>
-<div class="ttc" id="aclassarc_1_1Core_1_1CoreException_html_a5f34c1cdfbb7657e4ea181b80ca3699e"><div class="ttname"><a href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">arc::Core::CoreException::CoreException</a></div><div class="ttdeci">CoreException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> Core.hpp:95</div></div>
-<div class="ttc" id="aclassarc_1_1Core_html"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html">arc::Core</a></div><div class="ttdoc">Core class for the arcade project.</div><div class="ttdef"><b>Definition:</b> Core.hpp:28</div></div>
+<div class="ttc" id="aIGraphical_8hpp_html"><div class="ttname"><a href="../../d3/ded/IGraphical_8hpp.html">IGraphical.hpp</a></div></div>
+<div class="ttc" id="aLibraryType_8h_html"><div class="ttname"><a href="../../dd/d73/LibraryType_8h.html">LibraryType.h</a></div></div>
+<div class="ttc" id="aclassarc_1_1Core_1_1CoreException_html"><div class="ttname"><a href="../../d8/db3/classarc_1_1Core_1_1CoreException.html">arc::Core::CoreException</a></div><div class="ttdoc">Exception implementation for the Core.</div><div class="ttdef"><b>Definition:</b> Core.hpp:71</div></div>
+<div class="ttc" id="aclassarc_1_1Core_1_1CoreException_html_a5f34c1cdfbb7657e4ea181b80ca3699e"><div class="ttname"><a href="../../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e">arc::Core::CoreException::CoreException</a></div><div class="ttdeci">CoreException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> Core.hpp:73</div></div>
+<div class="ttc" id="aclassarc_1_1Core_html"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html">arc::Core</a></div><div class="ttdoc">Core class for the arcade project.</div><div class="ttdef"><b>Definition:</b> Core.hpp:29</div></div>
 <div class="ttc" id="aclassarc_1_1Core_html_a0008e7e89be0102e23cae2a7c7b38850"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html#a0008e7e89be0102e23cae2a7c7b38850">arc::Core::~Core</a></div><div class="ttdeci">~Core()</div><div class="ttdoc">Destructor for the core.</div><div class="ttdef"><b>Definition:</b> Core.cpp:33</div></div>
 <div class="ttc" id="aclassarc_1_1Core_html_a04d58b6e0486b9feb9a97883ae9d2439"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html#a04d58b6e0486b9feb9a97883ae9d2439">arc::Core::Core</a></div><div class="ttdeci">Core(const std::string &amp;path)</div><div class="ttdoc">Constructor for the core.</div><div class="ttdef"><b>Definition:</b> Core.cpp:13</div></div>
-<div class="ttc" id="aclassarc_1_1Core_html_aeb7e960dea34e0c9a15bc8db2458ab0e"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html#aeb7e960dea34e0c9a15bc8db2458ab0e">arc::Core::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Run the core.</div><div class="ttdef"><b>Definition:</b> Core.cpp:219</div></div>
-<div class="ttc" id="aclassarc_1_1DLLoader_html"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html">arc::DLLoader</a></div><div class="ttdoc">Class to load a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:23</div></div>
+<div class="ttc" id="aclassarc_1_1Core_html_aeb7e960dea34e0c9a15bc8db2458ab0e"><div class="ttname"><a href="../../d3/dd6/classarc_1_1Core.html#aeb7e960dea34e0c9a15bc8db2458ab0e">arc::Core::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Run the core.</div><div class="ttdef"><b>Definition:</b> Core.cpp:227</div></div>
+<div class="ttc" id="aclassarc_1_1DLLoader_html"><div class="ttname"><a href="../../d6/d99/classarc_1_1DLLoader.html">arc::DLLoader</a></div><div class="ttdoc">Class to load a dynamic library.</div><div class="ttdef"><b>Definition:</b> DLLoader.hpp:24</div></div>
 <div class="ttc" id="aclassarc_1_1DrawFillRect_html"><div class="ttname"><a href="../../d8/d7c/classarc_1_1DrawFillRect.html">arc::DrawFillRect</a></div><div class="ttdoc">Class for the filled rectangle.</div><div class="ttdef"><b>Definition:</b> DrawFillRect.hpp:19</div></div>
 <div class="ttc" id="aclassarc_1_1DrawObject_html"><div class="ttname"><a href="../../d4/d8a/classarc_1_1DrawObject.html">arc::DrawObject</a></div><div class="ttdoc">Class for the object to draw.</div><div class="ttdef"><b>Definition:</b> DrawObject.hpp:25</div></div>
 <div class="ttc" id="aclassarc_1_1DrawRect_html"><div class="ttname"><a href="../../d6/d09/classarc_1_1DrawRect.html">arc::DrawRect</a></div><div class="ttdoc">Class for the rectangle.</div><div class="ttdef"><b>Definition:</b> DrawRect.hpp:19</div></div>
 <div class="ttc" id="aclassarc_1_1DrawText_html"><div class="ttname"><a href="../../d9/dd3/classarc_1_1DrawText.html">arc::DrawText</a></div><div class="ttdoc">Class for the text.</div><div class="ttdef"><b>Definition:</b> DrawText.hpp:19</div></div>
 <div class="ttc" id="aclassarc_1_1DrawTexture_html"><div class="ttname"><a href="../../d6/d91/classarc_1_1DrawTexture.html">arc::DrawTexture</a></div><div class="ttdoc">Class for the texture.</div><div class="ttdef"><b>Definition:</b> DrawTexture.hpp:18</div></div>
 <div class="ttc" id="aclassarc_1_1Exception_html"><div class="ttname"><a href="../../d6/def/classarc_1_1Exception.html">arc::Exception</a></div><div class="ttdoc">Exception class for the arcade project.</div><div class="ttdef"><b>Definition:</b> Exception.hpp:18</div></div>
-<div class="ttc" id="aclassarc_1_1IGame_html"><div class="ttname"><a href="../../dc/d43/classarc_1_1IGame.html">arc::IGame</a></div><div class="ttdoc">Interface for the game.</div><div class="ttdef"><b>Definition:</b> IGame.hpp:22</div></div>
+<div class="ttc" id="aclassarc_1_1IGame_html"><div class="ttname"><a href="../../dc/d43/classarc_1_1IGame.html">arc::IGame</a></div><div class="ttdoc">Interface for the game.</div><div class="ttdef"><b>Definition:</b> IGame.hpp:24</div></div>
 <div class="ttc" id="aclassarc_1_1IGraphical_html"><div class="ttname"><a href="../../d7/dbb/classarc_1_1IGraphical.html">arc::IGraphical</a></div><div class="ttdoc">Interface for the graphical library.</div><div class="ttdef"><b>Definition:</b> IGraphical.hpp:23</div></div>
 <div class="ttc" id="aclassarc_1_1IKey_html"><div class="ttname"><a href="../../de/d3d/classarc_1_1IKey.html">arc::IKey</a></div><div class="ttdoc">Interface for the keyboard management.</div><div class="ttdef"><b>Definition:</b> IKey.hpp:16</div></div>
 <div class="ttc" id="anamespacearc_html"><div class="ttname"><a href="../../dc/db3/namespacearc.html">arc</a></div><div class="ttdoc">Namespace for the arcade project.</div><div class="ttdef"><b>Definition:</b> Color.hpp:20</div></div>
+<div class="ttc" id="anamespacearc_html_afe15e738a5955f0445a7636eb35dd69ea2b94d6c1816e58e2be829cf57b49a76d"><div class="ttname"><a href="../../dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69ea2b94d6c1816e58e2be829cf57b49a76d">arc::GAME</a></div><div class="ttdeci">@ GAME</div><div class="ttdef"><b>Definition:</b> LibraryType.h:14</div></div>
+<div class="ttc" id="anamespacearc_html_afe15e738a5955f0445a7636eb35dd69eae64109c8cbe1bfdfdbb2df565980ec1f"><div class="ttname"><a href="../../dc/db3/namespacearc.html#afe15e738a5955f0445a7636eb35dd69eae64109c8cbe1bfdfdbb2df565980ec1f">arc::GRAPHICAL</a></div><div class="ttdeci">@ GRAPHICAL</div><div class="ttdef"><b>Definition:</b> LibraryType.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

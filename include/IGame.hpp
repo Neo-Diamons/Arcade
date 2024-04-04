@@ -9,15 +9,17 @@
 #define ARCADE_IGAME_HPP
 
 #include <list>
+#include <cstdint>
 
-#include "IGraphical.hpp"
 #include "DrawObject/DrawObject.hpp"
+#include "Exception.hpp"
+#include "IKey.hpp"
 
 namespace arc {
     /**
      * @interface IGame
      * @brief Interface for the game
-     * @attention Need to have a extern "C" create() and destroy() function
+     * @attention Need to have a extern "C" create(), destroy() and getType() function
      */
     class IGame {
     public:

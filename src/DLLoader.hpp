@@ -8,21 +8,23 @@
 #ifndef ARCADE_DLLOADER_HPP
 #define ARCADE_DLLOADER_HPP
 
-#include <dlfcn.h>
 #include <iostream>
+#include <dlfcn.h>
 #include <string>
 
 #include "include/Exception.hpp"
+#include "include/LibraryType.h"
 
 namespace arc {
     /**
      * @brief Class to load a dynamic library
      * @tparam T
      */
-    template<typename T>
+    template <typename T>
     class DLLoader {
     private:
         void *_lib = nullptr;
+        LibraryType _type;
 
     public:
         /**
@@ -34,6 +36,29 @@ namespace arc {
         };
 
         /**
+         * @brief Constructor
+         * @param type The type of the library
+         */
+        explicit DLLoader(const LibraryType type) : _type(type) {}
+
+        /**
+         * @brief Get the type of the library
+         * @return The type of the library
+         */
+        LibraryType getType(const std::string &path)
+        {
+            _lib = dlopen(path.c_str(), RTLD_LAZY);
+            if (!_lib)
+                throw DLLoaderException(dlerror());
+            void *getType = dlsym(_lib, "getType");
+            if (!getType)
+                throw DLLoaderException(dlerror());
+            const LibraryType type = reinterpret_cast<LibraryType (*)()>(getType)();
+            dlclose(_lib);
+            return type;
+        }
+
+        /**
          * @brief Get an instance of a Object from a dynamic library
          * @param path The path to the dynamic library
          * @return An new instance of the Object
@@ -43,6 +68,9 @@ namespace arc {
             _lib = dlopen(path.c_str(), RTLD_LAZY);
             if (!_lib)
                 throw DLLoaderException(dlerror());
+            void *getType = dlsym(_lib, "getType");
+            if (reinterpret_cast<LibraryType (*)()>(getType)() != _type)
+                throw DLLoaderException("Invalid library type");
             void *constructor = dlsym(_lib, "create");
             if (!constructor)
                 throw DLLoaderException(dlerror());
@@ -61,7 +89,6 @@ namespace arc {
             reinterpret_cast<void (*)(T *)>(destructor)(instance);
             dlclose(_lib);
         }
-
     };
 }
 

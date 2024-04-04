@@ -5,10 +5,13 @@
 ** Ncurses
 */
 
+#include "Ncurses.hpp"
+
+#include <iostream>
 #include <cstring>
 #include <cmath>
-#include <iostream>
-#include "Ncurses.hpp"
+
+#include "include/LibraryType.h"
 
 extern "C"
 {
@@ -20,6 +23,11 @@ extern "C"
     void destroy(const arc::IGraphical *ptr)
     {
         delete ptr;
+    }
+
+    arc::LibraryType getType()
+    {
+        return arc::LibraryType::GRAPHICAL;
     }
 }
 

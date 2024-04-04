@@ -9,13 +9,16 @@
 #define ARCADE_SNAKE_HPP
 
 #include <list>
+
 #include "include/IGame.hpp"
+#include "include/Texture.hpp"
 
 namespace arc {
     /**
      * @brief Snake game
      */
-    class Snake final : public IGame {
+    class Snake final : public IGame
+    {
         const uint16_t WIDTH = 20;
         const uint16_t HEIGHT = 20;
 
@@ -24,15 +27,16 @@ namespace arc {
         std::list<std::pair<int, int>> _snake = {
             {-2 + WIDTH / 2, 0 + HEIGHT / 2},
             {-1 + WIDTH / 2, 0 + HEIGHT / 2},
-            { 0 + WIDTH / 2, 0 + HEIGHT / 2},
-            { 1 + WIDTH / 2, 0 + HEIGHT / 2},
+            {0 + WIDTH / 2, 0 + HEIGHT / 2},
+            {1 + WIDTH / 2, 0 + HEIGHT / 2},
         };
 
         clock_t _lastUpdate = 0;
         std::pair<int, int> _orientation = {-1, 0};
         std::pair<int, int> _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
 
-        enum STATE {
+        enum STATE
+        {
             PLAYING,
             LOSE
         } _state = PLAYING;
@@ -40,15 +44,15 @@ namespace arc {
         Texture _loseTexture = Texture(
             "assets/lose.png",
             "========================================"
-           "                                        "
-           " []        [][][][]  [][][][]  [][][][] "
-           " []        []    []  []        []       "
-           " []        []    []  [][][][]  [][][][] "
-           " []        []    []        []  []       "
-           " [][][][]  [][][][]  [][][][]  [][][][] "
-           "                                        "
-           "========================================",
-           Color(255, 0, 0));
+            "                                        "
+            " []        [][][][]  [][][][]  [][][][] "
+            " []        []    []  []        []       "
+            " []        []    []  [][][][]  [][][][] "
+            " []        []    []        []  []       "
+            " [][][][]  [][][][]  [][][][]  [][][][] "
+            "                                        "
+            "========================================",
+            Color(255, 0, 0));
 
     public:
         void init(const std::string &name) override;

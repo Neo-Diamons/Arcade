@@ -9,6 +9,8 @@
 
 #include <SDL2/SDL_image.h>
 
+#include "include/LibraryType.h"
+
 extern "C"
 {
     arc::IGraphical *create()
@@ -19,6 +21,11 @@ extern "C"
     void destroy(const arc::IGraphical *ptr)
     {
         delete ptr;
+    }
+
+    arc::LibraryType getType()
+    {
+        return arc::LibraryType::GRAPHICAL;
     }
 }
 

@@ -12,9 +12,9 @@
 #include "include/DrawObject/DrawFillRect.hpp"
 #include "include/DrawObject/DrawTexture.hpp"
 #include "include/DrawObject/DrawText.hpp"
+#include "include/LibraryType.h"
 
-extern "C"
-{
+extern "C" {
     arc::IGame *create()
     {
         return new arc::Snake();
@@ -23,6 +23,11 @@ extern "C"
     void destroy(const arc::IGame *ptr)
     {
         delete ptr;
+    }
+
+    arc::LibraryType getType()
+    {
+        return arc::LibraryType::GAME;
     }
 }
 
@@ -79,7 +84,7 @@ std::list<arc::DrawObject *> arc::Snake::draw()
     for (uint16_t x = 0; x < WIDTH; x++)
         for (uint16_t y = 0; y < HEIGHT; y++)
             objects.push_back(new DrawFillRect(x * 40, y * 40 + 10, 40, 40,
-                (x + y) % 2 ? Color(170, 215, 81) : Color(162, 209, 73)));
+                                               (x + y) % 2 ? Color(170, 215, 81) : Color(162, 209, 73)));
 
     objects.push_back(new DrawFillRect(_food.first * 40, _food.second * 40 + 10, 40, 40, Color(255, 0, 0)));
     for (auto &[fst, snd] : _snake)

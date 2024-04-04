@@ -91,16 +91,24 @@ void arc::Core::getLib()
         throw CoreException("Can't open lib directory");
     for (const dirent *pDirent = readdir(pDir); pDirent; pDirent = readdir(pDir)) {
         std::string name = pDirent->d_name;
-        for (const auto &lib : _graphicalLibFiles)
-            if (name == lib) {
-                _graphicalLibs.push_back(name);
-                break;
-            }
-        for (const auto &lib : _gameLibFiles)
-            if (name == lib) {
-                _gameLibs.push_back(name);
-                break;
-            }
+        if (name.find(".so") != name.size() - 3)
+            continue;
+
+        LibraryType type;
+        try {
+            type = _gameLoader.getType("lib/" + name);
+        } catch (const DLLoader<IGame>::DLLoaderException &e) {
+            continue;
+        }
+
+        switch (type) {
+        case GRAPHICAL:
+            _graphicalLibs.push_back(name);
+            break;
+        case GAME:
+            _gameLibs.push_back(name);
+            break;
+        }
     }
     closedir(pDir);
 }
@@ -162,18 +170,18 @@ std::list<arc::DrawObject *> arc::Core::selectionLoop()
     std::list<DrawObject *> objects;
     uint16_t offsetX = (800 - 310) / 4;
     uint16_t offsetY = (400 - 120) / 2 - _graphicalLibs.size() * 10 - _gameLibs.size() * 10;
-    objects.push_back(new DrawText(offsetX, 10 + offsetY     , "/-----------Arcade------------\\", WHITE));
-    objects.push_back(new DrawText(offsetX + 10, 30 + offsetY, "  Player: " + _name                , WHITE));
+    objects.push_back(new DrawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE));
+    objects.push_back(new DrawText(offsetX + 10, 30 + offsetY, "  Player: " + _name, WHITE));
     objects.push_back(new DrawText(offsetX + 10, 40 + offsetY, "  Score: " + std::to_string(_score), WHITE));
-    objects.push_back(new DrawText(offsetX, 60 + offsetY     , "|-+--   -  Graphical  -   --+-|" , WHITE));
+    objects.push_back(new DrawText(offsetX, 60 + offsetY, "|-+--   -  Graphical  -   --+-|", WHITE));
     for (uint8_t i = 0; i < static_cast<uint8_t>(_graphicalLibs.size()); i++, offsetY += 10)
         objects.push_back(new DrawText(offsetX, 80 + offsetY,
-                                       (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i] , WHITE));
-    objects.push_back(new DrawText(offsetX, 90 + offsetY     , "|-+--   -    Game     -   --+-|" , WHITE));
+                                       (i == _graphicalIndex ? "  > " : "    ") + _graphicalLibs[i], WHITE));
+    objects.push_back(new DrawText(offsetX, 90 + offsetY, "|-+--   -    Game     -   --+-|", WHITE));
     for (uint8_t i = 0; i < static_cast<uint8_t>(_gameLibs.size()); i++, offsetY += 10)
         objects.push_back(new DrawText(offsetX, 110 + offsetY,
-                                       (i == _gameIndex ? "  > " : "    ") + _gameLibs[i] , WHITE));
-    objects.push_back(new DrawText(offsetX, 120 + offsetY    , "\\-----------------------------/", WHITE));
+                                       (i == _gameIndex ? "  > " : "    ") + _gameLibs[i], WHITE));
+    objects.push_back(new DrawText(offsetX, 120 + offsetY, "\\-----------------------------/", WHITE));
     return objects;
 }
 

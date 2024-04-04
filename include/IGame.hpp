@@ -9,9 +9,11 @@
 #define ARCADE_IGAME_HPP
 
 #include <list>
+#include <cstdint>
 
-#include "IGraphical.hpp"
 #include "DrawObject/DrawObject.hpp"
+#include "Exception.hpp"
+#include "IKey.hpp"
 
 namespace arc {
     /**

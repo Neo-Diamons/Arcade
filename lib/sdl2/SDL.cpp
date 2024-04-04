@@ -7,6 +7,7 @@
 
 #include "SDL.hpp"
 
+#include <iostream>
 #include <SDL2/SDL_image.h>
 
 #include "include/LibraryType.h"
@@ -47,6 +48,7 @@ void arc::SDL::init(uint32_t width, uint32_t height)
 
     _font = TTF_OpenFont("assets/test.TTF", 12);
     SDL_PollEvent(&(*_event));
+    _fpsStartTime = SDL_GetPerformanceCounter();
 
     _isOpen = true;
 }
@@ -85,6 +87,11 @@ void arc::SDL::display()
 
     if (SDL_PollEvent(&(*_event)) && _event->type == SDL_QUIT)
         stop();
+
+    const uint64_t fpsEndTime = SDL_GetPerformanceCounter();
+    const uint64_t fps = (fpsEndTime - _fpsStartTime) * 1000 / SDL_GetPerformanceFrequency();
+    SDL_Delay(1000 / 60 - fps);
+    _fpsStartTime = SDL_GetPerformanceCounter();
 }
 
 void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color)

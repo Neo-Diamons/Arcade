@@ -13,6 +13,9 @@
 
 #include "include/LibraryType.h"
 
+#include <unistd.h>
+#include <chrono>
+
 extern "C"
 {
     arc::IGraphical *create()
@@ -87,11 +90,15 @@ void arc::Ncurses::init(uint32_t width, uint32_t height)
 
     start_color();
     init_color(COLOR_BLACK, 0, 0, 0);
+
+    _fpsStartTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 void arc::Ncurses::stop()
 {
     delwin(_window);
+    refresh();
     endwin();
     _isOpen = false;
     _window = nullptr;
@@ -106,6 +113,14 @@ void arc::Ncurses::clear()
 void arc::Ncurses::display()
 {
     wrefresh(_window);
+
+    const uint64_t fpsEndTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    const uint64_t fps = (fpsEndTime - _fpsStartTime) * 1000 /
+        std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    usleep(1000 / 60 - fps);
+    _fpsStartTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 bool arc::Ncurses::isOpen()

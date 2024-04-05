@@ -13,8 +13,10 @@
 
 #include "include/LibraryType.h"
 
-extern "C"
-{
+#include <unistd.h>
+#include <chrono>
+
+extern "C" {
     arc::IGraphical *create()
     {
         return new arc::Ncurses();
@@ -39,22 +41,24 @@ short arc::Ncurses::_getColor(const Color &color)
             index = fst;
     if (index == -1) {
         index = static_cast<short>(_colorList.size() + _colorBlockList.size() + 8);
-        init_color(index, static_cast<short>(color.r * 3), static_cast<short>(color.g * 3), static_cast<short>(color.b * 3));
+        init_color(index, static_cast<short>(color.r * 3), static_cast<short>(color.g * 3),
+                   static_cast<short>(color.b * 3));
         init_pair(index, index, COLOR_BLACK);
         _colorList.emplace_back(index, color);
     }
     return index;
 }
 
-short arc::Ncurses::_getBlockColor(const Color& color)
+short arc::Ncurses::_getBlockColor(const Color &color)
 {
     short index = -1;
-    for (const auto & [fst, snd] : _colorBlockList)
+    for (const auto &[fst, snd] : _colorBlockList)
         if (snd == color)
             index = fst;
     if (index == -1) {
         index = static_cast<short>(_colorList.size() + _colorBlockList.size() + 8);
-        init_color(index, static_cast<short>(color.r * 3), static_cast<short>(color.g * 3), static_cast<short>(color.b * 3));
+        init_color(index, static_cast<short>(color.r * 3), static_cast<short>(color.g * 3),
+                   static_cast<short>(color.b * 3));
         init_pair(index, index, index);
         _colorBlockList.emplace_back(index, color);
     }
@@ -70,7 +74,7 @@ void arc::Ncurses::init(uint32_t width, uint32_t height)
     refresh();
 
     _window = newwin(static_cast<int>(_width), static_cast<int>(_height),
-        static_cast<int>(LINES / 2 - _height / 4), static_cast<int>(COLS / 2 - _width / 2));
+                     static_cast<int>(LINES / 2 - _height / 4), static_cast<int>(COLS / 2 - _width / 2));
     wrefresh(_window);
 
     noecho();
@@ -87,11 +91,16 @@ void arc::Ncurses::init(uint32_t width, uint32_t height)
 
     start_color();
     init_color(COLOR_BLACK, 0, 0, 0);
+
+    _fpsStartTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).
+        count();
 }
 
 void arc::Ncurses::stop()
 {
     delwin(_window);
+    refresh();
     endwin();
     _isOpen = false;
     _window = nullptr;
@@ -106,6 +115,15 @@ void arc::Ncurses::clear()
 void arc::Ncurses::display()
 {
     wrefresh(_window);
+
+    const uint64_t fpsEndTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).
+        count();
+    const uint64_t fps = (fpsEndTime - _fpsStartTime) * 1000 / fpsEndTime;
+    usleep(1000 / 60 - fps);
+    _fpsStartTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).
+        count();
 }
 
 bool arc::Ncurses::isOpen()
@@ -119,8 +137,8 @@ void arc::Ncurses::drawText(int x, int y, const std::string &text, const Color &
 
     wattron(_window, COLOR_PAIR(index));
     mvwprintw(_window,
-        static_cast<int>(round(static_cast<double>(y) / NCURSES_RATIO)),
-        static_cast<int>(round(static_cast<double>(x) / NCURSES_RATIO * 2)), text.c_str());
+              static_cast<int>(round(static_cast<double>(y) / NCURSES_RATIO)),
+              static_cast<int>(round(static_cast<double>(x) / NCURSES_RATIO * 2)), text.c_str());
     wattroff(_window, COLOR_PAIR(index));
 }
 
@@ -134,10 +152,10 @@ void arc::Ncurses::drawRect(int x, int y, uint32_t width, uint32_t height, const
     height = static_cast<int>(round(static_cast<double>(height) / NCURSES_RATIO / 2));
 
     wattron(_window, COLOR_PAIR(index));
-    mvwhline(_window, y,              x,             0, width);
-    mvwhline(_window, y,              x,             0, height);
-    mvwhline(_window, y + height - 1, x,             0, width);
-    mvwhline(_window, y,              x + width - 1, 0, height);
+    mvwhline(_window, y, x, 0, width);
+    mvwhline(_window, y, x, 0, height);
+    mvwhline(_window, y + height - 1, x, 0, width);
+    mvwhline(_window, y, x + width - 1, 0, height);
     wattroff(_window, COLOR_PAIR(index));
 }
 
@@ -169,7 +187,7 @@ void arc::Ncurses::drawTexture(int x, int y, uint32_t width, uint32_t height, co
     for (uint32_t i = 0; i < height; i++)
         for (uint32_t j = 0; j < width; j++)
             mvwaddch(_window, y + i, x + j,
-                     texture.GetPattern().c_str()[((i * width) + j) % texture.GetPattern().size()]);
+                 texture.GetPattern().c_str()[((i * width) + j) % texture.GetPattern().size()]);
     wattroff(_window, COLOR_PAIR(index));
 }
 

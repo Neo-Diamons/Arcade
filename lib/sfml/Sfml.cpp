@@ -38,6 +38,7 @@ void arc::SFML::init(uint32_t width, uint32_t height)
 
     if (!_font->loadFromFile("assets/test.TTF"))
         throw SFMLException("Cannot load font assets/test.TTF");
+    _window->setFramerateLimit(60);
 }
 
 void arc::SFML::stop()

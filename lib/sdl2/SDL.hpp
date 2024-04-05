@@ -28,6 +28,8 @@ namespace arc {
             TTF_Font *_font = nullptr;
             std::map<std::string, SDL_Texture *> _textures;
 
+            uint64_t _fpsStartTime = 0;
+
         public:
             class SDLException final : public GraphicalException {
             public:

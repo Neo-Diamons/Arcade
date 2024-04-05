@@ -35,6 +35,8 @@ namespace arc {
         short _getColor(const Color &color);
         short _getBlockColor(const Color &color);
 
+        uint64_t _fpsStartTime = 0;
+
     public:
         /**
          * @brief Exception implementation for the Ncurses library

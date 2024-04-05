@@ -7,7 +7,7 @@
 
 #include "Snake.hpp"
 
-#include <ctime>
+#include <algorithm>
 
 #include "include/DrawObject/DrawFillRect.hpp"
 #include "include/DrawObject/DrawTexture.hpp"
@@ -49,12 +49,12 @@ void arc::Snake::event(IKey *key)
 
 void arc::Snake::update()
 {
-    if (clock() - _lastUpdate < 250000)
-        return;
-    _lastUpdate = clock();
-
     if (_state == LOSE)
         return;
+    static uint64_t lastUpdate = 0;
+    if (lastUpdate++ % 10)
+        return;
+
     auto head = _snake.front();
     const auto next = std::make_pair(head.first + _orientation.first, head.second + _orientation.second);
 

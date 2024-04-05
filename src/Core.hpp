@@ -46,6 +46,8 @@ namespace arc {
         uint8_t _graphicalIndex = 0;
         uint8_t _gameIndex = 0;
 
+        clock_t _lastUpdate = 0;
+
         std::string _name;
         uint64_t _score = 0;
 

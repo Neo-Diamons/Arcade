@@ -31,7 +31,6 @@ namespace arc {
             {1 + WIDTH / 2, 0 + HEIGHT / 2},
         };
 
-        clock_t _lastUpdate = 0;
         std::pair<int, int> _orientation = {-1, 0};
         std::pair<int, int> _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
 

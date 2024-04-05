@@ -51,6 +51,10 @@ void arc::Snake::update()
 {
     if (_state == LOSE)
         return;
+    static uint64_t lastUpdate = 0;
+    if (lastUpdate++ % 10)
+        return;
+
     auto head = _snake.front();
     const auto next = std::make_pair(head.first + _orientation.first, head.second + _orientation.second);
 

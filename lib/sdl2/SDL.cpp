@@ -7,13 +7,11 @@
 
 #include "SDL.hpp"
 
-#include <iostream>
 #include <SDL2/SDL_image.h>
 
 #include "include/LibraryType.h"
 
-extern "C"
-{
+extern "C" {
     arc::IGraphical *create()
     {
         return new arc::SDL();
@@ -60,7 +58,7 @@ bool arc::SDL::isOpen()
 
 void arc::SDL::stop()
 {
-    for (auto & [fst, snd] : _textures) {
+    for (auto &[fst, snd] : _textures) {
         SDL_DestroyTexture(snd);
         snd = nullptr;
     }
@@ -96,9 +94,12 @@ void arc::SDL::display()
 
 void arc::SDL::drawText(int x, int y, const std::string &text, const Color &color)
 {
-    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(_font, text.c_str(),
-        {static_cast<Uint8>(color.r), static_cast<Uint8>(color.g), static_cast<Uint8>(color.b), 255});
-    SDL_Texture* Message = SDL_CreateTextureFromSurface(_render, surfaceMessage);
+    SDL_Surface *surfaceMessage = TTF_RenderText_Solid(_font, text.c_str(),
+                                                       {
+                                                           static_cast<Uint8>(color.r), static_cast<Uint8>(color.g),
+                                                           static_cast<Uint8>(color.b), 255
+                                                       });
+    SDL_Texture *Message = SDL_CreateTextureFromSurface(_render, surfaceMessage);
 
     SDL_Rect rect = {x * 2, y * 2, 0, 0};
     SDL_QueryTexture(Message, nullptr, nullptr, &rect.w, &rect.h);
@@ -134,7 +135,7 @@ void arc::SDL::drawTexture(int x, int y, uint32_t width, uint32_t height, const 
     SDL_Rect drect{x, y, 0, 0};
     drect.w = static_cast<int>(width) < point.x ? static_cast<int>(width) : point.x;
     drect.h = static_cast<int>(height) < point.y ? static_cast<int>(height) : point.y;
-    SDL_RenderCopy(_render, _textures[texture.GetPath()],  &srect, &drect);
+    SDL_RenderCopy(_render, _textures[texture.GetPath()], &srect, &drect);
 }
 
 arc::IKey *arc::SDL::getKey()

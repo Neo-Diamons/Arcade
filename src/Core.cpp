@@ -168,7 +168,7 @@ std::list<arc::DrawObject *> arc::Core::selectionLoop()
         _name.pop_back();
 
     std::list<DrawObject *> objects;
-    uint16_t offsetX = (800 - 310) / 4;
+    const uint16_t offsetX = (800 - 310) / 4;
     uint16_t offsetY = (400 - 120) / 2 - _graphicalLibs.size() * 10 - _gameLibs.size() * 10;
     objects.push_back(new DrawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE));
     objects.push_back(new DrawText(offsetX + 10, 30 + offsetY, "  Player: " + _name, WHITE));
@@ -244,7 +244,6 @@ void arc::Core::run()
                 exit(84);
             }
         }
-
         try {
             _graphical->clear();
             for (const auto object : objects)

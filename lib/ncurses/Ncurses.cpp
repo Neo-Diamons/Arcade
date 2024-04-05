@@ -7,7 +7,6 @@
 
 #include "Ncurses.hpp"
 
-#include <iostream>
 #include <cstring>
 #include <cmath>
 
@@ -119,8 +118,9 @@ void arc::Ncurses::display()
     const uint64_t fpsEndTime =
         std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).
         count();
-    const uint64_t fps = (fpsEndTime - _fpsStartTime) * 1000 / fpsEndTime;
-    usleep(1000 / 60 - fps);
+    const uint64_t fps = (fpsEndTime - _fpsStartTime) * 1000 / std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
+    usleep(1000000 / 60 - fps);
     _fpsStartTime =
         std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).
         count();

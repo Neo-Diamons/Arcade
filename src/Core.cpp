@@ -115,14 +115,13 @@ void arc::Core::getLib()
 
 void arc::Core::globalAction()
 {
-    if (!_graphicalLibs.empty()) {
+    if (!_graphicalLibs.empty() && _graphicalLibs.size() > 1) {
         if (_key->isKeyPressed(IKey::RIGHT)) {
             _graphicalIndex = (_graphicalIndex + 1) % _graphicalLibs.size();
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
         if (_key->isKeyPressed(IKey::LEFT)) {
             _graphicalIndex = std::min<uint8_t>(_graphicalLibs.size() - 1, _graphicalIndex - 1);
-            std::cerr << _graphicalIndex << std::endl;
             loadGraphicalLib("lib/" + _graphicalLibs[_graphicalIndex]);
         }
     }
@@ -151,7 +150,7 @@ void arc::Core::globalAction()
 
         if (!_gameLibs.empty()) {
             if (_key->isKeyPressed(IKey::UP))
-                _gameIndex = std::max<uint8_t>(_gameLibs.size() - 1, _gameIndex - 1);
+                _gameIndex = std::min<uint8_t>(_gameLibs.size() - 1, _gameIndex - 1);
             if (_key->isKeyPressed(IKey::DOWN))
                 _gameIndex = (_gameIndex + 1) % _gameLibs.size();
         }
@@ -168,7 +167,7 @@ std::list<arc::DrawObject *> arc::Core::selectionLoop()
         _name.pop_back();
 
     std::list<DrawObject *> objects;
-    const uint16_t offsetX = (800 - 310) / 4;
+    constexpr uint16_t offsetX = (800 - 310) / 4;
     uint16_t offsetY = (400 - 120) / 2 - _graphicalLibs.size() * 10 - _gameLibs.size() * 10;
     objects.push_back(new DrawText(offsetX, 10 + offsetY, "/-----------Arcade------------\\", WHITE));
     objects.push_back(new DrawText(offsetX + 10, 30 + offsetY, "  Player: " + _name, WHITE));

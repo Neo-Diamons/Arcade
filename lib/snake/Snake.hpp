@@ -17,8 +17,7 @@ namespace arc {
     /**
      * @brief Snake game
      */
-    class Snake final : public IGame
-    {
+    class Snake final : public IGame {
         const uint16_t WIDTH = 20;
         const uint16_t HEIGHT = 20;
 
@@ -33,9 +32,9 @@ namespace arc {
 
         std::pair<int, int> _orientation = {-1, 0};
         std::pair<int, int> _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
+        std::pair<int, int> _bonusFood = {-1, -1};
 
-        enum STATE
-        {
+        enum STATE {
             PLAYING,
             LOSE
         } _state = PLAYING;

@@ -10,7 +10,8 @@
 #include <iostream>
 #include <dirent.h>
 
-arc::Core::Core(const std::string &path)
+arc::Core::Core(const std::string &path, const uint16_t width, const uint16_t height)
+    : _width(width), _height(height)
 {
     try {
         getLib();
@@ -63,7 +64,7 @@ void arc::Core::loadGraphicalLib(const std::string &path)
         std::cerr << e.what() << std::endl;
         exit(84);
     }
-    _graphical->init(WIDTH, HEIGHT);
+    _graphical->init(_width, _height);
     _key = _graphical->getKey();
 }
 

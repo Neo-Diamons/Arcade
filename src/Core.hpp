@@ -28,8 +28,8 @@ namespace arc {
      */
     class Core {
     private:
-        const uint16_t WIDTH = 800;
-        const uint16_t HEIGHT = 810;
+        const uint16_t _width;
+        const uint16_t _height;
 
         DLLoader<IGraphical> _graphicalLoader{GRAPHICAL};
         DLLoader<IGame> _gameLoader{GAME};
@@ -78,9 +78,13 @@ namespace arc {
         /**
          * @brief Constructor for the core
          * @param path Path to the graphical library
+         * @param width Width of the window
+         * @param height Height of the window
          */
         explicit Core(
-            const std::string &path
+            const std::string &path,
+            uint16_t width = 800,
+            uint16_t height = 810
         );
 
         /**

@@ -13,7 +13,7 @@
 #include <string>
 
 #include "include/Exception.hpp"
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 
 namespace arc {
     /**

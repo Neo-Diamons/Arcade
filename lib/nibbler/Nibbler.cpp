@@ -15,7 +15,7 @@
 #include "include/DrawObject/DrawFillRect.hpp"
 #include "include/DrawObject/DrawTexture.hpp"
 #include "include/DrawObject/DrawText.hpp"
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 
 extern "C" {
     arc::IGame *create()

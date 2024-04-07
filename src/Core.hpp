@@ -15,7 +15,7 @@
 #include "include/DrawObject/DrawText.hpp"
 #include "include/DrawObject/DrawRect.hpp"
 #include "include/IGraphical.hpp"
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 #include "include/IGame.hpp"
 #include "DLLoader.hpp"
 

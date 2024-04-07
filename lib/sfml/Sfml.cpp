@@ -7,7 +7,7 @@
 
 #include "Sfml.hpp"
 
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 
 extern "C"
 {

@@ -43,9 +43,10 @@ LIB4_SRC	+=	$(addprefix $(LIB4_DIR)/,							\
 					Snake.cpp										\
 				)
 
-LIB5_NAME	:=	$(LIB_DIR)/lib5.so
-LIB5_DIR	:=	$(LIB_DIR)/lib5
+LIB5_NAME	:=	$(LIB_DIR)/arcade_nibbler.so
+LIB5_DIR	:=	$(LIB_DIR)/nibbler
 LIB5_SRC	+=	$(addprefix $(LIB5_DIR)/,							\
+					Nibbler.cpp										\
 				)
 
 FU_DIR		:=	tests/func

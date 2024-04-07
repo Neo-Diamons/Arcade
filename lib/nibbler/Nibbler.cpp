@@ -103,11 +103,13 @@ void arc::Nibbler::update()
         }
     }
 
-//    if (next == _food && _Nibbler.size() < WIDTH * HEIGHT) {
-//        _Nibbler.push_back(_Nibbler.back());
-//        while (std::ranges::find(_Nibbler, _food) != _Nibbler.end() && !isWall(_food, _wall))
-//            _food = {std::rand() % WIDTH, std::rand() % HEIGHT};
-//    }
+    for (auto &[fst, snd] : _food) {
+        if (fst == head.first && snd == head.second && _Nibbler.size() < WIDTH * HEIGHT) {
+            _food.remove({fst, snd});
+            _Nibbler.push_back(_Nibbler.back());
+            break;
+        }
+    }
 }
 
 std::list<arc::DrawObject *> arc::Nibbler::draw()

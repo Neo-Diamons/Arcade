@@ -97,18 +97,24 @@ void arc::Nibbler::update()
         _Nibbler.pop_back();
     } else {
         std::vector<std::pair<int, int>> newOrientations = {
-            {_orientation.first, _orientation.second},
-            {-_orientation.first, -_orientation.second},
-            {_orientation.second, -_orientation.first},
-            {-_orientation.second, _orientation.first}
+                {_orientation.first, _orientation.second},
+                {-_orientation.first, -_orientation.second},
+                {_orientation.second, -_orientation.first},
+                {-_orientation.second, _orientation.first}
         };
-        std::shuffle(newOrientations.begin(), newOrientations.end(), std::default_random_engine(std::random_device{}()));
 
-        for (const auto& newOrientation : newOrientations) {
-            next = std::make_pair(head.first + newOrientation.first, head.second + newOrientation.second);
-            if (!isWall(next) && !isSelf(next)) {
-                _orientation = newOrientation;
-                break;
+        bool canMoveLeft = !isWall({head.first + newOrientations[2].first, head.second + newOrientations[2].second}) &&
+                           !isSelf({head.first + newOrientations[2].first, head.second + newOrientations[2].second});
+        bool canMoveRight = !isWall({head.first + newOrientations[3].first, head.second + newOrientations[3].second}) &&
+                            !isSelf({head.first + newOrientations[3].first, head.second + newOrientations[3].second});
+
+        if (!canMoveLeft || !canMoveRight) {
+            for (const auto& newOrientation : newOrientations) {
+                next = std::make_pair(head.first + newOrientation.first, head.second + newOrientation.second);
+                if (!isWall(next) && !isSelf(next)) {
+                    _orientation = newOrientation;
+                    break;
+                }
             }
         }
     }

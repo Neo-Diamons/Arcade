@@ -8,7 +8,6 @@
 #include "Nibbler.hpp"
 
 #include <algorithm>
-#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <random>
@@ -61,9 +60,9 @@ void arc::Nibbler::event(IKey *key)
 {
     auto head = _Nibbler.front();
 
-    if (key->isKeyPressed(IKey::D) && !isWall({head.first + (-_orientation.second), head.second +_orientation.first}))
+    if (key->isKeyPressed(IKey::D) && !isWall({head.first + (-_orientation.second), head.second +_orientation.first}) && !isSelf({head.first + (-_orientation.second), head.second +_orientation.first}))
         _orientation = {-_orientation.second, _orientation.first};
-    if (key->isKeyPressed(IKey::Q) && !isWall({head.first +  _orientation.second, head.second + (-_orientation.first)}))
+    if (key->isKeyPressed(IKey::Q) && !isWall({head.first +  _orientation.second, head.second + (-_orientation.first)}) && !isSelf({head.first +  _orientation.second, head.second + (-_orientation.first)}))
         _orientation = {_orientation.second, -_orientation.first};
 }
 

@@ -83,6 +83,9 @@ namespace arc {
         void update() override;
         std::list<DrawObject *> draw() override;
 
+        bool isWall(const std::pair<uint16_t, uint16_t> &pos);
+        bool isSelf(const std::pair<int, int> &orient);
+
         [[nodiscard]] uint64_t getScore() const override;
     };
 }

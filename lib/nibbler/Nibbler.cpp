@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <vector>
+#include <random>
 
 #include "include/DrawObject/DrawFillRect.hpp"
 #include "include/DrawObject/DrawTexture.hpp"
@@ -62,15 +64,22 @@ void arc::Nibbler::stop()
 
 void arc::Nibbler::event(IKey *key)
 {
-    if (key->isKeyPressed(IKey::D))
+    auto head = _Nibbler.front();
+
+    if (key->isKeyPressed(IKey::D) && !isWall({head.first + (-_orientation.second), head.second +_orientation.first}))
         _orientation = {-_orientation.second, _orientation.first};
-    if (key->isKeyPressed(IKey::Q))
+    if (key->isKeyPressed(IKey::Q) && !isWall({head.first +  _orientation.second, head.second + (-_orientation.first)}))
         _orientation = {_orientation.second, -_orientation.first};
 }
 
-bool isWall(const std::pair<uint16_t, uint16_t> &pos, const std::list<std::pair<uint16_t, uint16_t>> &wall)
+bool arc::Nibbler::isWall(const std::pair<uint16_t, uint16_t> &pos)
 {
-    return std::ranges::find(wall, pos) != wall.end();
+    return std::ranges::find(_wall, pos) != _wall.end();
+}
+
+bool arc::Nibbler::isSelf(const std::pair<int, int> &next)
+{
+    return std::ranges::find(_Nibbler, next) != _Nibbler.end();
 }
 
 void arc::Nibbler::update()
@@ -82,24 +91,31 @@ void arc::Nibbler::update()
         return;
 
     auto head = _Nibbler.front();
-    const auto next = std::make_pair(head.first + _orientation.first, head.second + _orientation.second);
+    std::pair<int, int> next = std::make_pair(head.first + _orientation.first, head.second + _orientation.second);
 
-    if (next.first < 0 || next.first >= WIDTH || next.second < 0 || next.second >= HEIGHT
-        || std::ranges::find(_Nibbler, next) != _Nibbler.end()) {
+    if (std::ranges::find(_Nibbler, next) != _Nibbler.end()) {
         _state = LOSE;
         return;
     }
 
-    if (!isWall(next, _wall)) {
+    if (!isWall(next)) {
         _Nibbler.push_front(next);
         _Nibbler.pop_back();
     } else {
-        int rand = std::rand() % 2;
+        std::vector<std::pair<int, int>> newOrientations = {
+            {_orientation.first, _orientation.second},
+            {-_orientation.first, -_orientation.second},
+            {_orientation.second, -_orientation.first},
+            {-_orientation.second, _orientation.first}
+        };
+        std::shuffle(newOrientations.begin(), newOrientations.end(), std::default_random_engine(std::random_device{}()));
 
-        if (rand == 0) {
-            _orientation = {-_orientation.second, _orientation.first};
-        } else {
-            _orientation = {_orientation.second, -_orientation.first};
+        for (const auto& newOrientation : newOrientations) {
+            next = std::make_pair(head.first + newOrientation.first, head.second + newOrientation.second);
+            if (!isWall(next) && !isSelf(next)) {
+                _orientation = newOrientation;
+                break;
+            }
         }
     }
 
@@ -126,12 +142,12 @@ std::list<arc::DrawObject *> arc::Nibbler::draw()
 
     objects.push_back(new DrawFillRect(0 * 40, 0 * 40 + 10, 40, 40, Color(71, 255, 235)));
 
-    for (auto &[fst, snd] : _Nibbler)
-        objects.push_back(new DrawFillRect(fst * 40, snd * 40 + 10, 40, 40, Color(71, 117, 235)));
     for (auto &[fst, snd] : _wall)
         objects.push_back(new DrawFillRect(fst * 40, snd * 40 + 10, 40, 40, Color(40, 55, 71)));
     for (auto &[fst, snd] : _food)
         objects.push_back(new DrawFillRect(fst * 40, snd * 40 + 10, 40, 40, Color(255, 0, 0)));
+    for (auto nibbler : _Nibbler)
+        objects.push_back(new DrawFillRect(nibbler.first * 40, nibbler.second * 40 + 10, 40, 40, _Nibbler.front() == nibbler ? Color(26, 82, 118) : Color(21, 117, 235)));
 
     if (_state == LOSE)
         objects.push_back(new DrawTexture(200, 340, 400, 180, _loseTexture));

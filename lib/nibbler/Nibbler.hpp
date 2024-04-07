@@ -24,7 +24,7 @@ namespace arc {
         const uint16_t HEIGHT = 20;
 
         std::string _name;
-        size_t _level = 1;
+        size_t _level = 0;
 
         std::list<std::pair<int, int>> _Nibbler = {
             {6 + WIDTH / 2, 8 + HEIGHT / 2},

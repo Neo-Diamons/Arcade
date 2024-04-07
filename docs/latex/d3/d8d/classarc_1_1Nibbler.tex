@@ -1,0 +1,185 @@
+\hypertarget{classarc_1_1Nibbler}{}\doxysection{arc\+::Nibbler Class Reference}
+\label{classarc_1_1Nibbler}\index{arc::Nibbler@{arc::Nibbler}}
+
+
+\mbox{\hyperlink{classarc_1_1Nibbler}{Nibbler}} game.  
+
+
+
+
+{\ttfamily \#include $<$Nibbler.\+hpp$>$}
+
+
+
+Inheritance diagram for arc\+::Nibbler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{d1/d13/classarc_1_1Nibbler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for arc\+::Nibbler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{de/d7e/classarc_1_1Nibbler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classarc_1_1Nibbler_ab3d1c7874c29620fc3420920d9795983}{init}} (const std\+::string \&name) override
+\begin{DoxyCompactList}\small\item\em Initialize the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classarc_1_1Nibbler_a5e5d34d78334d6ea37b57c1beb8ef253}{stop}} () override
+\begin{DoxyCompactList}\small\item\em Stop the game and free the memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classarc_1_1Nibbler_a81c4ba798bcfe16ade25e2cd0a461c00}{event}} (\mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$key) override
+\begin{DoxyCompactList}\small\item\em Event for the game (example\+: keyboard input, mouse input, etc.) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classarc_1_1Nibbler_a2179606752e713e13aef90a43d17f2a9}{update}} () override
+\begin{DoxyCompactList}\small\item\em Update the game. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} $\ast$ $>$ \mbox{\hyperlink{classarc_1_1Nibbler_a5a3310330600f4d0b0fa8b490636e7d0}{draw}} () override
+\begin{DoxyCompactList}\small\item\em Draw the game (example\+: draw the map, draw the player, etc.) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classarc_1_1Nibbler_a9bada3da891c738df8da4b5f46404e48}{is\+Wall}} (const std\+::pair$<$ uint16\+\_\+t, uint16\+\_\+t $>$ \&pos)
+\item 
+bool \mbox{\hyperlink{classarc_1_1Nibbler_aa9a4f01e3e8a51132e7ba31c967bc506}{is\+Self}} (const std\+::pair$<$ int, int $>$ \&orient)
+\item 
+void \mbox{\hyperlink{classarc_1_1Nibbler_af7aad9b69d0f8be05ab4c0ffc1fd2e5a}{reset}} ()
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classarc_1_1Nibbler_ab51c023411aa0e2797ff5a43f7de5e7a}{get\+Score}} () const override
+\begin{DoxyCompactList}\small\item\em Get the score of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classarc_1_1Nibbler}{Nibbler}} game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classarc_1_1Nibbler_a5a3310330600f4d0b0fa8b490636e7d0}\label{classarc_1_1Nibbler_a5a3310330600f4d0b0fa8b490636e7d0}} 
+\index{arc::Nibbler@{arc::Nibbler}!draw@{draw}}
+\index{draw@{draw}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classarc_1_1DrawObject}{arc\+::\+Draw\+Object}} $\ast$ $>$ arc\+::\+Nibbler\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw the game (example\+: draw the map, draw the player, etc.) 
+
+\begin{DoxyReturn}{Returns}
+List of \mbox{\hyperlink{classarc_1_1DrawObject}{Draw\+Object}} to draw 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a1906196c279dac8e9535bff5a234e012}{arc\+::\+IGame}}.
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_a81c4ba798bcfe16ade25e2cd0a461c00}\label{classarc_1_1Nibbler_a81c4ba798bcfe16ade25e2cd0a461c00}} 
+\index{arc::Nibbler@{arc::Nibbler}!event@{event}}
+\index{event@{event}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{event()}{event()}}
+{\footnotesize\ttfamily void arc\+::\+Nibbler\+::event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classarc_1_1IKey}{IKey}} $\ast$}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Event for the game (example\+: keyboard input, mouse input, etc.) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key input \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a7ca14d719b6085809b90612ace0b4661}{arc\+::\+IGame}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d8d/classarc_1_1Nibbler_a81c4ba798bcfe16ade25e2cd0a461c00_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classarc_1_1Nibbler_ab51c023411aa0e2797ff5a43f7de5e7a}\label{classarc_1_1Nibbler_ab51c023411aa0e2797ff5a43f7de5e7a}} 
+\index{arc::Nibbler@{arc::Nibbler}!getScore@{getScore}}
+\index{getScore@{getScore}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily uint64\+\_\+t arc\+::\+Nibbler\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the score of the game. 
+
+\begin{DoxyReturn}{Returns}
+The score of the game 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a297c7e95a871d3f4f69b6440d6bf5d6e}{arc\+::\+IGame}}.
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_ab3d1c7874c29620fc3420920d9795983}\label{classarc_1_1Nibbler_ab3d1c7874c29620fc3420920d9795983}} 
+\index{arc::Nibbler@{arc::Nibbler}!init@{init}}
+\index{init@{init}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void arc\+::\+Nibbler\+::init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize the game. 
+
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a71e07b98b630806f92e5486dba5063db}{arc\+::\+IGame}}.
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_aa9a4f01e3e8a51132e7ba31c967bc506}\label{classarc_1_1Nibbler_aa9a4f01e3e8a51132e7ba31c967bc506}} 
+\index{arc::Nibbler@{arc::Nibbler}!isSelf@{isSelf}}
+\index{isSelf@{isSelf}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{isSelf()}{isSelf()}}
+{\footnotesize\ttfamily bool arc\+::\+Nibbler\+::is\+Self (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ int, int $>$ \&}]{orient }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_a9bada3da891c738df8da4b5f46404e48}\label{classarc_1_1Nibbler_a9bada3da891c738df8da4b5f46404e48}} 
+\index{arc::Nibbler@{arc::Nibbler}!isWall@{isWall}}
+\index{isWall@{isWall}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{isWall()}{isWall()}}
+{\footnotesize\ttfamily bool arc\+::\+Nibbler\+::is\+Wall (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ uint16\+\_\+t, uint16\+\_\+t $>$ \&}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_af7aad9b69d0f8be05ab4c0ffc1fd2e5a}\label{classarc_1_1Nibbler_af7aad9b69d0f8be05ab4c0ffc1fd2e5a}} 
+\index{arc::Nibbler@{arc::Nibbler}!reset@{reset}}
+\index{reset@{reset}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void arc\+::\+Nibbler\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_a5e5d34d78334d6ea37b57c1beb8ef253}\label{classarc_1_1Nibbler_a5e5d34d78334d6ea37b57c1beb8ef253}} 
+\index{arc::Nibbler@{arc::Nibbler}!stop@{stop}}
+\index{stop@{stop}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void arc\+::\+Nibbler\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stop the game and free the memory. 
+
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a83b4ad663041c8bfbe74cc2db3c0542d}{arc\+::\+IGame}}.
+
+\mbox{\Hypertarget{classarc_1_1Nibbler_a2179606752e713e13aef90a43d17f2a9}\label{classarc_1_1Nibbler_a2179606752e713e13aef90a43d17f2a9}} 
+\index{arc::Nibbler@{arc::Nibbler}!update@{update}}
+\index{update@{update}!arc::Nibbler@{arc::Nibbler}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void arc\+::\+Nibbler\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the game. 
+
+
+
+Implements \mbox{\hyperlink{classarc_1_1IGame_a8a5848f621d3d87d341528ad3b9ecb29}{arc\+::\+IGame}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/nibbler/\mbox{\hyperlink{Nibbler_8hpp}{Nibbler.\+hpp}}\item 
+lib/nibbler/\mbox{\hyperlink{Nibbler_8cpp}{Nibbler.\+cpp}}\end{DoxyCompactItemize}

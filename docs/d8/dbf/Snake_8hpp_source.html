@@ -102,68 +102,67 @@ $(document).ready(function(){initNavTree('d8/dbf/Snake_8hpp_source.html','../../
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/ddc/Texture_8hpp.html">include/Texture.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/db3/namespacearc.html">arc</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d5/d16/classarc_1_1Snake.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d5/d16/classarc_1_1Snake.html">Snake</a> final : <span class="keyword">public</span> <a class="code" href="../../dc/d43/classarc_1_1IGame.html">IGame</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> uint16_t WIDTH = 20;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> uint16_t HEIGHT = 20;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::string _name;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::list&lt;std::pair&lt;int, int&gt;&gt; _snake = {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            {-2 + WIDTH / 2, 0 + HEIGHT / 2},</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {-1 + WIDTH / 2, 0 + HEIGHT / 2},</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {0 + WIDTH / 2, 0 + HEIGHT / 2},</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {1 + WIDTH / 2, 0 + HEIGHT / 2},</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::pair&lt;int, int&gt; _orientation = {-1, 0};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::pair&lt;int, int&gt; _food = {std::rand() % WIDTH, std::rand() % HEIGHT};</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d5/d16/classarc_1_1Snake.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d5/d16/classarc_1_1Snake.html">Snake</a> final : <span class="keyword">public</span> <a class="code" href="../../dc/d43/classarc_1_1IGame.html">IGame</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> uint16_t WIDTH = 20;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> uint16_t HEIGHT = 20;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::string _name;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::list&lt;std::pair&lt;int, int&gt;&gt; _snake = {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            {-2 + WIDTH / 2, 0 + HEIGHT / 2},</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            {-1 + WIDTH / 2, 0 + HEIGHT / 2},</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {0 + WIDTH / 2, 0 + HEIGHT / 2},</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {1 + WIDTH / 2, 0 + HEIGHT / 2},</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::pair&lt;int, int&gt; _orientation = {-1, 0};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::pair&lt;int, int&gt; _food = {std::rand() % WIDTH, std::rand() % HEIGHT};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::pair&lt;int, int&gt; _bonusFood = {-1, -1};</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">enum</span> STATE</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            PLAYING,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            LOSE</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        } _state = PLAYING;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> _loseTexture = <a class="code" href="../../da/d1d/classarc_1_1Texture.html">Texture</a>(</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="stringliteral">&quot;assets/lose.png&quot;</span>,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="stringliteral">&quot;========================================&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="stringliteral">&quot;                                        &quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="stringliteral">&quot; []        [][][][]  [][][][]  [][][][] &quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="stringliteral">&quot; []        []    []  []        []       &quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="stringliteral">&quot; []        []    []  [][][][]  [][][][] &quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="stringliteral">&quot; []        []    []        []  []       &quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="stringliteral">&quot; [][][][]  [][][][]  [][][][]  [][][][] &quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="stringliteral">&quot;                                        &quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="stringliteral">&quot;========================================&quot;</span>,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="../../db/d56/classarc_1_1Color.html">Color</a>(255, 0, 0));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a2733b42ce1f01a6674aff500c6d27a87">init</a>(<span class="keyword">const</span> std::string &amp;name) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#aceafb1d7d056ec6c27f565f9cff93767">stop</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a6dd858aa69f873a815433a6478a79f1e">event</a>(<a class="code" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *key) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::list&lt;DrawObject *&gt; <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">draw</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        [[nodiscard]] uint64_t <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">getScore</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">enum</span> STATE {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            PLAYING,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            LOSE</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        } _state = PLAYING;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../da/d1d/classarc_1_1Texture.html">Texture</a> _loseTexture = <a class="code" href="../../da/d1d/classarc_1_1Texture.html">Texture</a>(</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="stringliteral">&quot;assets/lose.png&quot;</span>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="stringliteral">&quot;========================================&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="stringliteral">&quot;                                        &quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="stringliteral">&quot; []        [][][][]  [][][][]  [][][][] &quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="stringliteral">&quot; []        []    []  []        []       &quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="stringliteral">&quot; []        []    []  [][][][]  [][][][] &quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="stringliteral">&quot; []        []    []        []  []       &quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="stringliteral">&quot; [][][][]  [][][][]  [][][][]  [][][][] &quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="stringliteral">&quot;                                        &quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="stringliteral">&quot;========================================&quot;</span>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="../../db/d56/classarc_1_1Color.html">Color</a>(255, 0, 0));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a2733b42ce1f01a6674aff500c6d27a87">init</a>(<span class="keyword">const</span> std::string &amp;name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#aceafb1d7d056ec6c27f565f9cff93767">stop</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a6dd858aa69f873a815433a6478a79f1e">event</a>(<a class="code" href="../../de/d3d/classarc_1_1IKey.html">IKey</a> *key) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::list&lt;DrawObject *&gt; <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        [[nodiscard]] uint64_t <a class="code" href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">getScore</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_SNAKE_HPP</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ARCADE_SNAKE_HPP</span></div>
 <div class="ttc" id="aIGame_8hpp_html"><div class="ttname"><a href="../../d9/d40/IGame_8hpp.html">IGame.hpp</a></div></div>
 <div class="ttc" id="aTexture_8hpp_html"><div class="ttname"><a href="../../d0/ddc/Texture_8hpp.html">Texture.hpp</a></div></div>
 <div class="ttc" id="aclassarc_1_1Color_html"><div class="ttname"><a href="../../db/d56/classarc_1_1Color.html">arc::Color</a></div><div class="ttdoc">Class for the color.</div><div class="ttdef"><b>Definition:</b> Color.hpp:24</div></div>
 <div class="ttc" id="aclassarc_1_1IGame_html"><div class="ttname"><a href="../../dc/d43/classarc_1_1IGame.html">arc::IGame</a></div><div class="ttdoc">Interface for the game.</div><div class="ttdef"><b>Definition:</b> IGame.hpp:24</div></div>
 <div class="ttc" id="aclassarc_1_1IKey_html"><div class="ttname"><a href="../../de/d3d/classarc_1_1IKey.html">arc::IKey</a></div><div class="ttdoc">Interface for the keyboard management.</div><div class="ttdef"><b>Definition:</b> IKey.hpp:16</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html">arc::Snake</a></div><div class="ttdoc">Snake game.</div><div class="ttdef"><b>Definition:</b> Snake.hpp:21</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_a061712579e6d18b4cc4a8061d5f05c51"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">arc::Snake::draw</a></div><div class="ttdeci">std::list&lt; DrawObject * &gt; draw() override</div><div class="ttdoc">Draw the game (example: draw the map, draw the player, etc.)</div><div class="ttdef"><b>Definition:</b> Snake.cpp:77</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_a258030a3a5edeb4014e6fa8b8e8a03f0"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">arc::Snake::getScore</a></div><div class="ttdeci">uint64_t getScore() const override</div><div class="ttdoc">Get the score of the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:98</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_a2733b42ce1f01a6674aff500c6d27a87"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a2733b42ce1f01a6674aff500c6d27a87">arc::Snake::init</a></div><div class="ttdeci">void init(const std::string &amp;name) override</div><div class="ttdoc">Initialize the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:34</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_a6dd858aa69f873a815433a6478a79f1e"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a6dd858aa69f873a815433a6478a79f1e">arc::Snake::event</a></div><div class="ttdeci">void event(IKey *key) override</div><div class="ttdoc">Event for the game (example: keyboard input, mouse input, etc.)</div><div class="ttdef"><b>Definition:</b> Snake.cpp:42</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_a803733201129c39d82e8e20d67f5ff39"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">arc::Snake::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:50</div></div>
-<div class="ttc" id="aclassarc_1_1Snake_html_aceafb1d7d056ec6c27f565f9cff93767"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#aceafb1d7d056ec6c27f565f9cff93767">arc::Snake::stop</a></div><div class="ttdeci">void stop() override</div><div class="ttdoc">Stop the game and free the memory.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:39</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html">arc::Snake</a></div><div class="ttdoc">Snake game.</div><div class="ttdef"><b>Definition:</b> Snake.hpp:20</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_a061712579e6d18b4cc4a8061d5f05c51"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a061712579e6d18b4cc4a8061d5f05c51">arc::Snake::draw</a></div><div class="ttdeci">std::list&lt; DrawObject * &gt; draw() override</div><div class="ttdoc">Draw the game (example: draw the map, draw the player, etc.)</div><div class="ttdef"><b>Definition:</b> Snake.cpp:99</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_a258030a3a5edeb4014e6fa8b8e8a03f0"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a258030a3a5edeb4014e6fa8b8e8a03f0">arc::Snake::getScore</a></div><div class="ttdeci">uint64_t getScore() const override</div><div class="ttdoc">Get the score of the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:143</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_a2733b42ce1f01a6674aff500c6d27a87"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a2733b42ce1f01a6674aff500c6d27a87">arc::Snake::init</a></div><div class="ttdeci">void init(const std::string &amp;name) override</div><div class="ttdoc">Initialize the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:35</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_a6dd858aa69f873a815433a6478a79f1e"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a6dd858aa69f873a815433a6478a79f1e">arc::Snake::event</a></div><div class="ttdeci">void event(IKey *key) override</div><div class="ttdoc">Event for the game (example: keyboard input, mouse input, etc.)</div><div class="ttdef"><b>Definition:</b> Snake.cpp:43</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_a803733201129c39d82e8e20d67f5ff39"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#a803733201129c39d82e8e20d67f5ff39">arc::Snake::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the game.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:53</div></div>
+<div class="ttc" id="aclassarc_1_1Snake_html_aceafb1d7d056ec6c27f565f9cff93767"><div class="ttname"><a href="../../d5/d16/classarc_1_1Snake.html#aceafb1d7d056ec6c27f565f9cff93767">arc::Snake::stop</a></div><div class="ttdeci">void stop() override</div><div class="ttdoc">Stop the game and free the memory.</div><div class="ttdef"><b>Definition:</b> Snake.cpp:40</div></div>
 <div class="ttc" id="aclassarc_1_1Texture_html"><div class="ttname"><a href="../../da/d1d/classarc_1_1Texture.html">arc::Texture</a></div><div class="ttdoc">Class for the texture which is used to handle the textures with graphical libraries change at runtime...</div><div class="ttdef"><b>Definition:</b> Texture.hpp:19</div></div>
 <div class="ttc" id="anamespacearc_html"><div class="ttname"><a href="../../dc/db3/namespacearc.html">arc</a></div><div class="ttdoc">Namespace for the arcade project.</div><div class="ttdef"><b>Definition:</b> Color.hpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->

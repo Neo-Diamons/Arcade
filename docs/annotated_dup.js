@@ -14,6 +14,7 @@ var annotated_dup =
       [ "Texture", "da/d1d/classarc_1_1Texture.html", "da/d1d/classarc_1_1Texture" ],
       [ "Ncurses", "d1/dcb/classarc_1_1Ncurses.html", "d1/dcb/classarc_1_1Ncurses" ],
       [ "NcursesKey", "df/db9/classarc_1_1NcursesKey.html", "df/db9/classarc_1_1NcursesKey" ],
+      [ "Nibbler", "d3/d8d/classarc_1_1Nibbler.html", "d3/d8d/classarc_1_1Nibbler" ],
       [ "SDL", "dc/d37/classarc_1_1SDL.html", "dc/d37/classarc_1_1SDL" ],
       [ "SDLKeys", "d2/d63/classarc_1_1SDLKeys.html", "d2/d63/classarc_1_1SDLKeys" ],
       [ "SFML", "db/d49/classarc_1_1SFML.html", "db/d49/classarc_1_1SFML" ],

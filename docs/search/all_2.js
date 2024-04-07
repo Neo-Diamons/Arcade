@@ -9,6 +9,6 @@ var searchData=
   ['core_2ecpp_14',['Core.cpp',['../d6/d27/Core_8cpp.html',1,'']]],
   ['core_2ehpp_15',['Core.hpp',['../d7/d38/Core_8hpp.html',1,'']]],
   ['coreexception_16',['CoreException',['../d8/db3/classarc_1_1Core_1_1CoreException.html',1,'arc::Core::CoreException'],['../d8/db3/classarc_1_1Core_1_1CoreException.html#a5f34c1cdfbb7657e4ea181b80ca3699e',1,'arc::Core::CoreException::CoreException()']]],
-  ['create_17',['create',['../d1/d88/Ncurses_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;Ncurses.cpp'],['../d6/dfd/SDL_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;SDL.cpp'],['../d5/db9/Sfml_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;Sfml.cpp'],['../d3/d84/Snake_8cpp.html#a486fa0b71da21122e0d0b1bf21943fcf',1,'create():&#160;Snake.cpp']]],
+  ['create_17',['create',['../d1/d88/Ncurses_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;Ncurses.cpp'],['../dd/d01/Nibbler_8cpp.html#a486fa0b71da21122e0d0b1bf21943fcf',1,'create():&#160;Nibbler.cpp'],['../d6/dfd/SDL_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;SDL.cpp'],['../d5/db9/Sfml_8cpp.html#ab2645cccf391359a1f15b59cacc83ba8',1,'create():&#160;Sfml.cpp'],['../d3/d84/Snake_8cpp.html#a486fa0b71da21122e0d0b1bf21943fcf',1,'create():&#160;Snake.cpp']]],
   ['cyan_18',['CYAN',['../d6/da3/Color_8hpp.html#ad243f93c16bc4c1d3e0a13b84421d760',1,'Color.hpp']]]
 ];

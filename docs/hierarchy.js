@@ -24,6 +24,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "arc::IGame", "dc/d43/classarc_1_1IGame.html", [
+      [ "arc::Nibbler", "d3/d8d/classarc_1_1Nibbler.html", null ],
       [ "arc::Snake", "d5/d16/classarc_1_1Snake.html", null ]
     ] ],
     [ "arc::IGraphical", "d7/dbb/classarc_1_1IGraphical.html", [

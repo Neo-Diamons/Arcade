@@ -1,4 +1,5 @@
 <map id="arc::IGame" name="arc::IGame">
-<area shape="rect" id="node1" title="Interface for the game." alt="" coords="5,5,109,171"/>
-<area shape="rect" id="node2" href="$d5/d16/classarc_1_1Snake.html" title="Snake game." alt="" coords="5,219,109,369"/>
+<area shape="rect" id="node1" title="Interface for the game." alt="" coords="69,5,173,171"/>
+<area shape="rect" id="node2" href="$d3/d8d/classarc_1_1Nibbler.html" title="Nibbler game." alt="" coords="5,219,109,413"/>
+<area shape="rect" id="node3" href="$d5/d16/classarc_1_1Snake.html" title="Snake game." alt="" coords="133,241,237,391"/>
 </map>

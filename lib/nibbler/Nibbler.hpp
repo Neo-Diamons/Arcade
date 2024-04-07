@@ -24,7 +24,7 @@ namespace arc {
         const uint16_t HEIGHT = 20;
 
         std::string _name;
-        int _level = 1;
+        size_t _level = 0;
 
         std::list<std::pair<int, int>> _Nibbler = {
             {6 + WIDTH / 2, 8 + HEIGHT / 2},
@@ -38,7 +38,8 @@ namespace arc {
         enum STATE
         {
             PLAYING,
-            LOSE
+            LOSE,
+            WIN
         } _state = PLAYING;
 
         Texture _loseTexture = Texture(
@@ -57,24 +58,24 @@ namespace arc {
         std::vector<std::vector<std::string>> maps = {
             {
                 "oooooooooooooooooooo",
-                "o+.+.+.+....+.+.+.+o",
+                "o+...+........+...+o",
                 "o.oooo+o+oo+o+oooo.o",
-                "o+o..o.o.oo.o.o..o+o",
-                "o+o..o.o.oo.o.o..o+o",
+                "o.o..o.o.oo.o.o..o.o",
+                "o.o..o.o.oo.o.o..o.o",
                 "o.oooo+o+oo+o+oooo.o",
-                "o+.+.+.+....+.+.+.+o",
+                "o+................+o",
+                "o.oooo+o.oo.o+oooo.o",
+                "o.oooo.o+oo+o.oooo.o",
+                "o+................+o",
                 "o.oooo+o+oo+o+oooo.o",
+                "o.o..o.o.oo.o.o..o.o",
                 "o.oooo+o+oo+o+oooo.o",
-                "o+.....+....+.....+o",
+                "o+................+o",
                 "o.oooo+o+oo+o+oooo.o",
-                "o+o..o.o.oo.o.o..o+o",
+                "o.o..o.o.oo.o.o..o.o",
+                "o.o..o.o.oo.o.o..o.o",
                 "o.oooo+o+oo+o+oooo.o",
-                "o+.+.+.+....+.+.+.+o",
-                "o.oooo+o+oo+o+oooo.o",
-                "o+o..o.o.oo.o.o..o+o",
-                "o+o..o.o.oo.o.o..o+o",
-                "o.oooo+o+oo+o+oooo.o",
-                "o+.+.+.+....+.+.+.+o",
+                "o+...+........+...+o",
                 "oooooooooooooooooooo"
             },
             {
@@ -114,6 +115,8 @@ namespace arc {
 
         bool isWall(const std::pair<uint16_t, uint16_t> &pos);
         bool isSelf(const std::pair<int, int> &orient);
+
+        void reset();
 
         [[nodiscard]] uint64_t getScore() const override;
     };

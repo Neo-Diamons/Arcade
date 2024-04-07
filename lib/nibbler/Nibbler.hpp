@@ -71,6 +71,28 @@ namespace arc {
         std::vector<std::vector<std::string>> maps = {
             {
                 "oooooooooooooooooooo",
+                "o+....+......+....+o",
+                "o.oooo.oooooo.oooo.o",
+                "o.o..o+o....o+o..o.o",
+                "o.o..o.oooooo.o..o.o",
+                "o.o..o...++...o..o.o",
+                "o.o..oooooooo.o..o.o",
+                "o+o.........o+o..o+o",
+                "o.o..oooooooo.o..o.o",
+                "o.o..o.....oo.o..o.o",
+                "o.o..o.ooo....o..o.o",
+                "o.o..o.o.oooooo..o.o",
+                "o+o..o+o.........o+o",
+                "o.o..o.oooooooo..o.o",
+                "o.o..o...++...o..o.o",
+                "o.o..o.oooooo.o..o.o",
+                "o.o..o+o....o+o..o.o",
+                "o.oooo.oooooo.oooo.o",
+                "o+....+......+....+o",
+                "oooooooooooooooooooo"
+            },
+            {
+                "oooooooooooooooooooo",
                 "o+...+........+...+o",
                 "o.oooo+o+oo+o+oooo.o",
                 "o.o..o.o.oo.o.o..o.o",

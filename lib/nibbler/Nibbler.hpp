@@ -12,6 +12,7 @@
 
 #include "include/IGame.hpp"
 #include "include/Texture.hpp"
+#include <vector>
 
 namespace arc {
     /**
@@ -23,6 +24,7 @@ namespace arc {
         const uint16_t HEIGHT = 20;
 
         std::string _name;
+        int _level = 1;
 
         std::list<std::pair<int, int>> _Nibbler = {
             {6 + WIDTH / 2, 8 + HEIGHT / 2},
@@ -52,26 +54,53 @@ namespace arc {
             "========================================",
             Color(255, 0, 0));
 
-        std::string _map = "oooooooooooooooooooo\n"
-                           "o+.+.+.+....+.+.+.+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+o..o.o.oo.o.o..o+o\n"
-                           "o+o..o.o.oo.o.o..o+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+.+.+.+....+.+.+.+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+.....+....+.....+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+o..o.o.oo.o.o..o+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+.+.+.+....+.+.+.+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+o..o.o.oo.o.o..o+o\n"
-                           "o+o..o.o.oo.o.o..o+o\n"
-                           "o.oooo+o+oo+o+oooo.o\n"
-                           "o+.+.+.+....+.+.+.+o\n"
-                           "oooooooooooooooooooo";
+        std::vector<std::vector<std::string>> maps = {
+            {
+                "oooooooooooooooooooo",
+                "o+.+.+.+....+.+.+.+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+o..o.o.oo.o.o..o+o",
+                "o+o..o.o.oo.o.o..o+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+.+.+.+....+.+.+.+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+.....+....+.....+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+o..o.o.oo.o.o..o+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+.+.+.+....+.+.+.+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+o..o.o.oo.o.o..o+o",
+                "o+o..o.o.oo.o.o..o+o",
+                "o.oooo+o+oo+o+oooo.o",
+                "o+.+.+.+....+.+.+.+o",
+                "oooooooooooooooooooo"
+            },
+            {
+                "oooooooooooooooooooo",
+                "o+.....+......+...+o",
+                "o.ooooo+oooo+ooooo.o",
+                "o.+...+...+....+...o",
+                "o.o.o.o+oooo.o.o.o+o",
+                "o+o.o.o.oooo.o.o.o.o",
+                "o.o.....oooo.....o+o",
+                "o.ooooo.oooo.ooooo.o",
+                "o......+...+......+o",
+                "o+ooooo.ooo.oooooo.o",
+                "o.+......+........+o",
+                "o+o.ooo.oooo.ooo.o.o",
+                "o.o.ooo.oooo.ooo.o.o",
+                "o.+...+.......+...+o",
+                "o.oooooooooooooooo+o",
+                "o.+....+...+....+..o",
+                "o+ooo.o+oooo+o.ooo+o",
+                "o+ooo.o+oooo+o.ooo+o",
+                "o+.....+......+....o",
+                "oooooooooooooooooooo"
+            }
+        };
+
         std::list<std::pair<uint16_t, uint16_t>> _wall;
         std::list<std::pair<uint16_t, uint16_t>> _food;
 

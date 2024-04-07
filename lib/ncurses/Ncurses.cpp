@@ -10,7 +10,7 @@
 #include <cstring>
 #include <cmath>
 
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 
 #include <unistd.h>
 #include <chrono>

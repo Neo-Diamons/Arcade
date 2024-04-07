@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2024
 ** Arcade
 ** File description:
-** ALibrary
+** LibraryType
 */
 
-#ifndef ALIBRARY_H
-#define ALIBRARY_H
+#ifndef LibraryType_H
+    #define LibraryType_H
 
 namespace arc {
     enum LibraryType {
@@ -15,4 +15,4 @@ namespace arc {
     };
 }
 
-#endif //ALIBRARY_H
+#endif //LibraryType_H

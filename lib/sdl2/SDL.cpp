@@ -9,7 +9,7 @@
 
 #include <SDL2/SDL_image.h>
 
-#include "include/LibraryType.h"
+#include "include/LibraryType.hpp"
 
 extern "C" {
     arc::IGraphical *create()

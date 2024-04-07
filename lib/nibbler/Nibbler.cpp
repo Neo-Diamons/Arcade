@@ -155,6 +155,8 @@ std::list<arc::DrawObject *> arc::Nibbler::draw()
 
     if (_state == LOSE)
         objects.push_back(new DrawTexture(200, 340, 400, 180, _loseTexture));
+    if (_state == WIN)
+        objects.push_back(new DrawTexture(200, 340, 400, 180, _winTexture));
     return objects;
 }
 

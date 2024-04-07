@@ -79,7 +79,7 @@ bool arc::Nibbler::isSelf(const std::pair<int, int> &next)
 
 void arc::Nibbler::update()
 {
-    if (_state == LOSE)
+    if (_state == LOSE || _state == WIN)
         return;
     static uint64_t lastUpdate = 0;
     if (lastUpdate++ % 10)
@@ -121,6 +121,14 @@ void arc::Nibbler::update()
             break;
         }
     }
+
+    if (_food.empty()) {
+        _level++;
+        if (_level >= maps.size())
+            _state = WIN;
+        else
+            reset();
+    }
 }
 
 std::list<arc::DrawObject *> arc::Nibbler::draw()
@@ -153,4 +161,18 @@ std::list<arc::DrawObject *> arc::Nibbler::draw()
 uint64_t arc::Nibbler::getScore() const
 {
     return (_Nibbler.size() - 4) * 100;
+}
+
+void arc::Nibbler::reset() {
+    _state = PLAYING;
+    _Nibbler = {
+        {6 + WIDTH / 2, 8 + HEIGHT / 2},
+        {7 + WIDTH / 2, 8 + HEIGHT / 2},
+        {8 + WIDTH / 2, 8 + HEIGHT / 2},
+        {9 + WIDTH / 2, 8 + HEIGHT / 2},
+    };
+    _food.clear();
+    _wall.clear();
+    _orientation = {-1, 0};
+    init(_name);
 }

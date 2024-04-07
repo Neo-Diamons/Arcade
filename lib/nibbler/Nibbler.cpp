@@ -38,23 +38,18 @@ extern "C" {
 void arc::Nibbler::init(const std::string &name)
 {
     _name = name;
-    size_t x = 0;
-    size_t y = 0;
+    const std::vector<std::string>& map = maps[_level];
 
-    for (char c : _map) {
-        if (c == '\n') {
-            y++;
-            x = 0;
-            continue;
-        }
-        if (c == 'o')
-            _wall.emplace_back(x, y);
-        if (c == '+')
-            _food.emplace_back(x, y);
-        x++;
-        if (x > WIDTH) {
-            x = 0;
-            y++;
+    for (size_t y = 0; y < map.size(); y++) {
+        const std::string& row = map[y];
+
+        for (size_t x = 0; x < row.size(); x++) {
+            char c = row[x];
+
+            if (c == 'o')
+                _wall.emplace_back(x, y);
+            if (c == '+')
+                _food.emplace_back(x, y);
         }
     }
 }
@@ -134,6 +129,7 @@ std::list<arc::DrawObject *> arc::Nibbler::draw()
 
     objects.push_back(new DrawText(10, 0, "Player: " + _name, WHITE));
     objects.push_back(new DrawText(200, 0, "Score: " + std::to_string(getScore()), WHITE));
+    objects.push_back(new DrawText(310, 0, "Level: " + std::to_string(_level + 1), WHITE));
 
     for (uint16_t x = 0; x < WIDTH; x++)
         for (uint16_t y = 0; y < HEIGHT; y++)

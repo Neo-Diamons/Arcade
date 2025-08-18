@@ -21,7 +21,7 @@ jobs:
 
     if: github.repository == 'Neo-Diamons/Arcade'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz -y
